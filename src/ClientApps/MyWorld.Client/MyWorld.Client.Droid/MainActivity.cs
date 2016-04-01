@@ -9,7 +9,7 @@ using Android.OS;
 
 namespace MyWorld.Client.Droid
 {
-    [Activity(Label = "MyWorld.Client", Icon = "@drawable/icon", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "MyWorld", Icon = "@drawable/icon", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
     {
         protected override void OnCreate(Bundle bundle)
@@ -17,7 +17,7 @@ namespace MyWorld.Client.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
-            LoadApplication(new MyWorld.Client.Core.App());
+            LoadApplication(new MyWorld.Client.UI.App());
         }
     }
 }

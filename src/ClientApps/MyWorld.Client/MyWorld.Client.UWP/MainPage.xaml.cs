@@ -21,7 +21,7 @@ namespace MyWorld.Client.UWP
         {
             this.InitializeComponent();
 
-            LoadApplication(new MyWorld.Client.Core.App());
+            LoadApplication(new MyWorld.Client.UI.App());
         }
     }
 }

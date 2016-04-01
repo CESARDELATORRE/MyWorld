@@ -115,9 +115,9 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MyWorld.Client\MyWorld.Client.Core.csproj">
-      <Name>MyWorld.Client.Core</Name>
-      <Project>{AEC86342-22CA-45F4-BC5F-05A1991BED5D}</Project>
+    <ProjectReference Include="..\MyWorld.Client.UI\MyWorld.Client.UI.csproj">
+      <Project>{aec86342-22ca-45f4-bc5f-05a1991bed5d}</Project>
+      <Name>MyWorld.Client.UI</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

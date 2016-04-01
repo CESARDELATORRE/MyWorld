@@ -23,7 +23,7 @@ namespace MyWorld.Client.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new MyWorld.Client.Core.App());
+            LoadApplication(new MyWorld.Client.UI.App());
 
             return base.FinishedLaunching(app, options);
         }

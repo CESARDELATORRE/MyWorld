@@ -1,0 +1,3 @@
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Core\MyWorld.Client.Core.csproj;neutral
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\MyWorld.Client.UI.csproj;neutral
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UWP\MyWorld.Client.UWP.csproj;x86
