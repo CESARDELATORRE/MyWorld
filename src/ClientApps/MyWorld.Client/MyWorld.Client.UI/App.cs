@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 
 using Xamarin.Forms;
+using MyWorld.Client.Core.ViewModel;
+using MyWorld.Client.UI.Pages;
 
 namespace MyWorld.Client.UI
 {
@@ -11,32 +13,28 @@ namespace MyWorld.Client.UI
     {
         public App()
         {
-            MainPage = new MyWorld.Client.UI.Pages.MainPage();
+            //(CDLTLL) Navigation page - Not used now
+            // MainPage = new NavigationPage(new MyWorld.Client.UI.Pages.MainPage());
 
-            //(CDLTLL) Original main page created by code
-            // The root page of your application
-            //MainPage = new ContentPage
-            //{
-            //    Content = new StackLayout
-            //    {
-            //        VerticalOptions = LayoutOptions.Center,
-            //        Children = {
-            //            new Label {
-            //                HorizontalTextAlignment = TextAlignment.Center,
-            //                //(CDLTLL-Deprecated)XAlign = TextAlignment.Center,
-            //                Text = "Hardcoded content.."
-            //            }
-            //        }
-            //    }
-            //};
+            //(Using TabbedPage as root of the app)
+            var tabs = new TabbedPage
+            {
+                Title = "MyWorld",
+                BindingContext = new MyWorldViewModel(),
+                Children =
+                {
+                    new MyWorldListPage(),
+                    new MapPage()
+                }
+            };
+
+            MainPage = new NavigationPage(tabs)
+            {
+                BarBackgroundColor = Color.FromHex("3498db"),
+                BarTextColor = Color.White
+            };
+
         }
-
-
-        //public static Page GetMainPage()
-        //{
-        //    //(CDLTLL)The root page of my app
-        //    return new NavigationPage(new MyWorld.Client.UI.Pages.MainPage());
-        //}
 
         protected override void OnStart()
         {

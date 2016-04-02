@@ -36,8 +36,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
-    <Compile Include="Pages\MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
+    <Compile Include="Controls\BasicAccordion.cs" />
+    <Compile Include="Helpers\PageNavigationController.cs" />
+    <Compile Include="Pages\MyWorldListPage.xaml.cs">
+      <DependentUpon>MyWorldListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\MapPage.xaml.cs">
       <DependentUpon>MapPage.xaml</DependentUpon>
@@ -68,7 +70,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Pages\MainPage.xaml">
+    <EmbeddedResource Include="Pages\MyWorldListPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

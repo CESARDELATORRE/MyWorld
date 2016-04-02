@@ -9,9 +9,9 @@ using MyWorld.Client.Core.ViewModel;
 
 namespace MyWorld.Client.UI.Pages
 {
-    public partial class MainPage : ContentPage
+    public partial class MyWorldListPage : ContentPage
     {
-        public MainPage()
+        public MyWorldListPage()
         {
      
             InitializeComponent();

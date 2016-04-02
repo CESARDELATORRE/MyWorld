@@ -14,15 +14,11 @@ namespace MyWorld.Client.UI.Pages {
     using Xamarin.Forms.Xaml;
     
     
-    public partial class MapPage : global::Xamarin.Forms.ContentPage {
-        
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::MyWorld.Client.UI.Controls.BasicAccordion MainOne;
+    public partial class MyWorldListPage : global::Xamarin.Forms.ContentPage {
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
-            this.LoadFromXaml(typeof(MapPage));
-            MainOne = this.FindByName<global::MyWorld.Client.UI.Controls.BasicAccordion>("MainOne");
+            this.LoadFromXaml(typeof(MyWorldListPage));
         }
     }
 }
