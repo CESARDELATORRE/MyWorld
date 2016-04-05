@@ -11,5 +11,3 @@ D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Core\obj\Debug\
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Core\obj\Debug\MyWorld.Client.Core.pdb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Core\obj\Debug\MyWorld.Client.Core.dll.mdb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Core\bin\Debug\MyWorld.Client.Core.dll.mdb
-D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Core\obj\Debug\MyWorld.Client.Core.dll.mdb
-D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Core\bin\Debug\MyWorld.Client.Core.dll.mdb

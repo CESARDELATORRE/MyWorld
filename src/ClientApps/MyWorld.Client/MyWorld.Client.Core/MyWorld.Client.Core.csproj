@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Model\TechItem.cs" />
+    <Compile Include="Model\Vehicle.cs" />
+    <Compile Include="Model\Person.cs" />
     <Compile Include="Model\Item.cs" />
     <Compile Include="Model\MyWorldRoot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

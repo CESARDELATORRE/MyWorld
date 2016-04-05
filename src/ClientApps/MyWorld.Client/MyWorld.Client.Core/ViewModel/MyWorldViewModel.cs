@@ -20,7 +20,7 @@ namespace MyWorld.Client.Core.ViewModel
         {
             myWorldRootService = new MyWorldRootMockService();
 
-            myWorld = myWorldRootService.GetMyWorld();
+            myWorld = myWorldRootService.GetMyWorldData();
         }
 
         public string Title { get; set; }

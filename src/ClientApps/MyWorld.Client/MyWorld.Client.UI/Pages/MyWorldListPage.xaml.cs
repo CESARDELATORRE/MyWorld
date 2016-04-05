@@ -13,7 +13,6 @@ namespace MyWorld.Client.UI.Pages
     {
         public MyWorldListPage()
         {
-     
             InitializeComponent();
 
             //(CDLTLL - TBD - Still NO Dependency Injection of the ViewModel)

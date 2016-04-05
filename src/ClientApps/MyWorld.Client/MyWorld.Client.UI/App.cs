@@ -23,8 +23,11 @@ namespace MyWorld.Client.UI
                 BindingContext = new MyWorldViewModel(),
                 Children =
                 {
+                    new BasicAccordionPage(),
                     new MyWorldListPage(),
-                    new MapPage()
+                    new WeatherAccordionPage(),
+                    new MapPage(),
+                    new SimpleListPage()
                 }
             };
 

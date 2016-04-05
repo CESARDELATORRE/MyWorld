@@ -3,11 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:ctrl="clr-namespace:MyWorld.Client.UI.Controls;assembly=MyWorld.Client.UI"
              x:Class="MyWorld.Client.UI.Pages.MapPage"
-             Title="MAP">
+             Title="Map">
 
   <StackLayout>
     <Label Text="Future Map Page with items on the Map" VerticalOptions="Center" HorizontalOptions="Center" />
-    <ctrl:BasicAccordion x:Name="MainOne" />
+    
   </StackLayout>
   
   

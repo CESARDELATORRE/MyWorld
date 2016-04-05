@@ -31,6 +31,5 @@ D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug\MyWorld.Client.Core.pdb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug\MyWorld.Client.Core.dll.mdb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug\Newtonsoft.Json.xml
-D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug\MyWorld.Client.UI.dll.mdb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\MyWorld.Client.Droid.dll.mdb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug\MyWorld.Client.Droid.dll.mdb
