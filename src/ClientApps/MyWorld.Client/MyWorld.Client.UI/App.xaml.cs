@@ -6,7 +6,7 @@ using System.Text;
 using Xamarin.Forms;
 using MyWorld.Client.Core.ViewModel;
 using MyWorld.Client.UI.Pages;
-using MyWorld.Client.UI.Pages.Vehicles;
+using MyWorld.Client.UI;
 
 namespace MyWorld.Client.UI
 {

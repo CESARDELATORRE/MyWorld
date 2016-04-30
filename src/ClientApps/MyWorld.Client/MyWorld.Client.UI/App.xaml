@@ -5,7 +5,7 @@
     x:Class="MyWorld.Client.UI.App">
   <Application.Resources>
     <ResourceDictionary>
-      <OnPlatform x:TypeArguments="Color" Android="White" iOS="White" WinPhone="#333333" x:Key="WindowBackground"/>
+      <OnPlatform x:TypeArguments="Color" Android="#333333" iOS="White" WinPhone="#333333" x:Key="WindowBackground"/>
       <OnPlatform x:TypeArguments="Color" Android="#7635EB" iOS="#FAFAFA" WinPhone="#FAFAFA" x:Key="BarBackgroundColor"/>
       <OnPlatform x:TypeArguments="Color" Android="White" iOS="White" WinPhone="White" x:Key="BarTextColor"/>
 

@@ -14,15 +14,11 @@ namespace MyWorld.Client.UI {
     using Xamarin.Forms.Xaml;
     
     
-    public partial class VehiclesListPage : global::Xamarin.Forms.ContentPage {
-        
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.ListView ListViewVehicles;
+    public partial class VehicleCell : global::Xamarin.Forms.ContentView {
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
-            this.LoadFromXaml(typeof(VehiclesListPage));
-            ListViewVehicles = this.FindByName<global::Xamarin.Forms.ListView>("ListViewVehicles");
+            this.LoadFromXaml(typeof(VehicleCell));
         }
     }
 }

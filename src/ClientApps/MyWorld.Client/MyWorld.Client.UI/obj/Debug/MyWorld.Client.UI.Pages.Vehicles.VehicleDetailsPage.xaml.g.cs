@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MyWorld.Client.UI.Pages.Vehicles {
+namespace MyWorld.Client.UI {
     using System;
     using Xamarin.Forms;
     using Xamarin.Forms.Xaml;

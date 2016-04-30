@@ -13,13 +13,13 @@ namespace MyWorld.Client.Droid
     //(CDLTLL) https://blog.xamarin.com/material-design-for-your-xamarin-forms-android-apps/
 
     [Activity(Label = "MyWorld", Icon = "@drawable/icon", MainLauncher = true)]
-    public class MainActivity : FormsAppCompatActivity
+    public class MainActivity : FormsApplicationActivity //(CDLTLL)FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)
         {
             //(CDLTLL) Config for Tab colors
             //FormsAppCompatActivity.ToolbarResource = Resource.Layout.toolbar;
-            FormsAppCompatActivity.TabLayoutResource = Resource.Layout.tabs;
+            //FormsAppCompatActivity.TabLayoutResource = Resource.Layout.tabs;
 
             base.OnCreate(bundle);
 

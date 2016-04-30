@@ -5,7 +5,7 @@ using Xamarin.Forms;
 using MyWorld.Client.Core.ViewModel;
 using MyWorld.Client.Core.Model;
 
-namespace MyWorld.Client.UI.Pages.Vehicles
+namespace MyWorld.Client.UI
 {
     public partial class VehiclesListPage : ContentPage
     {

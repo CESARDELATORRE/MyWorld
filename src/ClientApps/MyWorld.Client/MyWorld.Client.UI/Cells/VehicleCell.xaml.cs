@@ -8,9 +8,9 @@ using Xamarin.Forms;
 
 namespace MyWorld.Client.UI
 {
-    public partial class VehicleDetailsPage : ContentPage
+    public partial class VehicleCell : ContentView
     {
-        public VehicleDetailsPage()
+        public VehicleCell()
         {
             InitializeComponent();
         }
