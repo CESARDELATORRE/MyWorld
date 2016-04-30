@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Application
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="MyWorld.Client.UI.App">
+  <Application.Resources>
+    <ResourceDictionary>
+      <OnPlatform x:TypeArguments="Color" Android="White" iOS="White" WinPhone="#333333" x:Key="WindowBackground"/>
+      <OnPlatform x:TypeArguments="Color" Android="#7635EB" iOS="#FAFAFA" WinPhone="#FAFAFA" x:Key="BarBackgroundColor"/>
+      <OnPlatform x:TypeArguments="Color" Android="White" iOS="White" WinPhone="White" x:Key="BarTextColor"/>
+
+      <Color x:Key="ListSeparator">#C8C7CC</Color>
+
+      <Style x:Key="MyWorldListItemTextStyle" TargetType="Label" BaseResourceKey="ListItemTextStyle">
+        <Setter Property="FontSize" Value="{DynamicResource MyWorldListItemTextStyleSize}" />
+      </Style>
+      <Style x:Key="MyWorldDetailTextStyle" TargetType="Label" BaseResourceKey="ListItemDetailTextStyle">
+        <Setter Property="FontSize" Value="{DynamicResource MyWorldListItemDetailTextStyleSize}" />
+      </Style>
+      <OnPlatform x:TypeArguments="x:Double" Android="16" iOS="16" WinPhone="13" x:Key="MyWorldListItemTextStyleSize" />
+      <OnPlatform x:TypeArguments="x:Double" Android="13" iOS="13" WinPhone="13" x:Key="MyWorldListItemDetailTextStyleSize" />
+      
+    </ResourceDictionary>
+  </Application.Resources>
+</Application>

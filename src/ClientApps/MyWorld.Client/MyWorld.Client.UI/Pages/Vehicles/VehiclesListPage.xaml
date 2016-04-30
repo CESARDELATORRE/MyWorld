@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyWorld.Client.UI.Pages.Vehicles.VehiclesListPage"
+             xmlns:local="clr-namespace:MyWorld.Client.UI;assembly=MyWorld.Client.UI"
+             Title="Vehicles"
+             NavigationPage.BackButtonTitle="Vehicles"
+             Icon="tab_vehicles.png"
+             BackgroundColor="{DynamicResource WindowBackground}">
+
+
+  <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+    
+    <ListView x:Name="ListViewVehicles"
+              ItemsSource="{Binding MyWorld.Vehicles}"
+              HasUnevenRows="False"
+              CachingStrategy="RecycleElement"
+              IsPullToRefreshEnabled="False"
+              >
+      <ListView.SeparatorColor>
+        <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ListSeparator}" Android="Transparent"/>
+      </ListView.SeparatorColor>
+      
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <StackLayout Orientation="Horizontal" Padding="10,0,0,0">
+              <StackLayout Padding="10" Spacing="5">
+                <Label Text="{Binding Make}"
+                       Style="{DynamicResource  MyWorldListItemTextStyle}"/>
+                <Label Text="{Binding Model}"
+                       Style="{DynamicResource MyWorldListItemDetailTextStyle}"/>
+              </StackLayout>
+            </StackLayout>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+    
+  </AbsoluteLayout>
+
+
+</ContentPage>

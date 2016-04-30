@@ -2,6 +2,10 @@ MyWorld.Client.Droid.MainActivity, MyWorld.Client.Droid;md5c8771fcebe8249496ac86
 MyWorld.Client.Droid.MainActivity, MyWorld.Client.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5c8771fcebe8249496ac86e2e42b8cb97.MainActivity
 MyWorld.Client.Droid.MainActivity;md5c8771fcebe8249496ac86e2e42b8cb97.MainActivity
 myworld.client.droid.MainActivity;md5c8771fcebe8249496ac86e2e42b8cb97.MainActivity
+MyWorld.Client.Droid.MainApplication, MyWorld.Client.Droid;md5c8771fcebe8249496ac86e2e42b8cb97.MainApplication
+MyWorld.Client.Droid.MainApplication, MyWorld.Client.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5c8771fcebe8249496ac86e2e42b8cb97.MainApplication
+MyWorld.Client.Droid.MainApplication;md5c8771fcebe8249496ac86e2e42b8cb97.MainApplication
+myworld.client.droid.MainApplication;md5c8771fcebe8249496ac86e2e42b8cb97.MainApplication
 Android.Support.Design.Widget.Snackbar/SnackbarActionClickImplementor, Xamarin.Android.Support.Design;android.support.design.widget.Snackbar_SnackbarActionClickImplementor
 Android.Support.Design.Widget.Snackbar+SnackbarActionClickImplementor, Xamarin.Android.Support.Design, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;android.support.design.widget.Snackbar_SnackbarActionClickImplementor
 Android.Support.Design.Widget.Snackbar.SnackbarActionClickImplementor;android.support.design.widget.Snackbar_SnackbarActionClickImplementor

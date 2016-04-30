@@ -2431,32 +2431,32 @@ namespace MyWorld.Client.Droid
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f080047
-			public const int abc_background_cache_hint_selector_material_dark = 2131230791;
+			// aapt resource value: 0x7f080052
+			public const int abc_background_cache_hint_selector_material_dark = 2131230802;
 			
-			// aapt resource value: 0x7f080048
-			public const int abc_background_cache_hint_selector_material_light = 2131230792;
+			// aapt resource value: 0x7f080053
+			public const int abc_background_cache_hint_selector_material_light = 2131230803;
 			
-			// aapt resource value: 0x7f080049
-			public const int abc_color_highlight_material = 2131230793;
+			// aapt resource value: 0x7f080054
+			public const int abc_color_highlight_material = 2131230804;
 			
 			// aapt resource value: 0x7f080004
 			public const int abc_input_method_navigation_guard = 2131230724;
 			
-			// aapt resource value: 0x7f08004a
-			public const int abc_primary_text_disable_only_material_dark = 2131230794;
+			// aapt resource value: 0x7f080055
+			public const int abc_primary_text_disable_only_material_dark = 2131230805;
 			
-			// aapt resource value: 0x7f08004b
-			public const int abc_primary_text_disable_only_material_light = 2131230795;
+			// aapt resource value: 0x7f080056
+			public const int abc_primary_text_disable_only_material_light = 2131230806;
 			
-			// aapt resource value: 0x7f08004c
-			public const int abc_primary_text_material_dark = 2131230796;
+			// aapt resource value: 0x7f080057
+			public const int abc_primary_text_material_dark = 2131230807;
 			
-			// aapt resource value: 0x7f08004d
-			public const int abc_primary_text_material_light = 2131230797;
+			// aapt resource value: 0x7f080058
+			public const int abc_primary_text_material_light = 2131230808;
 			
-			// aapt resource value: 0x7f08004e
-			public const int abc_search_url_text = 2131230798;
+			// aapt resource value: 0x7f080059
+			public const int abc_search_url_text = 2131230809;
 			
 			// aapt resource value: 0x7f080005
 			public const int abc_search_url_text_normal = 2131230725;
@@ -2467,17 +2467,26 @@ namespace MyWorld.Client.Droid
 			// aapt resource value: 0x7f080007
 			public const int abc_search_url_text_selected = 2131230727;
 			
-			// aapt resource value: 0x7f08004f
-			public const int abc_secondary_text_material_dark = 2131230799;
+			// aapt resource value: 0x7f08005a
+			public const int abc_secondary_text_material_dark = 2131230810;
 			
-			// aapt resource value: 0x7f080050
-			public const int abc_secondary_text_material_light = 2131230800;
+			// aapt resource value: 0x7f08005b
+			public const int abc_secondary_text_material_light = 2131230811;
+			
+			// aapt resource value: 0x7f080049
+			public const int accent = 2131230793;
 			
 			// aapt resource value: 0x7f080008
 			public const int accent_material_dark = 2131230728;
 			
 			// aapt resource value: 0x7f080009
 			public const int accent_material_light = 2131230729;
+			
+			// aapt resource value: 0x7f080051
+			public const int actionbar_menutext = 2131230801;
+			
+			// aapt resource value: 0x7f08004f
+			public const int activated_color = 2131230799;
 			
 			// aapt resource value: 0x7f08000a
 			public const int background_floating_material_dark = 2131230730;
@@ -2566,6 +2575,9 @@ namespace MyWorld.Client.Droid
 			// aapt resource value: 0x7f080019
 			public const int dim_foreground_material_light = 2131230745;
 			
+			// aapt resource value: 0x7f08004e
+			public const int divider = 2131230798;
+			
 			// aapt resource value: 0x7f08001a
 			public const int foreground_material_dark = 2131230746;
 			
@@ -2583,6 +2595,9 @@ namespace MyWorld.Client.Droid
 			
 			// aapt resource value: 0x7f08001f
 			public const int hint_foreground_material_light = 2131230751;
+			
+			// aapt resource value: 0x7f08004a
+			public const int lightPrimary = 2131230794;
 			
 			// aapt resource value: 0x7f080020
 			public const int material_blue_grey_800 = 2131230752;
@@ -2620,6 +2635,15 @@ namespace MyWorld.Client.Droid
 			// aapt resource value: 0x7f08002b
 			public const int material_grey_900 = 2131230763;
 			
+			// aapt resource value: 0x7f080047
+			public const int primary = 2131230791;
+			
+			// aapt resource value: 0x7f080048
+			public const int primaryDark = 2131230792;
+			
+			// aapt resource value: 0x7f08004c
+			public const int primaryText = 2131230796;
+			
 			// aapt resource value: 0x7f08002c
 			public const int primary_dark_material_dark = 2131230764;
 			
@@ -2650,6 +2674,9 @@ namespace MyWorld.Client.Droid
 			// aapt resource value: 0x7f080035
 			public const int ripple_material_light = 2131230773;
 			
+			// aapt resource value: 0x7f08004d
+			public const int secondaryText = 2131230797;
+			
 			// aapt resource value: 0x7f080036
 			public const int secondary_text_default_material_dark = 2131230774;
 			
@@ -2668,17 +2695,23 @@ namespace MyWorld.Client.Droid
 			// aapt resource value: 0x7f08003b
 			public const int switch_thumb_disabled_material_light = 2131230779;
 			
-			// aapt resource value: 0x7f080051
-			public const int switch_thumb_material_dark = 2131230801;
+			// aapt resource value: 0x7f08005c
+			public const int switch_thumb_material_dark = 2131230812;
 			
-			// aapt resource value: 0x7f080052
-			public const int switch_thumb_material_light = 2131230802;
+			// aapt resource value: 0x7f08005d
+			public const int switch_thumb_material_light = 2131230813;
 			
 			// aapt resource value: 0x7f08003c
 			public const int switch_thumb_normal_material_dark = 2131230780;
 			
 			// aapt resource value: 0x7f08003d
 			public const int switch_thumb_normal_material_light = 2131230781;
+			
+			// aapt resource value: 0x7f08004b
+			public const int textIcon = 2131230795;
+			
+			// aapt resource value: 0x7f080050
+			public const int window_background = 2131230800;
 			
 			static Color()
 			{
@@ -3199,118 +3232,127 @@ namespace MyWorld.Client.Droid
 			public const int abc_textfield_search_material = 2130837565;
 			
 			// aapt resource value: 0x7f02003e
-			public const int design_fab_background = 2130837566;
+			public const int colors = 2130837566;
 			
 			// aapt resource value: 0x7f02003f
-			public const int design_snackbar_background = 2130837567;
+			public const int design_fab_background = 2130837567;
 			
 			// aapt resource value: 0x7f020040
-			public const int ic_cast_dark = 2130837568;
+			public const int design_snackbar_background = 2130837568;
 			
 			// aapt resource value: 0x7f020041
-			public const int ic_cast_disabled_light = 2130837569;
+			public const int ic_cast_dark = 2130837569;
 			
 			// aapt resource value: 0x7f020042
-			public const int ic_cast_light = 2130837570;
+			public const int ic_cast_disabled_light = 2130837570;
 			
 			// aapt resource value: 0x7f020043
-			public const int ic_cast_off_light = 2130837571;
+			public const int ic_cast_light = 2130837571;
 			
 			// aapt resource value: 0x7f020044
-			public const int ic_cast_on_0_light = 2130837572;
+			public const int ic_cast_off_light = 2130837572;
 			
 			// aapt resource value: 0x7f020045
-			public const int ic_cast_on_1_light = 2130837573;
+			public const int ic_cast_on_0_light = 2130837573;
 			
 			// aapt resource value: 0x7f020046
-			public const int ic_cast_on_2_light = 2130837574;
+			public const int ic_cast_on_1_light = 2130837574;
 			
 			// aapt resource value: 0x7f020047
-			public const int ic_cast_on_light = 2130837575;
+			public const int ic_cast_on_2_light = 2130837575;
 			
 			// aapt resource value: 0x7f020048
-			public const int ic_media_pause = 2130837576;
+			public const int ic_cast_on_light = 2130837576;
 			
 			// aapt resource value: 0x7f020049
-			public const int ic_media_play = 2130837577;
+			public const int ic_media_pause = 2130837577;
 			
 			// aapt resource value: 0x7f02004a
-			public const int ic_media_route_disabled_mono_dark = 2130837578;
+			public const int ic_media_play = 2130837578;
 			
 			// aapt resource value: 0x7f02004b
-			public const int ic_media_route_off_mono_dark = 2130837579;
+			public const int ic_media_route_disabled_mono_dark = 2130837579;
 			
 			// aapt resource value: 0x7f02004c
-			public const int ic_media_route_on_0_mono_dark = 2130837580;
+			public const int ic_media_route_off_mono_dark = 2130837580;
 			
 			// aapt resource value: 0x7f02004d
-			public const int ic_media_route_on_1_mono_dark = 2130837581;
+			public const int ic_media_route_on_0_mono_dark = 2130837581;
 			
 			// aapt resource value: 0x7f02004e
-			public const int ic_media_route_on_2_mono_dark = 2130837582;
+			public const int ic_media_route_on_1_mono_dark = 2130837582;
 			
 			// aapt resource value: 0x7f02004f
-			public const int ic_media_route_on_mono_dark = 2130837583;
+			public const int ic_media_route_on_2_mono_dark = 2130837583;
 			
 			// aapt resource value: 0x7f020050
-			public const int ic_pause_dark = 2130837584;
+			public const int ic_media_route_on_mono_dark = 2130837584;
 			
 			// aapt resource value: 0x7f020051
-			public const int ic_pause_light = 2130837585;
+			public const int ic_pause_dark = 2130837585;
 			
 			// aapt resource value: 0x7f020052
-			public const int ic_play_dark = 2130837586;
+			public const int ic_pause_light = 2130837586;
 			
 			// aapt resource value: 0x7f020053
-			public const int ic_play_light = 2130837587;
+			public const int ic_play_dark = 2130837587;
 			
 			// aapt resource value: 0x7f020054
-			public const int ic_setting_dark = 2130837588;
+			public const int ic_play_light = 2130837588;
 			
 			// aapt resource value: 0x7f020055
-			public const int ic_setting_light = 2130837589;
+			public const int ic_setting_dark = 2130837589;
 			
 			// aapt resource value: 0x7f020056
-			public const int icon = 2130837590;
+			public const int ic_setting_light = 2130837590;
 			
 			// aapt resource value: 0x7f020057
-			public const int mr_ic_cast_dark = 2130837591;
+			public const int icon = 2130837591;
 			
 			// aapt resource value: 0x7f020058
-			public const int mr_ic_cast_light = 2130837592;
+			public const int mr_ic_cast_dark = 2130837592;
 			
 			// aapt resource value: 0x7f020059
-			public const int mr_ic_media_route_connecting_mono_dark = 2130837593;
+			public const int mr_ic_cast_light = 2130837593;
 			
 			// aapt resource value: 0x7f02005a
-			public const int mr_ic_media_route_connecting_mono_light = 2130837594;
+			public const int mr_ic_media_route_connecting_mono_dark = 2130837594;
 			
 			// aapt resource value: 0x7f02005b
-			public const int mr_ic_media_route_mono_dark = 2130837595;
+			public const int mr_ic_media_route_connecting_mono_light = 2130837595;
 			
 			// aapt resource value: 0x7f02005c
-			public const int mr_ic_media_route_mono_light = 2130837596;
+			public const int mr_ic_media_route_mono_dark = 2130837596;
 			
 			// aapt resource value: 0x7f02005d
-			public const int mr_ic_pause_dark = 2130837597;
+			public const int mr_ic_media_route_mono_light = 2130837597;
 			
 			// aapt resource value: 0x7f02005e
-			public const int mr_ic_pause_light = 2130837598;
+			public const int mr_ic_pause_dark = 2130837598;
 			
 			// aapt resource value: 0x7f02005f
-			public const int mr_ic_play_dark = 2130837599;
+			public const int mr_ic_pause_light = 2130837599;
 			
 			// aapt resource value: 0x7f020060
-			public const int mr_ic_play_light = 2130837600;
+			public const int mr_ic_play_dark = 2130837600;
 			
 			// aapt resource value: 0x7f020061
-			public const int mr_ic_settings_dark = 2130837601;
+			public const int mr_ic_play_light = 2130837601;
 			
 			// aapt resource value: 0x7f020062
-			public const int mr_ic_settings_light = 2130837602;
+			public const int mr_ic_settings_dark = 2130837602;
 			
 			// aapt resource value: 0x7f020063
-			public const int notification_template_icon_bg = 2130837603;
+			public const int mr_ic_settings_light = 2130837603;
+			
+			// aapt resource value: 0x7f020066
+			public const int notification_template_icon_bg = 2130837606;
+			
+			// aapt resource value: 0x7f020064
+			public const int tab_map = 2130837604;
+			
+			// aapt resource value: 0x7f020065
+			public const int tab_vehicles = 2130837605;
 			
 			static Drawable()
 			{
@@ -3634,6 +3676,9 @@ namespace MyWorld.Client.Droid
 			// aapt resource value: 0x7f0b0012
 			public const int showTitle = 2131427346;
 			
+			// aapt resource value: 0x7f0b0081
+			public const int sliding_tabs = 2131427457;
+			
 			// aapt resource value: 0x7f0b0065
 			public const int snackbar_action = 2131427429;
 			
@@ -3900,6 +3945,9 @@ namespace MyWorld.Client.Droid
 			// aapt resource value: 0x7f03002f
 			public const int support_simple_spinner_dropdown_item = 2130903087;
 			
+			// aapt resource value: 0x7f030030
+			public const int tabs = 2130903088;
+			
 			static Layout()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -3970,8 +4018,14 @@ namespace MyWorld.Client.Droid
 			// aapt resource value: 0x7f05001b
 			public const int abc_toolbar_collapse_description = 2131034139;
 			
+			// aapt resource value: 0x7f050021
+			public const int app_name = 2131034145;
+			
 			// aapt resource value: 0x7f05001d
 			public const int appbar_scrolling_view_behavior = 2131034141;
+			
+			// aapt resource value: 0x7f050020
+			public const int hello = 2131034144;
 			
 			// aapt resource value: 0x7f050000
 			public const int mr_media_route_button_content_description = 2131034112;
@@ -4459,6 +4513,15 @@ namespace MyWorld.Client.Droid
 			
 			// aapt resource value: 0x7f070006
 			public const int CardView_Light = 2131165190;
+			
+			// aapt resource value: 0x7f070144
+			public const int MyTheme = 2131165508;
+			
+			// aapt resource value: 0x7f070147
+			public const int MyTheme_ActionBar = 2131165511;
+			
+			// aapt resource value: 0x7f070145
+			public const int MyTheme_Base = 2131165509;
 			
 			// aapt resource value: 0x7f070016
 			public const int Platform_AppCompat = 2131165206;
@@ -4993,6 +5056,9 @@ namespace MyWorld.Client.Droid
 			
 			// aapt resource value: 0x7f070003
 			public const int Widget_MediaRouter_MediaRouteButton = 2131165187;
+			
+			// aapt resource value: 0x7f070146
+			public const int custom_actionBarTextStyle = 2131165510;
 			
 			static Style()
 			{

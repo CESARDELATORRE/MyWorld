@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Xamarin.Forms;
 
+using MyWorld.Client.Core.ViewModel;
 using MyWorld.Client.UI.Controls;
 using MyWorld.Client.UI.Helpers;
 using MyWorld.Client.UI.Pages.Vehicles;
@@ -14,7 +15,12 @@ namespace MyWorld.Client.UI.Pages
         {
             InitializeComponent();
 
-            MyWorldBasicAccordion.DataSource = GetSampleData();
+            //(CDLTLL - TBD - Still NO Dependency Injection of the ViewModel)
+            MyWorldViewModel viewModel = new MyWorldViewModel();
+
+            this.BindingContext = viewModel;
+
+            MyWorldBasicAccordion.DataSource = PrepareAccordionData();
             MyWorldBasicAccordion.DataBind();
         }
 
@@ -55,11 +61,10 @@ namespace MyWorld.Client.UI.Pages
         {
             public ListDataViewCell()
             {
-                var label = new Label()
-                {
-                    Font = Font.SystemFontOfSize(NamedSize.Default),
-                    TextColor = Color.Blue
-                };
+                var label = new Label();
+                label.Font = Font.SystemFontOfSize(NamedSize.Default);
+                //label.TextColor = Color.Blue;
+
                 label.SetBinding(Label.TextProperty, new Binding("TextValue"));
                 label.SetBinding(Label.ClassIdProperty, new Binding("DataValue"));
                 View = new StackLayout()
@@ -80,105 +85,79 @@ namespace MyWorld.Client.UI.Pages
             { get; set; }
         }
 
-        public List<AccordionSource> GetSampleData()
+        public List<AccordionSource> PrepareAccordionData()
         {
             var vResult = new List<AccordionSource>();
 
-            #region First List View
-            var vListOne = new List<SimpleObject>();
-            for (var iCount = 0; iCount < 6; iCount++)
+            #region First List View --> List of Vehicles
+            var vVehiclesList = new List<SimpleObject>();
+
+            MyWorldViewModel myWorldViewModel = (MyWorldViewModel) this.BindingContext;
+            for (var iCount = 0; iCount < myWorldViewModel.MyWorld.Vehicles.Count; iCount++)
             {
                 var vObject = new SimpleObject()
                 {
-                    TextValue = "ObjectNo-" + iCount.ToString(),
-                    DataValue = iCount.ToString()
+                    TextValue = myWorldViewModel.MyWorld.Vehicles[iCount].Make + " " + myWorldViewModel.MyWorld.Vehicles[iCount].Model,
+                    DataValue = myWorldViewModel.MyWorld.Vehicles[iCount].Id.ToString()
                 };
-                vListOne.Add(vObject);
+                vVehiclesList.Add(vObject);
             }
-            var vListViewOne = new ListView()
+            var vVehiclesListView = new ListView()
             {
-                ItemsSource = vListOne,
+                ItemsSource = vVehiclesList,
                 ItemTemplate = new DataTemplate(typeof(ListDataViewCell))
+                
             };
-            vListViewOne.ItemTapped += OnListItemClicked;
+            vVehiclesListView.ItemTapped += OnListItemClicked;
             #endregion
 
-            #region Second List
-            var vListTwo = new List<SimpleObject>();
-            var vObjectRavi = new SimpleObject()
-            {
-                TextValue = "Cesar De la Torre",
-                DataValue = "1"
-            };
-            vListTwo.Add(vObjectRavi);
-            var vObjectFather = new SimpleObject()
-            {
-                TextValue = "Program Manager",
-                DataValue = "2"
-            };
-            vListTwo.Add(vObjectFather);
-            var vObjectTrainer = new SimpleObject()
-            {
-                TextValue = "Software Architect",
-                DataValue = "3"
-            };
-            vListTwo.Add(vObjectTrainer);
-            var vObjectConsultant = new SimpleObject()
-            {
-                TextValue = "Developer",
-                DataValue = "4"
-            };
-            vListTwo.Add(vObjectConsultant);
-            var vObjectArchitect = new SimpleObject()
-            {
-                TextValue = "Solution Architect",
-                DataValue = "5"
-            };
-            vListTwo.Add(vObjectArchitect);
-
-            var vListViewTwo = new ListView()
-            {
-                ItemsSource = vListTwo,
-                ItemTemplate = new DataTemplate(typeof(ListDataViewCell))
-            };
-            vListViewTwo.ItemTapped += OnListItemClicked;
-            #endregion
-
-            #region StackLayout
-            var vViewLayout = new StackLayout()
+            #region StackLayout //NOT USED
+            var vViewLayout1 = new StackLayout()
             {
                 Children = {
                     new Label { Text = "Static Content:" },
-                    new Label { Text = "Name : Erika De la Torre" },
-                    new Label { Text = "Roles : Student,Daughter,Makeup fan,Friend" }
+                    new Label { Text = "QWERTY" },
+                    new Label { Text = "ASDFGH" }
+                }
+            };
+
+            var vViewLayout2 = new StackLayout()
+            {
+                Children = {
+                    new Label { Text = "Static Content:" },
+                    new Label { Text = "QWERTY" },
+                    new Label { Text = "ASDFGH" }
                 }
             };
             #endregion
 
-            var vFirstAccord = new AccordionSource()
+            var vFirstAccordionSection = new AccordionSource()
             {
-                HeaderText = "First",
+                HeaderText = "Vehicles",
                 HeaderTextColor = Color.Black,
-                HeaderBackGroundColor = Color.Yellow,
-                ContentItems = vListViewTwo
+                HeaderBackGroundColor = Color.FromRgb(65,197,255),
+                ContentItems = vVehiclesListView
             };
-            vResult.Add(vFirstAccord);
-            var vSecond = new AccordionSource()
+            vResult.Add(vFirstAccordionSection);
+
+            var vSecondAccordionSection = new AccordionSource()
             {
-                HeaderText = "Second ",
-                HeaderTextColor = Color.White,
-                HeaderBackGroundColor = Color.FromHex("#77d065"),
-                ContentItems = vViewLayout
+                HeaderText = "People",
+                HeaderTextColor = Color.Black,
+                HeaderBackGroundColor = Color.FromRgb(65, 197, 255),
+                ContentItems = vViewLayout1
             };
-            vResult.Add(vSecond);
-            var vThird = new AccordionSource()
+            vResult.Add(vSecondAccordionSection);
+
+            var vThirdAccordionSection = new AccordionSource()
             {
-                HeaderText = "Third",
-                HeaderTextColor = Color.White,
-                HeaderBackGroundColor = Color.Purple,
-                ContentItems = vListViewOne
+                HeaderText = "Tech Items",
+                HeaderTextColor = Color.Black,
+                HeaderBackGroundColor = Color.FromRgb(65, 197, 255),
+                ContentItems = vViewLayout2
             };
-            vResult.Add(vThird);
+            vResult.Add(vThirdAccordionSection);
+
             return vResult;
         }
     }

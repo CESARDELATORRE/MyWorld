@@ -1,19 +1,26 @@
-﻿using System;
-
+﻿
+using System;
 using Android.App;
 using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
+using Xamarin.Forms;
+using Xamarin.Forms.Platform.Android;
+
 
 namespace MyWorld.Client.Droid
 {
-    [Activity(Label = "MyWorld", Icon = "@drawable/icon", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
+    //(CDLTLL) Changed from FormsApplicationActivity to FormsAppCompatActivity so changes in tabs and toolbar work
+    //(CDLTLL) https://blog.xamarin.com/material-design-for-your-xamarin-forms-android-apps/
+
+    [Activity(Label = "MyWorld", Icon = "@drawable/icon", MainLauncher = true)]
+    public class MainActivity : FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)
         {
+            //(CDLTLL) Config for Tab colors
+            //FormsAppCompatActivity.ToolbarResource = Resource.Layout.toolbar;
+            FormsAppCompatActivity.TabLayoutResource = Resource.Layout.tabs;
+
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);

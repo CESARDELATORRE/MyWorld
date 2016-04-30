@@ -2,7 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyWorld.Client.UI.Pages.Vehicles.VehicleDetailsPage"
-             Title="Vehicle Details">
+             Title="Vehicle Details"
+             Icon="tab_vehicles.png"
+             BackgroundColor="{DynamicResource WindowBackground}">
 
   <Label Text="Future Vehicle's Detail Page" VerticalOptions="Center" HorizontalOptions="Center" />
   
