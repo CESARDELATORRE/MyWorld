@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MyWorld.Client.UI;assembly=MyWorld.Client.UI"
+    x:Class="MyWorld.Client.UI.VehicleCell2">
+  <Frame OutlineColor="Accent">
+    <StackLayout Orientation="Horizontal">
+      <BoxView x:Name="boxView"
+               WidthRequest="70"
+               HeightRequest="70"
+               Color ="Blue" />
+      <StackLayout>
+        <Label Text="{Binding Make}" Style="{DynamicResource MyWorldListItemTextStyle}"/>
+        <Label Text="{Binding Model}" Style="{DynamicResource MyWorldDetailTextStyle}"/>
+      </StackLayout>         
+    </StackLayout>
+  </Frame>
+  
+</ContentView>

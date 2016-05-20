@@ -18,7 +18,7 @@ namespace MyWorld.Client.UI
             MyWorldViewModel viewModel = new MyWorldViewModel();
 
             //List<Vehicle> tmpVehicles = viewModel.MyWorld.Vehicles;
-            //string model = tmpVehicles[1].Model;
+            //string image = tmpVehicles[1].FrontViewPhoto;
 
             this.BindingContext = viewModel;
         }

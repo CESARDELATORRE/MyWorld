@@ -31,8 +31,8 @@ namespace MyWorld.Client.Core.Services
 
             //Vehicles - Mock data
             myWorldData.Vehicles = new List<Vehicle>();
-            myWorldData.Vehicles.Add(new Vehicle { Id = 100, Make = "Chevrolet", Model = "Camaro", LicensePlate = "AJX6940", VIN = "QWERTYUIOPASDFG17" });
-            myWorldData.Vehicles.Add(new Vehicle { Id = 101, Make = "Chevrolet", Model = "Tahoe",  LicensePlate = "XXX1234", VIN = "ASDFGUIOPASDFGX17" });
+            myWorldData.Vehicles.Add(new Vehicle { Id = 100, Make = "Chevrolet", Model = "Camaro", Year = "2012", LicensePlate = "AJX6940", VIN = "QWERTYUIOPASDFG17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/Chevy-Camaro-RS-2012-small.jpg" });
+            myWorldData.Vehicles.Add(new Vehicle { Id = 101, Make = "Chevrolet", Model = "Tahoe", Year = "2015", LicensePlate = "XXX1234", VIN = "ASDFGUIOPASDFGX17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/Chevy-Tahoe-Z71-2015-small.jpg" });
 
             //Tech Items - Mock Data
             myWorldData.TechItems = new List<TechItem>();

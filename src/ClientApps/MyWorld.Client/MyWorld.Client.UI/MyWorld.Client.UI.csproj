@@ -38,6 +38,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Cells\VehicleCell2.xaml.cs">
+      <DependentUpon>VehicleCell2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Accordion.cs" />
     <Compile Include="Controls\BasicAccordion.cs" />
     <Compile Include="Controls\CardView.cs" />
@@ -143,6 +146,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Cells\VehicleCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Cells\VehicleCell2.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

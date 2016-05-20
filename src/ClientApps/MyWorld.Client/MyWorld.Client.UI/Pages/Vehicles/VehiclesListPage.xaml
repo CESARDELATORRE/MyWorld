@@ -8,18 +8,37 @@
              Icon="tab_vehicles.png"
              BackgroundColor="{DynamicResource WindowBackground}">
 
-
+<!--
   <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+-->
+
+    <!-- With plain ImageCell in ListView -->
+    <StackLayout VerticalOptions="FillAndExpand" Padding="5,20,5,0" >
+      <ListView x:Name="list" ItemsSource="{Binding MyWorld.Vehicles}">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ImageCell
+							Text="{Binding Make}"
+							Detail="{Binding Model}"
+							ImageSource="{Binding FrontViewPhoto}">
+            </ImageCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+    </StackLayout>
     
+    
+  <!--
+  <StackLayout Orientation="Vertical">
     <ListView x:Name="ListViewVehicles"
               ItemsSource="{Binding MyWorld.Vehicles}"
-              HasUnevenRows="False"
-              CachingStrategy="RecycleElement"
               IsPullToRefreshEnabled="False"
               >
+      
       <ListView.SeparatorColor>
-        <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ListSeparator}" Android="Transparent"/>
+        <OnPlatform x:TypeArguments="Color" iOS="{StaticResource ListSeparator}" Android="{StaticResource ListSeparator}"/>
       </ListView.SeparatorColor>
+
 
       <ListView.ItemTemplate>
         <DataTemplate>
@@ -28,10 +47,12 @@
           </ViewCell>
         </DataTemplate>
       </ListView.ItemTemplate>
+
     </ListView>
+    -->
 
 
-    <!-- OLD CDLTLL 
+    <!-- No Cell control  
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>
@@ -46,9 +67,17 @@
           </ViewCell>
         </DataTemplate>
       </ListView.ItemTemplate>
-    </ListView>
-    -->
-  </AbsoluteLayout>
 
+    </ListView>  
+    -->
+    
+  <!--
+    </StackLayout>
+  -->
+  
+
+  <!--     
+  </AbsoluteLayout>
+  -->
 
 </ContentPage>

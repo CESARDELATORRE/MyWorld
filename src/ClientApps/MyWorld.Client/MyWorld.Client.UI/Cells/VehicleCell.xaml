@@ -8,13 +8,21 @@
     <StackLayout.Padding>
       <OnPlatform x:TypeArguments="Thickness" iOS="0" Android="0,4" WinPhone="0"/>
     </StackLayout.Padding>
-    <local:CardView HeightRequest="110">
+    
+    <local:CardView HeightRequest="220">
+      
       <Grid Padding="16" ColumnSpacing="16">
         <Grid.ColumnDefinitions>
           <ColumnDefinition Width=".4*"/>
           <ColumnDefinition Width=".6*"/>
         </Grid.ColumnDefinitions>
 
+        <BoxView x:Name="boxView"
+          WidthRequest="70"
+          HeightRequest="70"
+          Color ="Green" />
+        
+        <!-- 
         <Image
             HorizontalOptions="FillAndExpand"
             VerticalOptions="FillAndExpand"
@@ -25,14 +33,19 @@
                 CachingEnabled="true"/>
           </Image.Source>
         </Image>
+        -->
 
-        <StackLayout VerticalOptions="Center" Grid.Column="1" Spacing="0">
-          <Label Text="{Binding Make}" Style="{DynamicResource MyWorldListItemTextStyle}"/>
-          <Label Text="{Binding Model}" Style="{DynamicResource MyWorldDetailTextStyle}"/>
+        <StackLayout VerticalOptions="Start" Grid.Column="1" Spacing="0">
+          
+          <Label Text="{Binding Make}" Style="{DynamicResource MyWorldListItemTextStyle}"/> 
+          <Label Text="{Binding Model}" Style="{DynamicResource MyWorldDetailTextStyle}"/> 
+          
+          <!-- <Label Text="{Binding Model}" Style="{DynamicResource MyWorldDetailTextStyle}"/> -->
           <!-- <Label Text="Car is running!" IsVisible="{Binding IsRunning}"  TextColor="{StaticResource Primary}"/> -->
         </StackLayout>
 
       </Grid>
     </local:CardView>
+    
   </StackLayout>
 </ContentView>

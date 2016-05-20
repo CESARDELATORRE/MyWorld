@@ -17,8 +17,12 @@ namespace MyWorld.Client.UI {
     public partial class VehicleCell : global::Xamarin.Forms.ContentView {
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.BoxView boxView;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             this.LoadFromXaml(typeof(VehicleCell));
+            boxView = this.FindByName<global::Xamarin.Forms.BoxView>("boxView");
         }
     }
 }

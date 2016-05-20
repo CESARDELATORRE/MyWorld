@@ -43,6 +43,5 @@ D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\res\drawable-xxhdpi\tab_vehicles.png
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\R.cs.flag
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\uploadflags.txt
-D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug\MyWorld.Client.UI.dll.mdb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\MyWorld.Client.Droid.dll.mdb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug\MyWorld.Client.Droid.dll.mdb

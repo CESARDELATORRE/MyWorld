@@ -16,6 +16,9 @@ namespace MyWorld.Client.Core.Model
         [JsonProperty("model")]
         public string Model { get; set; } = string.Empty;
 
+        [JsonProperty("year")]
+        public string Year { get; set; } = string.Empty;
+
         [JsonProperty("licenseplate")]
         public string LicensePlate { get; set; } = string.Empty;
 

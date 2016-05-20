@@ -17,8 +17,8 @@
       <Style x:Key="MyWorldDetailTextStyle" TargetType="Label" BaseResourceKey="ListItemDetailTextStyle">
         <Setter Property="FontSize" Value="{DynamicResource MyWorldListItemDetailTextStyleSize}" />
       </Style>
-      <OnPlatform x:TypeArguments="x:Double" Android="16" iOS="16" WinPhone="13" x:Key="MyWorldListItemTextStyleSize" />
-      <OnPlatform x:TypeArguments="x:Double" Android="13" iOS="13" WinPhone="13" x:Key="MyWorldListItemDetailTextStyleSize" />
+      <OnPlatform x:TypeArguments="x:Double" Android="17" iOS="17" WinPhone="15" x:Key="MyWorldListItemTextStyleSize" />
+      <OnPlatform x:TypeArguments="x:Double" Android="14" iOS="14" WinPhone="14" x:Key="MyWorldListItemDetailTextStyleSize" />
       
     </ResourceDictionary>
   </Application.Resources>
