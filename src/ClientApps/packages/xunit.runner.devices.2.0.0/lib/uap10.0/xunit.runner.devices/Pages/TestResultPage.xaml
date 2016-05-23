@@ -1,0 +1,49 @@
+﻿<Page x:ConnectionId='1'
+    x:Class="Xunit.Runners.Pages.TestResultPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Xunit.Runners.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    
+    <ScrollViewer Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+        HorizontalScrollBarVisibility="Auto"
+        VerticalScrollBarVisibility="Auto"
+        HorizontalScrollMode="Auto"
+        VerticalScrollMode="Auto"
+        Padding="4">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:ConnectionId='2' x:Name="TestOutputState">
+                <VisualState x:ConnectionId='3' x:Name="NoOutput"/>
+                <VisualState x:ConnectionId='4' x:Name="HasOutput">
+                    <VisualState.StateTriggers>
+                        <StateTrigger x:ConnectionId='5'                                         />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="outputGroup.(UIElement.Visibility)" Value="Visible"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+
+        <StackPanel>
+            <TextBlock x:ConnectionId='6'                                                Style="{StaticResource SubheaderTextBlockStyle}"/>
+            <Border x:ConnectionId='7' Margin="0,0,0,10" x:Name="outputGroup" Visibility="Collapsed">
+                <StackPanel>
+                    <TextBlock Text="Test Output" />
+                    <TextBlock x:ConnectionId='10'                                  />
+                </StackPanel>
+            </Border>
+            
+            <TextBlock x:ConnectionId='8'                                        
+                   Style="{StaticResource SubtitleTextBlockStyle}" />
+            <TextBlock x:ConnectionId='9'                                            
+                   Style="{StaticResource BodyTextBlockStyle}"
+                   />
+        </StackPanel>
+    </ScrollViewer>
+</Page>
+

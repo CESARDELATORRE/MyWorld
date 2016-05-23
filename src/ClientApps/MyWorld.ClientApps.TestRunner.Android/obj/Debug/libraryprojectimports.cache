@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Paths>
+  <Jars></Jars>
+  <ResolvedResourceDirectories>
+    <ResolvedResourceDirectory>D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.TestRunner.Android\obj\Debug\__library_projects__\Xamarin.Forms.Platform.Android\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.TestRunner.Android\obj\Debug\__library_projects__\Xamarin.Forms.Platform\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.TestRunner.Android\obj\Debug\__library_projects__\xunit.runner.devices\library_project_imports\res</ResolvedResourceDirectory>
+  </ResolvedResourceDirectories>
+  <ResolvedAssetDirectories>
+    <ResolvedAssetDirectory>D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.TestRunner.Android\obj\Debug\__library_projects__\Xamarin.Forms.Platform.Android\library_project_imports\assets</ResolvedAssetDirectory>
+    <ResolvedAssetDirectory>D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.TestRunner.Android\obj\Debug\__library_projects__\Xamarin.Forms.Platform\library_project_imports\assets</ResolvedAssetDirectory>
+    <ResolvedAssetDirectory>D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.TestRunner.Android\obj\Debug\__library_projects__\xunit.runner.devices\library_project_imports\assets</ResolvedAssetDirectory>
+  </ResolvedAssetDirectories>
+  <ResolvedEnvironmentFiles />
+  <ResolvedResourceDirectoryStamps>
+    <ResolvedResourceDirectoryStamp>D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.TestRunner.Android\obj\Debug\__library_projects__\Xamarin.Forms.Platform.Android.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.TestRunner.Android\obj\Debug\__library_projects__\Xamarin.Forms.Platform.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.TestRunner.Android\obj\Debug\__library_projects__\xunit.runner.devices.stamp</ResolvedResourceDirectoryStamp>
+  </ResolvedResourceDirectoryStamps>
+</Paths>

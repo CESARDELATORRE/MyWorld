@@ -1,0 +1,239 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>xunit.runner.devices</name>
+    </assembly>
+    <members>
+        <member name="T:Xunit.Runners.Pages.AssemblyTestListPage">
+            <summary>
+            An empty page that can be used on its own or navigated to within a Frame.
+            </summary>
+        </member>
+        <member name="M:Xunit.Runners.Pages.AssemblyTestListPage.InitializeComponent">
+            <summary>
+            InitializeComponent()
+            </summary>
+        </member>
+        <member name="M:Xunit.Runners.Pages.AssemblyTestListPage.Connect(System.Int32,System.Object)">
+            <summary>
+            Connect()
+            </summary>
+        </member>
+        <member name="T:Xunit.Runners.Pages.CreditsPage">
+            <summary>
+            An empty page that can be used on its own or navigated to within a Frame.
+            </summary>
+        </member>
+        <member name="M:Xunit.Runners.Pages.CreditsPage.InitializeComponent">
+            <summary>
+            InitializeComponent()
+            </summary>
+        </member>
+        <member name="M:Xunit.Runners.Pages.CreditsPage.Connect(System.Int32,System.Object)">
+            <summary>
+            Connect()
+            </summary>
+        </member>
+        <member name="T:Xunit.Runners.Pages.HomePage">
+            <summary>
+            An empty page that can be used on its own or navigated to within a Frame.
+            </summary>
+        </member>
+        <member name="M:Xunit.Runners.Pages.HomePage.InitializeComponent">
+            <summary>
+            InitializeComponent()
+            </summary>
+        </member>
+        <member name="M:Xunit.Runners.Pages.HomePage.Connect(System.Int32,System.Object)">
+            <summary>
+            Connect()
+            </summary>
+        </member>
+        <member name="T:Xunit.Runners.Pages.TestResultPage">
+            <summary>
+            An empty page that can be used on its own or navigated to within a Frame.
+            </summary>
+        </member>
+        <member name="M:Xunit.Runners.Pages.TestResultPage.InitializeComponent">
+            <summary>
+            InitializeComponent()
+            </summary>
+        </member>
+        <member name="M:Xunit.Runners.Pages.TestResultPage.Connect(System.Int32,System.Object)">
+            <summary>
+            Connect()
+            </summary>
+        </member>
+        <member name="M:Xunit.Runners.UI.RunnerApplication.OnLaunched(Windows.ApplicationModel.Activation.LaunchActivatedEventArgs)">
+            <summary>
+            Invoked when the application is launched normally by the end user.  Other entry points
+            will be used when the application is launched to open a specific file, to display
+            search results, and so forth.
+            </summary>
+            <param name="e">Details about the launch request and process.</param>
+        </member>
+        <member name="F:Xunit.Runners.UI.RunnerOptions.Current">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Xunit.Runners.UI.RunnerOptions.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Xunit.Runners.UI.RunnerOptions.ShowUseNetworkLogger">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Xunit.Runners.UI.RunnerOptions.AutoStart">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Xunit.Runners.UI.RunnerOptions.EnableNetwork">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Xunit.Runners.UI.RunnerOptions.HostName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Xunit.Runners.UI.RunnerOptions.HostPort">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Xunit.Runners.UI.RunnerOptions.TerminateAfterExecution">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Xunit.Runners.DeviceResources.InitializeComponent">
+            <summary>
+            InitializeComponent()
+            </summary>
+        </member>
+        <member name="M:Xunit.Runners.DeviceResources.Connect(System.Int32,System.Object)">
+            <summary>
+            Connect()
+            </summary>
+        </member>
+        <member name="E:Xunit.Runners.Utilities.FilteredCollectionView`2.ItemChanged">
+            <summary>
+                Raised when one of the items selected by the filter is changed.
+            </summary>
+            <remarks>
+                The sender is reported to be the item changed.
+            </remarks>
+        </member>
+        <member name="T:Xunit.Runners.AssemblyRunInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Xunit.Runners.AssemblyRunInfo.AssemblyFileName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Xunit.Runners.AssemblyRunInfo.Configuration">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Xunit.Runners.AssemblyRunInfo.TestCases">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Xunit.Runners.DeviceRunner">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Xunit.Runners.INavigation">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Xunit.Runners.INavigation.NavigateTo(Xunit.Runners.NavigationPage,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="page"></param>
+            <param name="dataContext"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Xunit.Runners.NavigationPage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Xunit.Runners.ITestListener">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Xunit.Runners.ITestListener.RecordResult(Xunit.Runners.TestResultViewModel)">
+            <summary>
+            
+            </summary>
+            <param name="result"></param>
+        </member>
+        <member name="T:Xunit.Runners.TestResultViewModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Xunit.Runners.TestResultViewModel.#ctor(Xunit.Runners.TestCaseViewModel,Xunit.Abstractions.ITestResultMessage)">
+            <summary>
+            
+            </summary>
+            <param name="testCase"></param>
+            <param name="testResult"></param>
+        </member>
+        <member name="P:Xunit.Runners.TestResultViewModel.Duration">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Xunit.Runners.TestResultViewModel.ErrorMessage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Xunit.Runners.TestResultViewModel.ErrorStackTrace">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Xunit.Runners.TestResultViewModel.TestCase">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Xunit.Runners.TestResultViewModel.TestResultMessage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Xunit.Runners.xunit_runner_uwp_XamlTypeInfo.XamlMetaDataProvider.GetXamlType(System.Type)">
+            <summary>
+            GetXamlType(Type)
+            </summary>
+        </member>
+        <member name="M:Xunit.Runners.xunit_runner_uwp_XamlTypeInfo.XamlMetaDataProvider.GetXamlType(System.String)">
+            <summary>
+            GetXamlType(String)
+            </summary>
+        </member>
+        <member name="M:Xunit.Runners.xunit_runner_uwp_XamlTypeInfo.XamlMetaDataProvider.GetXmlnsDefinitions">
+            <summary>
+            GetXmlnsDefinitions()
+            </summary>
+        </member>
+    </members>
+</doc>

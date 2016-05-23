@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>xunit.runner.devices</name>
+    </assembly>
+    <members>
+        <member name="F:Xunit.Runners.UI.RunnerOptions.Current">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Xunit.Runners.UI.RunnerOptions.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Xunit.Runners.UI.RunnerOptions.ShowUseNetworkLogger">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Xunit.Runners.UI.RunnerOptions.AutoStart">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Xunit.Runners.UI.RunnerOptions.EnableNetwork">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Xunit.Runners.UI.RunnerOptions.HostName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Xunit.Runners.UI.RunnerOptions.HostPort">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Xunit.Runners.UI.RunnerOptions.TerminateAfterExecution">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Xunit.Runners.AssemblyRunInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Xunit.Runners.AssemblyRunInfo.AssemblyFileName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Xunit.Runners.AssemblyRunInfo.Configuration">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Xunit.Runners.AssemblyRunInfo.TestCases">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Xunit.Runners.DeviceRunner">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Xunit.Runners.INavigation">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Xunit.Runners.INavigation.NavigateTo(Xunit.Runners.NavigationPage,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="page"></param>
+            <param name="dataContext"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Xunit.Runners.NavigationPage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Xunit.Runners.ITestListener">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Xunit.Runners.ITestListener.RecordResult(Xunit.Runners.TestResultViewModel)">
+            <summary>
+            
+            </summary>
+            <param name="result"></param>
+        </member>
+        <member name="E:Xunit.Runners.Utilities.FilteredCollectionView`2.ItemChanged">
+            <summary>
+                Raised when one of the items selected by the filter is changed.
+            </summary>
+            <remarks>
+                The sender is reported to be the item changed.
+            </remarks>
+        </member>
+        <member name="T:Xunit.Runners.TestResultViewModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Xunit.Runners.TestResultViewModel.#ctor(Xunit.Runners.TestCaseViewModel,Xunit.Abstractions.ITestResultMessage)">
+            <summary>
+            
+            </summary>
+            <param name="testCase"></param>
+            <param name="testResult"></param>
+        </member>
+        <member name="P:Xunit.Runners.TestResultViewModel.Duration">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Xunit.Runners.TestResultViewModel.ErrorMessage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Xunit.Runners.TestResultViewModel.ErrorStackTrace">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Xunit.Runners.TestResultViewModel.TestCase">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Xunit.Runners.TestResultViewModel.TestResultMessage">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>
