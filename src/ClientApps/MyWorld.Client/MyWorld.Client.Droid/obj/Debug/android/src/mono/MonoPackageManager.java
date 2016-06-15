@@ -17,10 +17,20 @@ public class MonoPackageManager {
 	static Object lock = new Object ();
 	static boolean initialized;
 
+	static android.content.Context Context;
+
 	public static void LoadApplication (Context context, ApplicationInfo runtimePackage, String[] apks)
 	{
 		synchronized (lock) {
+			if (context instanceof android.app.Application) {
+				Context = context;
+			}
 			if (!initialized) {
+				android.content.IntentFilter timezoneChangedFilter  = new android.content.IntentFilter (
+						android.content.Intent.ACTION_TIMEZONE_CHANGED
+				);
+				context.registerReceiver (new mono.android.app.NotifyTimeZoneChanges (), timezoneChangedFilter);
+				
 				System.loadLibrary("monodroid");
 				Locale locale       = Locale.getDefault ();
 				String language     = locale.getLanguage () + "-" + locale.getCountry ();
@@ -44,9 +54,17 @@ public class MonoPackageManager {
 							"Android/data/" + context.getPackageName () + "/files/.__override__").getAbsolutePath (),
 						MonoPackageManager_Resources.Assemblies,
 						context.getPackageName ());
+				
+				mono.android.app.ApplicationRegistration.registerApplications ();
+				
 				initialized = true;
 			}
 		}
+	}
+
+	public static void setContext (Context context)
+	{
+		// Ignore; vestigial
 	}
 
 	static String getNativeLibraryPath (Context context)
@@ -79,68 +97,50 @@ public class MonoPackageManager {
 
 class MonoPackageManager_Resources {
 	public static final String[] Assemblies = new String[]{
+		/* We need to ensure that "MyWorld.Client.Droid.dll" comes first in this list. */
 		"MyWorld.Client.Droid.dll",
 		"FormsViewGroup.dll",
-		"MyWorld.Client.UI.dll",
+		"Xamarin.Android.Support.Animated.Vector.Drawable.dll",
 		"Xamarin.Android.Support.Design.dll",
 		"Xamarin.Android.Support.v4.dll",
 		"Xamarin.Android.Support.v7.AppCompat.dll",
 		"Xamarin.Android.Support.v7.CardView.dll",
 		"Xamarin.Android.Support.v7.MediaRouter.dll",
+		"Xamarin.Android.Support.v7.RecyclerView.dll",
+		"Xamarin.Android.Support.Vector.Drawable.dll",
 		"Xamarin.Forms.Core.dll",
+		"Xamarin.Forms.Maps.Android.dll",
+		"Xamarin.Forms.Maps.dll",
 		"Xamarin.Forms.Platform.Android.dll",
 		"Xamarin.Forms.Platform.dll",
 		"Xamarin.Forms.Xaml.dll",
-		"System.Collections.Concurrent.dll",
-		"System.Collections.dll",
-		"System.ComponentModel.Annotations.dll",
-		"System.ComponentModel.dll",
-		"System.ComponentModel.EventBasedAsync.dll",
-		"System.Diagnostics.Contracts.dll",
-		"System.Diagnostics.Debug.dll",
-		"System.Diagnostics.Tools.dll",
-		"System.Diagnostics.Tracing.dll",
-		"System.Dynamic.Runtime.dll",
-		"System.Globalization.dll",
-		"System.IO.dll",
-		"System.Linq.dll",
-		"System.Linq.Expressions.dll",
-		"System.Linq.Parallel.dll",
-		"System.Linq.Queryable.dll",
-		"System.Net.NetworkInformation.dll",
-		"System.Net.Primitives.dll",
-		"System.Net.Requests.dll",
-		"System.ObjectModel.dll",
-		"System.Reflection.dll",
-		"System.Reflection.Emit.dll",
-		"System.Reflection.Emit.ILGeneration.dll",
-		"System.Reflection.Emit.Lightweight.dll",
-		"System.Reflection.Extensions.dll",
-		"System.Reflection.Primitives.dll",
-		"System.Resources.ResourceManager.dll",
+		"Xamarin.GooglePlayServices.Base.dll",
+		"Xamarin.GooglePlayServices.Basement.dll",
+		"Xamarin.GooglePlayServices.Maps.dll",
+		"Java.Interop.dll",
+		"MyWorld.Client.UI.dll",
 		"System.Runtime.dll",
-		"System.Runtime.Extensions.dll",
-		"System.Runtime.InteropServices.dll",
-		"System.Runtime.InteropServices.WindowsRuntime.dll",
-		"System.Runtime.Numerics.dll",
-		"System.Runtime.Serialization.Json.dll",
-		"System.Runtime.Serialization.Primitives.dll",
-		"System.Runtime.Serialization.Xml.dll",
-		"System.Security.Principal.dll",
-		"System.ServiceModel.Http.dll",
-		"System.ServiceModel.Primitives.dll",
-		"System.ServiceModel.Security.dll",
-		"System.Text.Encoding.dll",
-		"System.Text.Encoding.Extensions.dll",
-		"System.Text.RegularExpressions.dll",
-		"System.Threading.dll",
+		"System.Collections.dll",
+		"System.Diagnostics.Debug.dll",
 		"System.Threading.Tasks.dll",
-		"System.Threading.Tasks.Parallel.dll",
-		"System.Threading.Timer.dll",
+		"System.ObjectModel.dll",
+		"System.Globalization.dll",
+		"System.ComponentModel.dll",
 		"System.Xml.ReaderWriter.dll",
-		"System.Xml.XDocument.dll",
-		"System.Xml.XmlSerializer.dll",
+		"System.Reflection.dll",
+		"System.Linq.Expressions.dll",
+		"System.Dynamic.Runtime.dll",
+		"System.Threading.dll",
+		"System.IO.dll",
+		"System.Runtime.Extensions.dll",
+		"System.Linq.dll",
+		"System.Reflection.Extensions.dll",
+		"System.Resources.ResourceManager.dll",
 		"System.ServiceModel.Internals.dll",
+		"System.Text.RegularExpressions.dll",
+		"System.Collections.Concurrent.dll",
+		"System.Runtime.InteropServices.dll",
+		"System.Diagnostics.Tools.dll",
 		"MyWorld.Client.Core.dll",
 		"Newtonsoft.Json.dll",
 	};

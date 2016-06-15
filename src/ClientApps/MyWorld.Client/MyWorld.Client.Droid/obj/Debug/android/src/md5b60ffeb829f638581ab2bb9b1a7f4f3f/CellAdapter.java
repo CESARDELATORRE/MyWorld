@@ -10,7 +10,8 @@ public abstract class CellAdapter
 		android.widget.AdapterView.OnItemClickListener,
 		android.support.v7.view.ActionMode.Callback
 {
-	static final String __md_methods;
+/** @hide */
+	public static final String __md_methods;
 	static {
 		__md_methods = 
 			"n_onItemLongClick:(Landroid/widget/AdapterView;Landroid/view/View;IJ)Z:GetOnItemLongClick_Landroid_widget_AdapterView_Landroid_view_View_IJHandler:Android.Widget.AdapterView/IOnItemLongClickListenerInvoker, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null\n" +
@@ -122,7 +123,7 @@ public abstract class CellAdapter
 
 	private native boolean n_onPrepareActionMode (android.support.v7.view.ActionMode p0, android.view.Menu p1);
 
-	java.util.ArrayList refList;
+	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)
 	{
 		if (refList == null)

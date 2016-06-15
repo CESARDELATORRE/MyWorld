@@ -6,7 +6,8 @@ public class NavigationMenuRenderer
 	implements
 		mono.android.IGCUserPeer
 {
-	static final String __md_methods;
+/** @hide */
+	public static final String __md_methods;
 	static {
 		__md_methods = 
 			"n_onSizeChanged:(IIII)V:GetOnSizeChanged_IIIIHandler\n" +
@@ -46,7 +47,7 @@ public class NavigationMenuRenderer
 
 	private native void n_onSizeChanged (int p0, int p1, int p2, int p3);
 
-	java.util.ArrayList refList;
+	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)
 	{
 		if (refList == null)

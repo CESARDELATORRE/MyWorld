@@ -7,7 +7,8 @@ public class ActionProvider_VisibilityListenerImplementor
 		mono.android.IGCUserPeer,
 		android.support.v4.view.ActionProvider.VisibilityListener
 {
-	static final String __md_methods;
+/** @hide */
+	public static final String __md_methods;
 	static {
 		__md_methods = 
 			"n_onActionProviderVisibilityChanged:(Z)V:GetOnActionProviderVisibilityChanged_ZHandler:Android.Support.V4.View.ActionProvider/IVisibilityListenerInvoker, Xamarin.Android.Support.v4\n" +
@@ -31,7 +32,7 @@ public class ActionProvider_VisibilityListenerImplementor
 
 	private native void n_onActionProviderVisibilityChanged (boolean p0);
 
-	java.util.ArrayList refList;
+	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)
 	{
 		if (refList == null)

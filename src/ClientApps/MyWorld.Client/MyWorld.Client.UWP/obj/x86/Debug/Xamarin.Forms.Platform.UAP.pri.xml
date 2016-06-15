@@ -4,7 +4,7 @@
 		<Qualifiers/>
 		<ResourceMapSubtree name="Files">
 			<ResourceMapSubtree name="Xamarin.Forms.Platform.UAP">
-				<NamedResource name="FormsTextBox.xbf" uri="ms-resource://Xamarin.Forms.Platform.UAP/Files/Xamarin.Forms.Platform.UAP/FormsTextBox.xbf">
+				<NamedResource name="FormsTextBoxStyle.xbf" uri="ms-resource://Xamarin.Forms.Platform.UAP/Files/Xamarin.Forms.Platform.UAP/FormsTextBoxStyle.xbf">
 					<Candidate type="EmbeddedData">
 						<Base64Value>[Embedded Binary Data]</Base64Value>
 					</Candidate>

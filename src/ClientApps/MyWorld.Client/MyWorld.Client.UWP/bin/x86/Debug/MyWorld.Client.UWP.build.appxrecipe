@@ -330,17 +330,23 @@
     <AppxPackagedFile Include="C:\Users\CESARDL\.nuget\packages\System.Xml.XmlSerializer\4.0.10\lib\netcore50\System.Xml.XmlSerializer.dll">
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\CESARDL\.nuget\packages\Xamarin.Forms\2.0.0.6482\lib\uap10.0\Xamarin.Forms.Core.dll">
+    <AppxPackagedFile Include="C:\Users\CESARDL\.nuget\packages\Xamarin.Forms\2.2.0.45\lib\uap10.0\Xamarin.Forms.Core.dll">
       <PackagePath>Xamarin.Forms.Core.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\CESARDL\.nuget\packages\Xamarin.Forms\2.0.0.6482\lib\uap10.0\Xamarin.Forms.Platform.UAP.dll">
+    <AppxPackagedFile Include="C:\Users\CESARDL\.nuget\packages\Xamarin.Forms\2.2.0.45\lib\uap10.0\Xamarin.Forms.Platform.UAP.dll">
       <PackagePath>Xamarin.Forms.Platform.UAP.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\CESARDL\.nuget\packages\Xamarin.Forms\2.0.0.6482\lib\uap10.0\Xamarin.Forms.Platform.dll">
+    <AppxPackagedFile Include="C:\Users\CESARDL\.nuget\packages\Xamarin.Forms\2.2.0.45\lib\uap10.0\Xamarin.Forms.Platform.dll">
       <PackagePath>Xamarin.Forms.Platform.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\CESARDL\.nuget\packages\Xamarin.Forms\2.0.0.6482\lib\uap10.0\Xamarin.Forms.Xaml.dll">
+    <AppxPackagedFile Include="C:\Users\CESARDL\.nuget\packages\Xamarin.Forms\2.2.0.45\lib\uap10.0\Xamarin.Forms.Xaml.dll">
       <PackagePath>Xamarin.Forms.Xaml.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\CESARDL\.nuget\packages\Xamarin.Forms.Maps\2.2.0.45\lib\uap10.0\Xamarin.Forms.Maps.UWP.dll">
+      <PackagePath>Xamarin.Forms.Maps.UWP.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\CESARDL\.nuget\packages\Xamarin.Forms.Maps\2.2.0.45\lib\uap10.0\Xamarin.Forms.Maps.dll">
+      <PackagePath>Xamarin.Forms.Maps.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\bin\Debug\MyWorld.Client.UI.dll">
       <PackagePath>MyWorld.Client.UI.dll</PackagePath>
@@ -351,8 +357,11 @@
     <AppxPackagedFile Include="D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\bin\Debug\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UWP\Properties\Default.rd.xml">
-      <PackagePath>Properties\Default.rd.xml</PackagePath>
+    <AppxPackagedFile Include="D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UWP\glyphish_07_map_marker.png">
+      <PackagePath>glyphish_07_map_marker.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UWP\glyphish_103_map.png">
+      <PackagePath>glyphish_103_map.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UWP\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
@@ -381,16 +390,19 @@
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UWP\Properties\Default.rd.xml">
+      <PackagePath>Properties\Default.rd.xml</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UWP\bin\x86\Debug\MyWorld.Client.UWP.xr.xml">
       <PackagePath>MyWorld.Client.UWP.xr.xml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\CESARDL\.nuget\packages\Xamarin.Forms\2.0.0.6482\lib\uap10.0\Xamarin.Forms.Platform.UAP\Xamarin.Forms.Platform.UAP.xr.xml">
+    <AppxPackagedFile Include="C:\Users\CESARDL\.nuget\packages\Xamarin.Forms\2.2.0.45\lib\uap10.0\Xamarin.Forms.Platform.UAP\Xamarin.Forms.Platform.UAP.xr.xml">
       <PackagePath>Xamarin.Forms.Platform.UAP\Xamarin.Forms.Platform.UAP.xr.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\CESARDL\.nuget\packages\Xamarin.Forms\2.0.0.6482\lib\uap10.0\Xamarin.Forms.Platform.UAP\Properties\Xamarin.Forms.Platform.UAP.rd.xml">
+    <AppxPackagedFile Include="C:\Users\CESARDL\.nuget\packages\Xamarin.Forms\2.2.0.45\lib\uap10.0\Xamarin.Forms.Platform.UAP\Properties\Xamarin.Forms.Platform.UAP.rd.xml">
       <PackagePath>Xamarin.Forms.Platform.UAP\Properties\Xamarin.Forms.Platform.UAP.rd.xml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UWP\bin\x86\Debug\resources.pri">

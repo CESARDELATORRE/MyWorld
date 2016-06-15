@@ -42,10 +42,14 @@ D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.TestRunner.Android\bin\Deb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.TestRunner.Android\bin\Debug\xunit.runner.utility.dotnet.xml
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.TestRunner.Android\bin\Debug\xunit.assert.pdb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.TestRunner.Android\bin\Debug\xunit.assert.xml
-D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.TestRunner.Android\bin\Debug\MyWorld.ClientApps.UnitTests.dll.mdb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.TestRunner.Android\bin\Debug\xunit.core.dll.mdb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.TestRunner.Android\bin\Debug\xunit.execution.dotnet.dll.mdb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.TestRunner.Android\bin\Debug\xunit.runner.devices.dll.mdb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.TestRunner.Android\bin\Debug\xunit.runner.utility.dotnet.dll.mdb
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.TestRunner.Android\bin\Debug\MyWorld.Client.Core.dll
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.TestRunner.Android\bin\Debug\Newtonsoft.Json.dll
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.TestRunner.Android\bin\Debug\MyWorld.Client.Core.pdb
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.TestRunner.Android\bin\Debug\Newtonsoft.Json.xml
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.TestRunner.Android\bin\Debug\MyWorld.ClientApps.UnitTests.dll.mdb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.TestRunner.Android\obj\Debug\MyWorld.ClientApps.TestRunner.Android.dll.mdb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.TestRunner.Android\bin\Debug\MyWorld.ClientApps.TestRunner.Android.dll.mdb

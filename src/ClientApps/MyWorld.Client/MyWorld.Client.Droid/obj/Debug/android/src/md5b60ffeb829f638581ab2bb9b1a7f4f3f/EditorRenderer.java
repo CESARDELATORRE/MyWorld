@@ -8,7 +8,8 @@ public class EditorRenderer
 		android.text.TextWatcher,
 		android.text.NoCopySpan
 {
-	static final String __md_methods;
+/** @hide */
+	public static final String __md_methods;
 	static {
 		__md_methods = 
 			"n_afterTextChanged:(Landroid/text/Editable;)V:GetAfterTextChanged_Landroid_text_Editable_Handler:Android.Text.ITextWatcherInvoker, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null\n" +
@@ -66,7 +67,7 @@ public class EditorRenderer
 
 	private native void n_onTextChanged (java.lang.CharSequence p0, int p1, int p2, int p3);
 
-	java.util.ArrayList refList;
+	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)
 	{
 		if (refList == null)

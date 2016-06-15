@@ -21,6 +21,8 @@ namespace MyWorld.Client.UWP
         {
             this.InitializeComponent();
 
+            Xamarin.FormsMaps.Init("jPKIGmy6mJauYNubz1DH~JVgCiix388DdQDhmBGhWIw~AuEm-OgmWlIsU05qD6vjEmPhRez3lQKtMH5H-TNNyQ4-sYYuGCjw5bgKfFUyXRNb");
+
             LoadApplication(new MyWorld.Client.UI.App());
         }
     }

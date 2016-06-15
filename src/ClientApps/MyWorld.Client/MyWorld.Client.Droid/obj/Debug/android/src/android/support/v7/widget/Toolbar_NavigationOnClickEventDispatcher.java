@@ -7,7 +7,8 @@ public class Toolbar_NavigationOnClickEventDispatcher
 		mono.android.IGCUserPeer,
 		android.view.View.OnClickListener
 {
-	static final String __md_methods;
+/** @hide */
+	public static final String __md_methods;
 	static {
 		__md_methods = 
 			"n_onClick:(Landroid/view/View;)V:GetOnClick_Landroid_view_View_Handler:Android.Views.View/IOnClickListenerInvoker, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null\n" +
@@ -38,7 +39,7 @@ public class Toolbar_NavigationOnClickEventDispatcher
 
 	private native void n_onClick (android.view.View p0);
 
-	java.util.ArrayList refList;
+	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)
 	{
 		if (refList == null)

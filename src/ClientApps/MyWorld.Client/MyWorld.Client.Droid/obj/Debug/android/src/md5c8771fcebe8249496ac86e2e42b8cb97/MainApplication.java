@@ -2,12 +2,13 @@ package md5c8771fcebe8249496ac86e2e42b8cb97;
 
 
 public class MainApplication
-	extends mono.android.app.Application
+	extends android.app.Application
 	implements
 		mono.android.IGCUserPeer,
 		android.app.Application.ActivityLifecycleCallbacks
 {
-	static final String __md_methods;
+/** @hide */
+	public static final String __md_methods;
 	static {
 		__md_methods = 
 			"n_onCreate:()V:GetOnCreateHandler\n" +
@@ -22,15 +23,14 @@ public class MainApplication
 			"";
 	}
 
-
-	public MainApplication () throws java.lang.Throwable
+	public MainApplication ()
 	{
-		super ();
+		mono.MonoPackageManager.setContext (this);
 	}
+
 
 	public void onCreate ()
 	{
-		mono.android.Runtime.register ("MyWorld.Client.Droid.MainApplication, MyWorld.Client.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", MainApplication.class, __md_methods);
 		n_onCreate ();
 	}
 
@@ -100,7 +100,7 @@ public class MainApplication
 
 	private native void n_onActivityStopped (android.app.Activity p0);
 
-	java.util.ArrayList refList;
+	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)
 	{
 		if (refList == null)

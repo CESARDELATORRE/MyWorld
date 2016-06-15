@@ -72,6 +72,8 @@ D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.TestRunner.Android\obj\Deb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.TestRunner.Android\obj\Debug\assemblies\System.Xml.XmlSerializer.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.TestRunner.Android\obj\Debug\assemblies\System.Runtime.Serialization.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.TestRunner.Android\obj\Debug\assemblies\System.ServiceModel.Internals.dll
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.TestRunner.Android\obj\Debug\assemblies\MyWorld.Client.Core.dll
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.TestRunner.Android\obj\Debug\assemblies\Newtonsoft.Json.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.TestRunner.Android\obj\Debug\assemblies\xunit.assert.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.TestRunner.Android\obj\Debug\assemblies\System.Net.Http.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.TestRunner.Android\obj\Debug\assemblies\System.ComponentModel.DataAnnotations.dll

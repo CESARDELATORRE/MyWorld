@@ -115,6 +115,8 @@ D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UWP\bin\x86\Deb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UWP\bin\x86\Debug\Xamarin.Forms.Platform.UAP.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UWP\bin\x86\Debug\Xamarin.Forms.Platform.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UWP\bin\x86\Debug\Xamarin.Forms.Xaml.dll
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UWP\bin\x86\Debug\Xamarin.Forms.Maps.UWP.dll
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UWP\bin\x86\Debug\Xamarin.Forms.Maps.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UWP\bin\x86\Debug\MyWorld.Client.UI.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UWP\bin\x86\Debug\MyWorld.Client.Core.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UWP\bin\x86\Debug\Newtonsoft.Json.dll
@@ -201,4 +203,5 @@ D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UWP\obj\x86\Deb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UWP\obj\x86\Debug\qualifiers.txt.intermediate
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UWP\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UWP\obj\x86\Debug\Xamarin.Forms.Platform.UAP.pri.xml
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UWP\obj\x86\Debug\Xamarin.Forms.Maps.UWP.pri.xml
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UWP\obj\x86\Debug\ProjectArchitectures.txt

@@ -7,7 +7,8 @@ public class MasterDetailPageRenderer
 		mono.android.IGCUserPeer,
 		android.support.v4.widget.DrawerLayout.DrawerListener
 {
-	static final String __md_methods;
+/** @hide */
+	public static final String __md_methods;
 	static {
 		__md_methods = 
 			"n_onAttachedToWindow:()V:GetOnAttachedToWindowHandler\n" +
@@ -101,7 +102,7 @@ public class MasterDetailPageRenderer
 
 	private native void n_onDrawerStateChanged (int p0);
 
-	java.util.ArrayList refList;
+	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)
 	{
 		if (refList == null)

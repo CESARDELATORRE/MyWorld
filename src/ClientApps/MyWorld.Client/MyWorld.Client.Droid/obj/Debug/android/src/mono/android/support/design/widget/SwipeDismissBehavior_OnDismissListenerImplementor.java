@@ -7,7 +7,8 @@ public class SwipeDismissBehavior_OnDismissListenerImplementor
 		mono.android.IGCUserPeer,
 		android.support.design.widget.SwipeDismissBehavior.OnDismissListener
 {
-	static final String __md_methods;
+/** @hide */
+	public static final String __md_methods;
 	static {
 		__md_methods = 
 			"n_onDismiss:(Landroid/view/View;)V:GetOnDismiss_Landroid_view_View_Handler:Android.Support.Design.Widget.SwipeDismissBehavior/IOnDismissListenerInvoker, Xamarin.Android.Support.Design\n" +
@@ -40,7 +41,7 @@ public class SwipeDismissBehavior_OnDismissListenerImplementor
 
 	private native void n_onDragStateChanged (int p0);
 
-	java.util.ArrayList refList;
+	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)
 	{
 		if (refList == null)

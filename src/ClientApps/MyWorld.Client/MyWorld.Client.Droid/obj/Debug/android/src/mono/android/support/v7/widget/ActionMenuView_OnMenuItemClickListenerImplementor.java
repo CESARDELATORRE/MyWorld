@@ -7,7 +7,8 @@ public class ActionMenuView_OnMenuItemClickListenerImplementor
 		mono.android.IGCUserPeer,
 		android.support.v7.widget.ActionMenuView.OnMenuItemClickListener
 {
-	static final String __md_methods;
+/** @hide */
+	public static final String __md_methods;
 	static {
 		__md_methods = 
 			"n_onMenuItemClick:(Landroid/view/MenuItem;)Z:GetOnMenuItemClick_Landroid_view_MenuItem_Handler:Android.Support.V7.Widget.ActionMenuView/IOnMenuItemClickListenerInvoker, Xamarin.Android.Support.v7.AppCompat\n" +
@@ -31,7 +32,7 @@ public class ActionMenuView_OnMenuItemClickListenerImplementor
 
 	private native boolean n_onMenuItemClick (android.view.MenuItem p0);
 
-	java.util.ArrayList refList;
+	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)
 	{
 		if (refList == null)

@@ -16,6 +16,13 @@ D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.UnitTests\bin\Debug\xunit.
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.UnitTests\bin\Debug\xunit.execution.dotnet.xml
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.UnitTests\obj\Debug\MyWorld.ClientApps.UnitTests.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.UnitTests\obj\Debug\MyWorld.ClientApps.UnitTests.pdb
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.UnitTests\obj\Debug\MyWorld.ClientApps.UnitTests.csprojResolveAssemblyReference.cache
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.UnitTests\bin\Debug\MyWorld.Client.Core.dll
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.UnitTests\bin\Debug\Newtonsoft.Json.dll
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.UnitTests\bin\Debug\MyWorld.Client.Core.pdb
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.UnitTests\bin\Debug\Newtonsoft.Json.xml
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.UnitTests\obj\Debug\MyWorld.ClientApps.UnitTests.dll.mdb
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.UnitTests\bin\Debug\MyWorld.ClientApps.UnitTests.dll.mdb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.UnitTests\obj\Debug\MyWorld.ClientApps.UnitTests.dll.mdb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.UnitTests\bin\Debug\MyWorld.ClientApps.UnitTests.dll.mdb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.ClientApps.UnitTests\obj\Debug\MyWorld.ClientApps.UnitTests.dll.mdb

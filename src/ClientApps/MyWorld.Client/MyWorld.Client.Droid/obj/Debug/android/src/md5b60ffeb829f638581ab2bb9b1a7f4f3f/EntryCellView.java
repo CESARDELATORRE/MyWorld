@@ -10,7 +10,8 @@ public class EntryCellView
 		android.view.View.OnFocusChangeListener,
 		android.widget.TextView.OnEditorActionListener
 {
-	static final String __md_methods;
+/** @hide */
+	public static final String __md_methods;
 	static {
 		__md_methods = 
 			"n_afterTextChanged:(Landroid/text/Editable;)V:GetAfterTextChanged_Landroid_text_Editable_Handler:Android.Text.ITextWatcherInvoker, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null\n" +
@@ -94,7 +95,7 @@ public class EntryCellView
 
 	private native boolean n_onEditorAction (android.widget.TextView p0, int p1, android.view.KeyEvent p2);
 
-	java.util.ArrayList refList;
+	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)
 	{
 		if (refList == null)

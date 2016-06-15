@@ -2,11 +2,16 @@ D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\bin\Debug\My
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\bin\Debug\MyWorld.Client.UI.pdb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\bin\Debug\MyWorld.Client.Core.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\bin\Debug\Xamarin.Forms.Core.dll
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\bin\Debug\Xamarin.Forms.Maps.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\bin\Debug\Xamarin.Forms.Platform.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\bin\Debug\Xamarin.Forms.Xaml.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\bin\Debug\Newtonsoft.Json.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\bin\Debug\MyWorld.Client.Core.pdb
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\bin\Debug\Xamarin.Forms.Core.pdb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\bin\Debug\Xamarin.Forms.Core.xml
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\bin\Debug\Xamarin.Forms.Maps.xml
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\bin\Debug\Xamarin.Forms.Platform.pdb
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\bin\Debug\Xamarin.Forms.Xaml.pdb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\bin\Debug\Xamarin.Forms.Xaml.xml
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\bin\Debug\Newtonsoft.Json.xml
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\obj\Debug\MyWorld.Client.UI.csprojResolveAssemblyReference.cache
@@ -19,8 +24,8 @@ D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\obj\Debug\My
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\obj\Debug\MyWorld.Client.UI.Pages.Vehicles.VehiclesListPage.xaml.g.cs
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\obj\Debug\MyWorld.Client.UI.App.xaml.g.cs
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\obj\Debug\MyWorld.Client.UI.Cells.VehicleCell.xaml.g.cs
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\obj\Debug\MyWorld.Client.UI.Cells.VehicleCell2.xaml.g.cs
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\obj\Debug\MyWorld.Client.UI.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\obj\Debug\MyWorld.Client.UI.pdb
-D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\obj\Debug\MyWorld.Client.UI.Cells.VehicleCell2.xaml.g.cs
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\obj\Debug\MyWorld.Client.UI.dll.mdb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\bin\Debug\MyWorld.Client.UI.dll.mdb

@@ -6,12 +6,13 @@ public class InnerScaleListener
 	implements
 		mono.android.IGCUserPeer
 {
-	static final String __md_methods;
+/** @hide */
+	public static final String __md_methods;
 	static {
 		__md_methods = 
+			"n_onScale:(Landroid/view/ScaleGestureDetector;)Z:GetOnScale_Landroid_view_ScaleGestureDetector_Handler\n" +
 			"n_onScaleBegin:(Landroid/view/ScaleGestureDetector;)Z:GetOnScaleBegin_Landroid_view_ScaleGestureDetector_Handler\n" +
 			"n_onScaleEnd:(Landroid/view/ScaleGestureDetector;)V:GetOnScaleEnd_Landroid_view_ScaleGestureDetector_Handler\n" +
-			"n_onScale:(Landroid/view/ScaleGestureDetector;)Z:GetOnScale_Landroid_view_ScaleGestureDetector_Handler\n" +
 			"";
 		mono.android.Runtime.register ("Xamarin.Forms.Platform.Android.InnerScaleListener, Xamarin.Forms.Platform.Android, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null", InnerScaleListener.class, __md_methods);
 	}
@@ -23,6 +24,14 @@ public class InnerScaleListener
 		if (getClass () == InnerScaleListener.class)
 			mono.android.TypeManager.Activate ("Xamarin.Forms.Platform.Android.InnerScaleListener, Xamarin.Forms.Platform.Android, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null", "", this, new java.lang.Object[] {  });
 	}
+
+
+	public boolean onScale (android.view.ScaleGestureDetector p0)
+	{
+		return n_onScale (p0);
+	}
+
+	private native boolean n_onScale (android.view.ScaleGestureDetector p0);
 
 
 	public boolean onScaleBegin (android.view.ScaleGestureDetector p0)
@@ -40,15 +49,7 @@ public class InnerScaleListener
 
 	private native void n_onScaleEnd (android.view.ScaleGestureDetector p0);
 
-
-	public boolean onScale (android.view.ScaleGestureDetector p0)
-	{
-		return n_onScale (p0);
-	}
-
-	private native boolean n_onScale (android.view.ScaleGestureDetector p0);
-
-	java.util.ArrayList refList;
+	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)
 	{
 		if (refList == null)

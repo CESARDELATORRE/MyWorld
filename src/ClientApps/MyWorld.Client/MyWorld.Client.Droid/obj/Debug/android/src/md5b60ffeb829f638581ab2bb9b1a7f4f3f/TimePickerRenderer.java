@@ -7,7 +7,8 @@ public class TimePickerRenderer
 		mono.android.IGCUserPeer,
 		android.app.TimePickerDialog.OnTimeSetListener
 {
-	static final String __md_methods;
+/** @hide */
+	public static final String __md_methods;
 	static {
 		__md_methods = 
 			"n_onTimeSet:(Landroid/widget/TimePicker;II)V:GetOnTimeSet_Landroid_widget_TimePicker_IIHandler:Android.App.TimePickerDialog/IOnTimeSetListenerInvoker, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null\n" +
@@ -47,7 +48,7 @@ public class TimePickerRenderer
 
 	private native void n_onTimeSet (android.widget.TimePicker p0, int p1, int p2);
 
-	java.util.ArrayList refList;
+	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)
 	{
 		if (refList == null)

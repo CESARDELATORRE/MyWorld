@@ -7,7 +7,8 @@ public class SearchView_OnQueryTextListenerImplementor
 		mono.android.IGCUserPeer,
 		android.support.v7.widget.SearchView.OnQueryTextListener
 {
-	static final String __md_methods;
+/** @hide */
+	public static final String __md_methods;
 	static {
 		__md_methods = 
 			"n_onQueryTextChange:(Ljava/lang/String;)Z:GetOnQueryTextChange_Ljava_lang_String_Handler:Android.Support.V7.Widget.SearchView/IOnQueryTextListenerInvoker, Xamarin.Android.Support.v7.AppCompat\n" +
@@ -40,7 +41,7 @@ public class SearchView_OnQueryTextListenerImplementor
 
 	private native boolean n_onQueryTextSubmit (java.lang.String p0);
 
-	java.util.ArrayList refList;
+	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)
 	{
 		if (refList == null)

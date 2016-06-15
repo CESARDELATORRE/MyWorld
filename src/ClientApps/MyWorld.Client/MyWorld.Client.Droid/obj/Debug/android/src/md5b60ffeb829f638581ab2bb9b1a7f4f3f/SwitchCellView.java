@@ -7,7 +7,8 @@ public class SwitchCellView
 		mono.android.IGCUserPeer,
 		android.widget.CompoundButton.OnCheckedChangeListener
 {
-	static final String __md_methods;
+/** @hide */
+	public static final String __md_methods;
 	static {
 		__md_methods = 
 			"n_onCheckedChanged:(Landroid/widget/CompoundButton;Z)V:GetOnCheckedChanged_Landroid_widget_CompoundButton_ZHandler:Android.Widget.CompoundButton/IOnCheckedChangeListenerInvoker, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null\n" +
@@ -55,7 +56,7 @@ public class SwitchCellView
 
 	private native void n_onCheckedChanged (android.widget.CompoundButton p0, boolean p1);
 
-	java.util.ArrayList refList;
+	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)
 	{
 		if (refList == null)

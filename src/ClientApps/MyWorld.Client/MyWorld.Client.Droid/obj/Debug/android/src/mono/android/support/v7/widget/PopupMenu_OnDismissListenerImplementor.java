@@ -7,7 +7,8 @@ public class PopupMenu_OnDismissListenerImplementor
 		mono.android.IGCUserPeer,
 		android.support.v7.widget.PopupMenu.OnDismissListener
 {
-	static final String __md_methods;
+/** @hide */
+	public static final String __md_methods;
 	static {
 		__md_methods = 
 			"n_onDismiss:(Landroid/support/v7/widget/PopupMenu;)V:GetOnDismiss_Landroid_support_v7_widget_PopupMenu_Handler:Android.Support.V7.Widget.PopupMenu/IOnDismissListenerInvoker, Xamarin.Android.Support.v7.AppCompat\n" +
@@ -31,7 +32,7 @@ public class PopupMenu_OnDismissListenerImplementor
 
 	private native void n_onDismiss (android.support.v7.widget.PopupMenu p0);
 
-	java.util.ArrayList refList;
+	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)
 	{
 		if (refList == null)

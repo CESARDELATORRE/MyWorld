@@ -7,7 +7,8 @@ public class TabLayout_OnTabSelectedListenerImplementor
 		mono.android.IGCUserPeer,
 		android.support.design.widget.TabLayout.OnTabSelectedListener
 {
-	static final String __md_methods;
+/** @hide */
+	public static final String __md_methods;
 	static {
 		__md_methods = 
 			"n_onTabReselected:(Landroid/support/design/widget/TabLayout$Tab;)V:GetOnTabReselected_Landroid_support_design_widget_TabLayout_Tab_Handler:Android.Support.Design.Widget.TabLayout/IOnTabSelectedListenerInvoker, Xamarin.Android.Support.Design\n" +
@@ -49,7 +50,7 @@ public class TabLayout_OnTabSelectedListenerImplementor
 
 	private native void n_onTabUnselected (android.support.design.widget.TabLayout.Tab p0);
 
-	java.util.ArrayList refList;
+	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)
 	{
 		if (refList == null)

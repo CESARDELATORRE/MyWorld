@@ -8,7 +8,8 @@ public class InnerGestureListener
 		android.view.GestureDetector.OnGestureListener,
 		android.view.GestureDetector.OnDoubleTapListener
 {
-	static final String __md_methods;
+/** @hide */
+	public static final String __md_methods;
 	static {
 		__md_methods = 
 			"n_onDown:(Landroid/view/MotionEvent;)Z:GetOnDown_Landroid_view_MotionEvent_Handler:Android.Views.GestureDetector/IOnGestureListenerInvoker, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null\n" +
@@ -104,7 +105,7 @@ public class InnerGestureListener
 
 	private native boolean n_onSingleTapConfirmed (android.view.MotionEvent p0);
 
-	java.util.ArrayList refList;
+	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)
 	{
 		if (refList == null)

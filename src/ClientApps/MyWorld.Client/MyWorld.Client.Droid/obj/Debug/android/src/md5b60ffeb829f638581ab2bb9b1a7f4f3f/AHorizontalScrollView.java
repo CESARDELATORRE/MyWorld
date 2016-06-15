@@ -6,9 +6,12 @@ public class AHorizontalScrollView
 	implements
 		mono.android.IGCUserPeer
 {
-	static final String __md_methods;
+/** @hide */
+	public static final String __md_methods;
 	static {
 		__md_methods = 
+			"n_onInterceptTouchEvent:(Landroid/view/MotionEvent;)Z:GetOnInterceptTouchEvent_Landroid_view_MotionEvent_Handler\n" +
+			"n_onTouchEvent:(Landroid/view/MotionEvent;)Z:GetOnTouchEvent_Landroid_view_MotionEvent_Handler\n" +
 			"n_onScrollChanged:(IIII)V:GetOnScrollChanged_IIIIHandler\n" +
 			"";
 		mono.android.Runtime.register ("Xamarin.Forms.Platform.Android.AHorizontalScrollView, Xamarin.Forms.Platform.Android, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null", AHorizontalScrollView.class, __md_methods);
@@ -47,6 +50,22 @@ public class AHorizontalScrollView
 	}
 
 
+	public boolean onInterceptTouchEvent (android.view.MotionEvent p0)
+	{
+		return n_onInterceptTouchEvent (p0);
+	}
+
+	private native boolean n_onInterceptTouchEvent (android.view.MotionEvent p0);
+
+
+	public boolean onTouchEvent (android.view.MotionEvent p0)
+	{
+		return n_onTouchEvent (p0);
+	}
+
+	private native boolean n_onTouchEvent (android.view.MotionEvent p0);
+
+
 	public void onScrollChanged (int p0, int p1, int p2, int p3)
 	{
 		n_onScrollChanged (p0, p1, p2, p3);
@@ -54,7 +73,7 @@ public class AHorizontalScrollView
 
 	private native void n_onScrollChanged (int p0, int p1, int p2, int p3);
 
-	java.util.ArrayList refList;
+	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)
 	{
 		if (refList == null)

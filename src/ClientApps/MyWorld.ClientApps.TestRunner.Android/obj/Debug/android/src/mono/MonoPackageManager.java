@@ -146,6 +146,8 @@ class MonoPackageManager_Resources {
 		"System.Xml.XDocument.dll",
 		"System.Xml.XmlSerializer.dll",
 		"System.ServiceModel.Internals.dll",
+		"MyWorld.Client.Core.dll",
+		"Newtonsoft.Json.dll",
 		"xunit.assert.dll",
 	};
 	public static final String[] Dependencies = new String[]{

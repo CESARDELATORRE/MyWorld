@@ -6,7 +6,8 @@ public class TabbedRenderer
 	implements
 		mono.android.IGCUserPeer
 {
-	static final String __md_methods;
+/** @hide */
+	public static final String __md_methods;
 	static {
 		__md_methods = 
 			"n_onAttachedToWindow:()V:GetOnAttachedToWindowHandler\n" +
@@ -55,7 +56,7 @@ public class TabbedRenderer
 
 	private native void n_onDetachedFromWindow ();
 
-	java.util.ArrayList refList;
+	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)
 	{
 		if (refList == null)

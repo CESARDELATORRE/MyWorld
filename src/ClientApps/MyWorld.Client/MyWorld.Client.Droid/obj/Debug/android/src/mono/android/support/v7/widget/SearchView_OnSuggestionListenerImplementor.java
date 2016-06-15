@@ -7,7 +7,8 @@ public class SearchView_OnSuggestionListenerImplementor
 		mono.android.IGCUserPeer,
 		android.support.v7.widget.SearchView.OnSuggestionListener
 {
-	static final String __md_methods;
+/** @hide */
+	public static final String __md_methods;
 	static {
 		__md_methods = 
 			"n_onSuggestionClick:(I)Z:GetOnSuggestionClick_IHandler:Android.Support.V7.Widget.SearchView/IOnSuggestionListenerInvoker, Xamarin.Android.Support.v7.AppCompat\n" +
@@ -40,7 +41,7 @@ public class SearchView_OnSuggestionListenerImplementor
 
 	private native boolean n_onSuggestionSelect (int p0);
 
-	java.util.ArrayList refList;
+	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)
 	{
 		if (refList == null)

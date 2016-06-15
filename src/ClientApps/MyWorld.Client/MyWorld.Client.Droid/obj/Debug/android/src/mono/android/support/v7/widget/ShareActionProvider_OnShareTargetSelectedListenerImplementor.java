@@ -7,7 +7,8 @@ public class ShareActionProvider_OnShareTargetSelectedListenerImplementor
 		mono.android.IGCUserPeer,
 		android.support.v7.widget.ShareActionProvider.OnShareTargetSelectedListener
 {
-	static final String __md_methods;
+/** @hide */
+	public static final String __md_methods;
 	static {
 		__md_methods = 
 			"n_onShareTargetSelected:(Landroid/support/v7/widget/ShareActionProvider;Landroid/content/Intent;)Z:GetOnShareTargetSelected_Landroid_support_v7_widget_ShareActionProvider_Landroid_content_Intent_Handler:Android.Support.V7.Widget.ShareActionProvider/IOnShareTargetSelectedListenerInvoker, Xamarin.Android.Support.v7.AppCompat\n" +
@@ -31,7 +32,7 @@ public class ShareActionProvider_OnShareTargetSelectedListenerImplementor
 
 	private native boolean n_onShareTargetSelected (android.support.v7.widget.ShareActionProvider p0, android.content.Intent p1);
 
-	java.util.ArrayList refList;
+	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)
 	{
 		if (refList == null)
