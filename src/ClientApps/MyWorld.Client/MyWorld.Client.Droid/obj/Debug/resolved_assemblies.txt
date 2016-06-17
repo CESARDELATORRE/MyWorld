@@ -1,5 +1,10 @@
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\android\assets\MyWorld.Client.Droid.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\android\assets\FormsViewGroup.dll
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\android\assets\Plugin.CurrentActivity.dll
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\android\assets\Plugin.Geolocator.Abstractions.dll
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\android\assets\Plugin.Geolocator.dll
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\android\assets\Plugin.Permissions.Abstractions.dll
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\android\assets\Plugin.Permissions.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\android\assets\Xamarin.Android.Support.Animated.Vector.Drawable.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\android\assets\Xamarin.Android.Support.Design.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\android\assets\Xamarin.Android.Support.v4.dll
@@ -27,9 +32,10 @@ D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\android\assets\MyWorld.Client.UI.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\android\assets\System.Runtime.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\android\assets\System.ComponentModel.Composition.dll
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\android\assets\System.Resources.ResourceManager.dll
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\android\assets\System.Threading.Tasks.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\android\assets\System.Collections.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\android\assets\System.Diagnostics.Debug.dll
-D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\android\assets\System.Threading.Tasks.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\android\assets\System.ObjectModel.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\android\assets\System.Globalization.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\android\assets\System.ComponentModel.dll
@@ -42,7 +48,6 @@ D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\android\assets\System.Runtime.Extensions.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\android\assets\System.Linq.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\android\assets\System.Reflection.Extensions.dll
-D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\android\assets\System.Resources.ResourceManager.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\android\assets\System.Net.Http.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\android\assets\System.Runtime.Serialization.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\android\assets\System.ServiceModel.Internals.dll

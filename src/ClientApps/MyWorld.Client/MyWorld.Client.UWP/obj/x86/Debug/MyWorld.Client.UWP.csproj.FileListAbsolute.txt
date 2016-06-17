@@ -205,3 +205,7 @@ D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UWP\obj\x86\Deb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UWP\obj\x86\Debug\Xamarin.Forms.Platform.UAP.pri.xml
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UWP\obj\x86\Debug\Xamarin.Forms.Maps.UWP.pri.xml
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UWP\obj\x86\Debug\ProjectArchitectures.txt
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UWP\bin\x86\Debug\Plugin.Geolocator.Abstractions.dll
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UWP\bin\x86\Debug\Plugin.Geolocator.Abstractions.pdb
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UWP\bin\x86\Debug\Plugin.Geolocator.dll
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UWP\bin\x86\Debug\Plugin.Geolocator.pdb

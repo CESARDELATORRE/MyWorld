@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ctrl="clr-namespace:MyWorld.Client.UI.Controls;assembly=MyWorld.Client.UI"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             xmlns:behavior="clr-namespace:MyWorld.Client.UI.Behaviors;assembly=MyWorld.Client.UI"
+             
+             x:Class="MyWorld.Client.UI.Pages.MapPage"
+             Title="Vehicles Map"
+             NavigationPage.BackButtonTitle="Map"
+             Icon="tab_map.png"
+             BackgroundColor="{DynamicResource WindowBackground}">
+
+  
+  
+  <StackLayout>
+    <Label Text="MyWorld's Map" VerticalOptions="Center" HorizontalOptions="Center" />
+    
+    <maps:Map MapType="Street" VerticalOptions="FillAndExpand" IsShowingUser="True">
+      <maps:Map.Behaviors>
+        <behavior:MapBehavior 
+          ItemsSource="{Binding Pins}"
+          VisibleRegion="{Binding VisibleRegion}"/>
+      </maps:Map.Behaviors>
+    </maps:Map>       
+    
+  </StackLayout>
+  
+  
+</ContentPage>

@@ -19,24 +19,18 @@ namespace MyWorld.Client.UI
 
             //(CDLTLL) Navigation page - Not used now
             //MainPage = new NavigationPage(new MyWorld.Client.UI.Pages.MapPage());
-
-            //var tabs = new TabbedPage();
-            //tabs.Children.Add(new MapPinPage { Title = "Pins", Icon = "glyphish_07_map_marker.png" });
-
-            //MainPage = tabs;
-
             
             Xamarin.Forms.OnPlatform<Xamarin.Forms.Color> onPlatWindowBkgColor =
                     (Xamarin.Forms.OnPlatform<Xamarin.Forms.Color>)Application.Current.Resources["WindowBackground"];
 
-            //(Using TabbedPage as root of the app)
-
+            // Using TabbedPage as root of the app 
             var tabs = new TabbedPage();
 
             tabs.Title = "MyWorld";
             tabs.BackgroundColor = onPlatWindowBkgColor;
             tabs.BindingContext = new MyWorldViewModel();
             tabs.Children.Add(new VehiclesListPage());
+            tabs.Children.Add(new MapPage());
             tabs.Children.Add(new MapPinPage { Title = "Pins", Icon = "glyphish_07_map_marker.png" });
 
             //new BasicAccordionPage(),

@@ -3,16 +3,16 @@ using System;
 using Android.App;
 using Android.OS;
 using Android.Runtime;
-
+using Plugin.CurrentActivity;
 
 namespace MyWorld.Client.Droid
 {
-    //You can specify additional application information in this attribute
+	//You can specify additional application information in this attribute
     [Application]
     public class MainApplication : Application, Application.IActivityLifecycleCallbacks
     {
         public MainApplication(IntPtr handle, JniHandleOwnership transer)
-          : base(handle, transer)
+          :base(handle, transer)
         {
         }
 
@@ -31,7 +31,7 @@ namespace MyWorld.Client.Droid
 
         public void OnActivityCreated(Activity activity, Bundle savedInstanceState)
         {
-            
+            CrossCurrentActivity.Current.Activity = activity;
         }
 
         public void OnActivityDestroyed(Activity activity)
@@ -44,7 +44,7 @@ namespace MyWorld.Client.Droid
 
         public void OnActivityResumed(Activity activity)
         {
-            
+            CrossCurrentActivity.Current.Activity = activity;
         }
 
         public void OnActivitySaveInstanceState(Activity activity, Bundle outState)
@@ -53,7 +53,7 @@ namespace MyWorld.Client.Droid
 
         public void OnActivityStarted(Activity activity)
         {
-            
+            CrossCurrentActivity.Current.Activity = activity;
         }
 
         public void OnActivityStopped(Activity activity)

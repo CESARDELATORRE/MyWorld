@@ -10,11 +10,20 @@ namespace MyWorld.Client.Core.Model
         [JsonProperty("id")]
         public int Id { get; set; } = 0;
 
+        [JsonProperty("tenantid")]
+        public string TenantId { get; set; } = string.Empty;
+
         [JsonProperty("make")]
         public string Make { get; set; } = string.Empty;
 
         [JsonProperty("model")]
         public string Model { get; set; } = string.Empty;
+
+        [JsonProperty("latitude")]
+        public double Latitude { get; set; } = 0;
+
+        [JsonProperty("longitude")]
+        public double Longitude { get; set; } = 0;
 
         [JsonProperty("year")]
         public string Year { get; set; } = string.Empty;
