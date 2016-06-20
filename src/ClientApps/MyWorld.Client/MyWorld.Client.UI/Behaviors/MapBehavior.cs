@@ -13,6 +13,8 @@ namespace MyWorld.Client.UI.Behaviors
     public class MapBehavior : BindableBehavior<Map>
     {
         //(CDLTLL-Check these warnings, deprecated APIs)
+        // See --> https://forums.xamarin.com/discussion/63268/bindableproperty-pieces-obsoleting
+
         public static readonly BindableProperty ItemsSourceProperty = BindableProperty.Create<MapBehavior, IEnumerable<ILocationViewModel>>(
             p => p.ItemsSource, null, BindingMode.Default, null, ItemsSourceChanged);
 
@@ -91,11 +93,14 @@ namespace MyWorld.Client.UI.Behaviors
         private void AddPins()
         {
             var map = AssociatedObject;
-            for (int i = map.Pins.Count - 1; i >= 0; i--)
-            {
-                map.Pins[i].Clicked -= PinOnClicked;
-                map.Pins.RemoveAt(i);
-            }
+
+            //(CDLTLL) Clear Pins from Map
+            map.Pins.Clear();
+            //for (int i = map.Pins.Count - 1; i >= 0; i--)
+            //{
+            //    map.Pins[i].Clicked -= PinOnClicked;
+            //    map.Pins.RemoveAt(i);
+            //}
 
             var pins = ItemsSource.Select(x =>
             {
@@ -111,6 +116,7 @@ namespace MyWorld.Client.UI.Behaviors
                 return pin;
             }).ToArray();
 
+            //(CDLTLL) Paint Pins on the Map
             foreach (var pin in pins)
                 map.Pins.Add(pin);
         }

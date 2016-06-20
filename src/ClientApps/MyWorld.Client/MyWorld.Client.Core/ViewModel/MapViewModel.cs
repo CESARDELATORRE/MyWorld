@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Globalization;
 using System.ComponentModel;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,6 +16,7 @@ using Plugin.Geolocator.Abstractions;
 using MyWorld.Client.Core.Maps;
 using MyWorld.Client.Core.Model;
 using MyWorld.Client.Core.Services;
+using System.Linq;
 
 namespace MyWorld.Client.Core.ViewModel
 {
@@ -54,13 +56,46 @@ namespace MyWorld.Client.Core.ViewModel
 
             _vehiclesService = new VehiclesMockService();   //Needs to be injected/DI
 
-            Title = "Redmond";
-            VisibleRegion = MapSpan.FromCenterAndRadius(new Position(47.6740, 122.1215), new Distance(3000));
+            Title = "Map";
 
+            //(Redmond's location in case the GPS plugin doesn't work)
+            VisibleRegion = MapSpan.FromCenterAndRadius(new Position(47.661407, -122.131213), new Distance(3000));
+
+        }
+
+        // (Reload data from repos everytime the page is appearing, like when hitting the page-tab)
+        public void Appearing()
+        {
+            Device.BeginInvokeOnMainThread(ReloadMapInfo);
+        }
+
+        public void Disappearing()
+        {
+            //TBD
         }
 
         public string Title { get; set; }
 
+        private string _searchText = string.Empty;
+        public string SearchText
+        {
+            get { return _searchText; }
+            set {
+                if (_searchText != value)
+                {
+                    _searchText = value ?? string.Empty;
+                    OnPropertyChanged();
+
+                    // Perform the search
+                    if (SearchCommand.CanExecute(null))
+                    {
+                        SearchCommand.Execute(null);
+                    }
+
+                }
+
+            }
+        }
 
         //string tenantID = Settings.TenantID;
         string _tenantID = "CDLTLL";
@@ -107,7 +142,7 @@ namespace MyWorld.Client.Core.ViewModel
                 if (distance > 1)
                 {
                     _mapCenter = value;
-                    Device.BeginInvokeOnMainThread(RefreshMap);
+                    Device.BeginInvokeOnMainThread(ReloadMapInfo);
                 }
             }
         }
@@ -120,7 +155,7 @@ namespace MyWorld.Client.Core.ViewModel
             {
                 _radius = value;
                 OnPropertyChanged();
-                Device.BeginInvokeOnMainThread(RefreshMap);
+                Device.BeginInvokeOnMainThread(ReloadMapInfo);
             }
         }
 
@@ -140,16 +175,41 @@ namespace MyWorld.Client.Core.ViewModel
             }
         }
 
+        //(CDLTLL) Data in Pins is filtered from actual data in-memory in the collection.
+        // Data is not reloaded from the original Services/DB/Mock until the method ReloadMapInfo() is called
         ObservableCollection<ILocationViewModel> _pins;
         public ObservableCollection<ILocationViewModel> Pins
         {
-            get { return _pins; }
+            get
+            {
+                if (!string.IsNullOrEmpty(_searchText))  //There's text to search for
+                {
+                    ObservableCollection<ILocationViewModel> pinsSubset = new ObservableCollection<ILocationViewModel>();
+                    if (_pins != null)
+                    {
+                        
+                        List<ILocationViewModel> entities = (from p in _pins
+                                                            where p.Title.ToUpper().Contains(_searchText.ToUpper())
+                                                             select p).ToList<ILocationViewModel>();
+                        if (entities != null && entities.Any())
+                        {
+                            pinsSubset = new ObservableCollection<ILocationViewModel>(entities);
+                        }
+                    }
+                    return pinsSubset;
+                }
+                else    //if SearchText is empty, return all the pins
+                {
+                    return _pins;
+                }
+            }
             set
             {
                 _pins = value;
                 OnPropertyChanged();
             }
         }
+
 
         Vehicle _selectedVehicle;
         public Vehicle SelectedVehicle
@@ -197,13 +257,12 @@ namespace MyWorld.Client.Core.ViewModel
             return _lastPosition;
         }
 
-        private async void RefreshMap()
+        //(CDLTLL) RefreshMap() with real data loading from services/mock is called only if VisibleRegion or Map-Zoom has changed
+        private async void ReloadMapInfo()
         {
             if (IsBusy)
-            {
-                return;
-            }
-
+               return;
+            
             IsBusy = true;
 
             if (_firstLocation == null)
@@ -222,16 +281,17 @@ namespace MyWorld.Client.Core.ViewModel
                 var distanceRadians =
                     DegreesToRadians(Math.Max(VisibleRegion.LatitudeDegrees, VisibleRegion.LongitudeDegrees) / 2);
 
+                // (CDLTLL) Query and obtain data from a real service or from the mock service depending on the injected implementation
                 var vehiclesInCurrentMapArea = await _vehiclesService.GetVehiclesNearby(_tenantID, MapCenter.Latitude, MapCenter.Longitude, distanceRadians);
 
                 //(CDLTLL - Check this, not being used)
                 Vehicles = new ObservableCollection<Vehicle>(vehiclesInCurrentMapArea);
 
-                var pins = new List<ILocationViewModel>();
+                var pinsList = new List<ILocationViewModel>();
                 foreach (Vehicle vehicle in vehiclesInCurrentMapArea)
                 {
                     Vehicle localVehicle = vehicle;
-                    pins.Add(new LocationViewModel
+                    pinsList.Add(new LocationViewModel
                     {
                         Key = vehicle.Id.ToString(),
                         Title = vehicle.Make + " " + vehicle.Model,
@@ -243,7 +303,7 @@ namespace MyWorld.Client.Core.ViewModel
                 }
 
                 //UpdatePins(pins);
-                Pins = new ObservableCollection<ILocationViewModel>(pins);
+                Pins = new ObservableCollection<ILocationViewModel>(pinsList);
             }
             finally
             {
@@ -270,7 +330,7 @@ namespace MyWorld.Client.Core.ViewModel
 
         public Command RefreshCommand
         {
-            get { return _refreshCommand ?? (_refreshCommand = new Command(RefreshMap, () => !IsBusy)); }
+            get { return _refreshCommand ?? (_refreshCommand = new Command(ReloadMapInfo, () => !IsBusy)); }
         }
 
         public Command CancelCommand
@@ -291,7 +351,31 @@ namespace MyWorld.Client.Core.ViewModel
             return degrees * Math.PI / 180;
         }
 
+        #region Command and associated methods for SearchCommand
+        private Xamarin.Forms.Command _searchCommand;
 
+        public System.Windows.Input.ICommand SearchCommand
+        {
+            get
+            {
+                _searchCommand = _searchCommand ?? new Xamarin.Forms.Command(DoSearchCommand, CanExecuteSearchCommand);
+                return _searchCommand;
+            }
+        }
+
+        private void DoSearchCommand()
+        {
+            // Refresh the list, which will automatically apply the search text
+
+            OnPropertyChanged("Pins");
+            //RaisePropertyChanged(() => Pins);
+        }
+
+        private bool CanExecuteSearchCommand()
+        {
+            return true;
+        }
+        #endregion
 
         public event PropertyChangedEventHandler PropertyChanged;
 

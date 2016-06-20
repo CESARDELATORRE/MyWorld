@@ -17,8 +17,12 @@ namespace MyWorld.Client.UI.Pages {
     public partial class MapPage : global::Xamarin.Forms.ContentPage {
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.SearchBar searchMapBar;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             this.LoadFromXaml(typeof(MapPage));
+            searchMapBar = this.FindByName<global::Xamarin.Forms.SearchBar>("searchMapBar");
         }
     }
 }

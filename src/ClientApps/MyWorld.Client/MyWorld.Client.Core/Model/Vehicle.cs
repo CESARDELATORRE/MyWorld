@@ -19,6 +19,16 @@ namespace MyWorld.Client.Core.Model
         [JsonProperty("model")]
         public string Model { get; set; } = string.Empty;
 
+        [JsonProperty("fulltitle")]
+        public string FullTitle
+        {
+            get
+            {
+                return Make + " " + Model;
+            }
+
+        }
+
         [JsonProperty("latitude")]
         public double Latitude { get; set; } = 0;
 

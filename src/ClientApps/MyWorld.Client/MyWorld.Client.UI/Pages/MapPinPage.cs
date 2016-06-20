@@ -45,20 +45,43 @@ namespace MyWorld.Client.UI
 					new Position (36.9628066,-122.0194722), Distance.FromMiles (1.5)));
 
 			};
-			var reLocate = new Button { Text = "Re-center" };
+
+            var reLocateToRedmond = new Button { Text = "Redmond move" };
+            reLocateToRedmond.Clicked += (sender, e) => {
+                map.MoveToRegion(MapSpan.FromCenterAndRadius(
+                    new Position(47.661407, -122.131213), Distance.FromMiles(3)));
+            };
+
+            var reLocate = new Button { Text = "Re-center" };
 			reLocate.Clicked += (sender, e) => {
 				map.MoveToRegion (MapSpan.FromCenterAndRadius (
-					new Position (36.9628066,-122.0194722), Distance.FromMiles (3)));
-			};
-			var buttons = new StackLayout {
-				Orientation = StackOrientation.Horizontal,
-				Children = {
-					morePins, reLocate
-				}
+					new Position (47.661407, -122.131213), Distance.FromMiles (3)));
 			};
 
-			// put the page together
-			Content = new StackLayout { 
+            
+            
+            //DELETE PINS button
+            var deletePins = new Button { Text = "Delete pins" };
+            deletePins.Clicked += (sender, e) => {
+
+                map.Pins.Clear();
+
+                //for (int i = map.Pins.Count - 1; i >= 0; i--)
+                //{
+                //    map.Pins.RemoveAt(i);
+                //}
+            };
+
+            //Add buttons to page
+            var buttons = new StackLayout {
+				Orientation = StackOrientation.Horizontal,
+				Children = {
+					morePins, deletePins, reLocateToRedmond, reLocate
+                }
+			};
+
+            // put the page together
+            Content = new StackLayout { 
 				Spacing = 0,
 				Children = {
 					map,

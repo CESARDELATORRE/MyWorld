@@ -14,8 +14,11 @@
   
   
   <StackLayout>
-    <Label Text="MyWorld's Map" VerticalOptions="Center" HorizontalOptions="Center" />
     
+    <SearchBar x:Name="searchMapBar" Text="{Binding SearchText}"  SearchCommand="{Binding SearchCommand}">
+    </SearchBar>
+
+
     <maps:Map MapType="Street" VerticalOptions="FillAndExpand" IsShowingUser="True">
       <maps:Map.Behaviors>
         <behavior:MapBehavior 

@@ -20,11 +20,17 @@ namespace MyWorld.Client.UI.Pages
             //(CDLTLL - TBD - Still NO Dependency Injection of the ViewModel)
             MapViewModel viewModel = new MapViewModel();
 
-            //List<Vehicle> tmpVehicles = viewModel.MyWorld.Vehicles;
-            //string image = tmpVehicles[1].FrontViewPhoto;
-
             this.BindingContext = viewModel;
 
+            //this.Appearing += (sender, args) =>
+            //{
+            //    viewModel.Appearing();
+            //};
+
+            //this.Disappearing += (sender, args) =>
+            //{
+            //    viewModel.Disappearing();
+            //};
         }
 
     }
