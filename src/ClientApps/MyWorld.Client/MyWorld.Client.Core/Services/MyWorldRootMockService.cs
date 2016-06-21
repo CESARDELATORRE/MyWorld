@@ -7,15 +7,15 @@ using static Newtonsoft.Json.JsonConvert;
 
 namespace MyWorld.Client.Core.Services
 {
-
-    public interface IMyWorldRootService
-    {
-        MyWorldRoot GetMyWorldData();
-    }
-
     public class MyWorldRootMockService : IMyWorldRootService
     {
-        public MyWorldRoot GetMyWorldData()
+        IVehiclesService _vehiclesService;
+        public MyWorldRootMockService(IVehiclesService injectedVehiclesService)
+        {
+            _vehiclesService = injectedVehiclesService;
+        }
+
+        public async Task<MyWorldRoot> GetMyWorldData()
         {
             MyWorldRoot myWorldData = new MyWorldRoot();
             myWorldData.TenantID = "CDLTLL";
@@ -30,9 +30,11 @@ namespace MyWorld.Client.Core.Services
             myWorldData.People.Add(new Person { Id = 6, FirstName = "Vicente", LastName = "Vazquez" });
 
             //Vehicles - Mock data
-            myWorldData.Vehicles = new List<Vehicle>();
-            myWorldData.Vehicles.Add(new Vehicle { Id = 100, Make = "Chevrolet", Model = "Camaro", Year = "2012", LicensePlate = "AJX6940", VIN = "QWERTYUIOPASDFG17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/Chevy-Camaro-RS-2012-small.jpg" });
-            myWorldData.Vehicles.Add(new Vehicle { Id = 101, Make = "Chevrolet", Model = "Tahoe", Year = "2015", LicensePlate = "XXX1234", VIN = "ASDFGUIOPASDFGX17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/Chevy-Tahoe-Z71-2015-small.jpg" });
+            myWorldData.Vehicles = await _vehiclesService.GetAllVehiclesFromTenant("CDLTLL");
+            
+            //myWorldData.Vehicles = new List<Vehicle>();
+            //myWorldData.Vehicles.Add(new Vehicle { Id = 100, Make = "Chevrolet", Model = "Camaro", Year = "2012", LicensePlate = "AJX6940", VIN = "QWERTYUIOPASDFG17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/Chevy-Camaro-RS-2012-small.jpg" });
+            //myWorldData.Vehicles.Add(new Vehicle { Id = 101, Make = "Chevrolet", Model = "Tahoe", Year = "2015", LicensePlate = "XXX1234", VIN = "ASDFGUIOPASDFGX17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/Chevy-Tahoe-Z71-2015-small.jpg" });
 
             //Tech Items - Mock Data
             myWorldData.TechItems = new List<TechItem>();
@@ -48,7 +50,7 @@ namespace MyWorld.Client.Core.Services
             myWorldData.Items.Add(new Item { Id = 10003, Name = "Pants" });
             myWorldData.Items.Add(new Item { Id = 10004, Name = "Whatever" });
 
-            return myWorldData;
+            return await Task.Run(() => myWorldData);
         }
     }
 }

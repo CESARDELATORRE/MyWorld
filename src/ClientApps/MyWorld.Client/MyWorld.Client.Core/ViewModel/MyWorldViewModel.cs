@@ -13,14 +13,14 @@ namespace MyWorld.Client.Core.ViewModel
 
     public class MyWorldViewModel : INotifyPropertyChanged
     {
-        IMyWorldRootService myWorldRootService;
+        IMyWorldRootService _myWorldRootService;
 
         //(CDLTLL) Constructor - TBD - Still with NO dependencies
-        public MyWorldViewModel()
+        public MyWorldViewModel(IMyWorldRootService injectedVehiclesService)
         {
-            myWorldRootService = new MyWorldRootMockService();
-
-            myWorld = myWorldRootService.GetMyWorldData();
+            //myWorldRootService = new MyWorldRootMockService();
+            _myWorldRootService = injectedVehiclesService;
+            
         }
 
         public string Title { get; set; }
@@ -39,30 +39,28 @@ namespace MyWorld.Client.Core.ViewModel
             }
         }
 
-        MyWorldRoot myWorld;
+        MyWorldRoot _myWorld;
         public MyWorldRoot MyWorld
         {
-            get { return myWorld; }
-            set { myWorld = value; OnPropertyChanged(); }
+            get { return _myWorld; }
+            set { _myWorld = value; OnPropertyChanged(); }
         }
 
+        public void Appearing()
+        {
+            Device.BeginInvokeOnMainThread(ReloadMyWorldRoot);
+        }
 
-        bool isBusy = false;
+        private async void ReloadMyWorldRoot()
+        {
+            MyWorld = await _myWorldRootService.GetMyWorldData();
+        }
+
+            bool isBusy = false;
         public bool IsBusy
         {
             get { return isBusy; }
             set { isBusy = value; OnPropertyChanged(); }
-        }
-
-        bool useMockData = true;
-        public bool UseMockData
-        {
-            get { return useMockData; }
-            set
-            {
-                useMockData = value;
-                OnPropertyChanged();
-            }
         }
 
         //ICommand getMyWorld;

@@ -13,24 +13,26 @@ namespace MyWorld.Client.UI.Pages
 {
     public partial class MapPage : ContentPage
     {
-        public MapPage()
+        public MapPage(MapViewModel injectedMapViewModel)
         {
             InitializeComponent();
 
-            //(CDLTLL - TBD - Still NO Dependency Injection of the ViewModel)
-            MapViewModel viewModel = new MapViewModel();
+            //(With NO Dependency Injection of the ViewModel)
+            //MapViewModel viewModel = new MapViewModel();
 
-            this.BindingContext = viewModel;
+            //Data binding assigned
+            this.BindingContext = injectedMapViewModel;
 
-            //this.Appearing += (sender, args) =>
-            //{
-            //    viewModel.Appearing();
-            //};
+            //Page appearing/disappearing events
+            this.Appearing += (sender, args) =>
+            {
+                injectedMapViewModel.Appearing();
+            };
 
-            //this.Disappearing += (sender, args) =>
-            //{
-            //    viewModel.Disappearing();
-            //};
+            this.Disappearing += (sender, args) =>
+            {
+                injectedMapViewModel.Disappearing();
+            };
         }
 
     }

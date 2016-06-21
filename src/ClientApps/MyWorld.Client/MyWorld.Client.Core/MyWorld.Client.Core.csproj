@@ -35,6 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="DependencyInjection\MyWorldClientCoreModule.cs" />
     <Compile Include="Maps\ILocationViewModel.cs" />
     <Compile Include="Maps\LocationViewModel.cs" />
     <Compile Include="Maps\MapHelper.cs" />
@@ -44,12 +45,20 @@
     <Compile Include="Model\Item.cs" />
     <Compile Include="Model\MyWorldRoot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\IMyWorldRootService.cs" />
+    <Compile Include="Services\MyWorldRootAzureSFService.cs" />
     <Compile Include="Services\MyWorldRootMockService.cs" />
+    <Compile Include="Services\IVehiclesService.cs" />
+    <Compile Include="Services\VehiclesAzureSFService.cs" />
     <Compile Include="Services\VehiclesMockService.cs" />
     <Compile Include="ViewModel\MapViewModel.cs" />
     <Compile Include="ViewModel\MyWorldViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Autofac.3.5.2\lib\portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Newtonsoft.Json.8.0.3\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>

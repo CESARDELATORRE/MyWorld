@@ -1,5 +1,6 @@
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Core\bin\Debug\MyWorld.Client.Core.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Core\bin\Debug\MyWorld.Client.Core.pdb
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Core\bin\Debug\Autofac.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Core\bin\Debug\Newtonsoft.Json.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Core\bin\Debug\Plugin.Geolocator.Abstractions.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Core\bin\Debug\Plugin.Geolocator.dll
@@ -7,6 +8,7 @@ D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Core\bin\Debug\
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Core\bin\Debug\Xamarin.Forms.Maps.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Core\bin\Debug\Xamarin.Forms.Platform.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Core\bin\Debug\Xamarin.Forms.Xaml.dll
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Core\bin\Debug\Autofac.xml
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Core\bin\Debug\Newtonsoft.Json.xml
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Core\bin\Debug\Plugin.Geolocator.pdb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Core\bin\Debug\Plugin.Geolocator.xml
@@ -20,8 +22,3 @@ D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Core\bin\Debug\
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Core\bin\Debug\Xamarin.Forms.Xaml.xml
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Core\obj\Debug\MyWorld.Client.Core.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Core\obj\Debug\MyWorld.Client.Core.pdb
-D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Core\obj\Debug\MyWorld.Client.Core.csprojResolveAssemblyReference.cache
-D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Core\obj\Debug\MyWorld.Client.Core.dll.mdb
-D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Core\bin\Debug\MyWorld.Client.Core.dll.mdb
-D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Core\obj\Debug\MyWorld.Client.Core.dll.mdb
-D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Core\bin\Debug\MyWorld.Client.Core.dll.mdb

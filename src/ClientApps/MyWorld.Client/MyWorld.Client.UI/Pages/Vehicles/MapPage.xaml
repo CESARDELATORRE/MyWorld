@@ -11,8 +11,6 @@
              Icon="tab_map.png"
              BackgroundColor="{DynamicResource WindowBackground}">
 
-  
-  
   <StackLayout>
     
     <SearchBar x:Name="searchMapBar" Text="{Binding SearchText}"  SearchCommand="{Binding SearchCommand}">

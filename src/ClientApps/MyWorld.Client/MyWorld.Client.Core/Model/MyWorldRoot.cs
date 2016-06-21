@@ -12,7 +12,7 @@ namespace MyWorld.Client.Core.Model
         [JsonProperty("people")]
         public List<Person> People { get; set; }
         [JsonProperty("vehicles")]
-        public List<Vehicle> Vehicles { get; set; }
+        public IList<Vehicle> Vehicles { get; set; }
         [JsonProperty("techitems")]
         public List<TechItem> TechItems { get; set; }
         [JsonProperty("items")]

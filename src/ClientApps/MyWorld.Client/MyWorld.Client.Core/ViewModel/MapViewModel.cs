@@ -28,6 +28,28 @@ namespace MyWorld.Client.Core.ViewModel
         private Command _refreshCommand;
         private Command _cancelCommand;
 
+        private Plugin.Geolocator.Abstractions.Position _firstLocation = null;
+        private readonly Plugin.Geolocator.Abstractions.IGeolocator _geolocator;
+
+        //(CDLTLL) Constructor - DI: Dependencies injected in the Constructor
+        public MapViewModel(IVehiclesService injectedVehiclesService)
+        {
+            //Injected/DI thru constructor
+            _vehiclesService = injectedVehiclesService;
+
+            //With NO Dependency Injection in the constructor
+            //_vehiclesService = new VehiclesMockService();   
+
+            //(TODO:)Needs to be injected/DI with Constructor dependency
+            _geolocator = Plugin.Geolocator.CrossGeolocator.Current;
+
+            Title = "Map";
+
+            //(Redmond's location in case the GPS plugin doesn't work)
+            VisibleRegion = MapSpan.FromCenterAndRadius(new Position(47.661407, -122.131213), new Distance(3000));
+
+        }
+
         private Func<Task> doneAction;
         public async Task DoneAction()
         {
@@ -44,23 +66,6 @@ namespace MyWorld.Client.Core.ViewModel
             {
                 await cancelAction();
             }
-        }
-
-        private Plugin.Geolocator.Abstractions.Position _firstLocation = null;
-        private readonly Plugin.Geolocator.Abstractions.IGeolocator _geolocator;
-
-        //(CDLTLL) Constructor - TBD - Still with NO dependencies (DI)
-        public MapViewModel()
-        {
-            _geolocator = Plugin.Geolocator.CrossGeolocator.Current; //Needs to be injected/DI with Constructor dependency
-
-            _vehiclesService = new VehiclesMockService();   //Needs to be injected/DI
-
-            Title = "Map";
-
-            //(Redmond's location in case the GPS plugin doesn't work)
-            VisibleRegion = MapSpan.FromCenterAndRadius(new Position(47.661407, -122.131213), new Distance(3000));
-
         }
 
         // (Reload data from repos everytime the page is appearing, like when hitting the page-tab)
@@ -107,17 +112,6 @@ namespace MyWorld.Client.Core.ViewModel
                 _tenantID = value;
                 OnPropertyChanged();
                 //Settings.TenantID = value;
-            }
-        }
-
-        bool _useMockData = true;
-        public bool UseMockData
-        {
-            get { return _useMockData; }
-            set
-            {
-                _useMockData = value;
-                OnPropertyChanged();
             }
         }
 

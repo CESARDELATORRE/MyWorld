@@ -357,6 +357,9 @@
     <AppxPackagedFile Include="D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\bin\Debug\MyWorld.Client.UI.dll">
       <PackagePath>MyWorld.Client.UI.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\bin\Debug\Autofac.dll">
+      <PackagePath>Autofac.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\bin\Debug\MyWorld.Client.Core.dll">
       <PackagePath>MyWorld.Client.Core.dll</PackagePath>
     </AppxPackagedFile>

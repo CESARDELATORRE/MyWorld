@@ -9,18 +9,21 @@ namespace MyWorld.Client.UI
 {
     public partial class VehiclesListPage : ContentPage
     {
-        public VehiclesListPage()
+        public VehiclesListPage(MyWorldViewModel injectedMyWorldViewModel)
         {
             InitializeComponent();
 
-
             //(CDLTLL - TBD - Still NO Dependency Injection of the ViewModel)
-            MyWorldViewModel viewModel = new MyWorldViewModel();
+            //MyWorldViewModel viewModel = new MyWorldViewModel();
 
-            //List<Vehicle> tmpVehicles = viewModel.MyWorld.Vehicles;
-            //string image = tmpVehicles[1].FrontViewPhoto;
+            this.BindingContext = injectedMyWorldViewModel;
 
-            this.BindingContext = viewModel;
+            //Page appearing/disappearing events
+            this.Appearing += (sender, args) =>
+            {
+                injectedMyWorldViewModel.Appearing();
+            };
+
         }
     }
 }

@@ -8,6 +8,11 @@ using MyWorld.Client.Core.ViewModel;
 using MyWorld.Client.UI.Pages;
 using MyWorld.Client.UI;
 
+using Autofac;
+
+using MyWorld.Client.Core.DependencyInjection;
+using MyWorld.Client.UI.DependencyInjection;
+
 namespace MyWorld.Client.UI
 {
     public partial class App : Application
@@ -15,11 +20,33 @@ namespace MyWorld.Client.UI
         public App()
         {
             InitializeComponent();
-            //(CDLTLL) ViewModelBase.Init();  //Check in EVOLVE app Related to Test Cloud and DependencyService.Register for mocking or real, etc...
 
-            //(CDLTLL) Navigation page - Not used now
-            //MainPage = new NavigationPage(new MyWorld.Client.UI.Pages.MapPage());
-            
+            //Bootstrap from DI/IoC container
+            var builder = new ContainerBuilder();
+
+            builder.RegisterModule<MyWorldClientUIModule>();
+
+            builder.RegisterModule(new MyWorldClientCoreModule(){UseMockServices = true});
+
+            var container = builder.Build();
+            //
+            #region Sample XML for Autofac Module's configuration
+            // AutoFac can also register Modules in XML, like:
+            /*
+            < module type = "MyWorldClientCoreModule" >
+                < properties >
+                    < property name = "ObeySpeedLimit" value = "true" />
+                </ properties >
+            </ module >
+            */
+            #endregion
+
+            #region Test with single page
+            //(TESTING) Single page --> MapPage
+            //var page = container.Resolve<MapPage>();
+            //MainPage = new NavigationPage(page);
+            #endregion
+
             Xamarin.Forms.OnPlatform<Xamarin.Forms.Color> onPlatWindowBkgColor =
                     (Xamarin.Forms.OnPlatform<Xamarin.Forms.Color>)Application.Current.Resources["WindowBackground"];
 
@@ -28,16 +55,11 @@ namespace MyWorld.Client.UI
 
             tabs.Title = "MyWorld";
             tabs.BackgroundColor = onPlatWindowBkgColor;
-            tabs.BindingContext = new MyWorldViewModel();
-            tabs.Children.Add(new VehiclesListPage());
-            tabs.Children.Add(new MapPage());
+            tabs.Children.Add(container.Resolve<VehiclesListPage>());
+            tabs.Children.Add(container.Resolve<MapPage>());            
             tabs.Children.Add(new MapPinPage { Title = "Pins", Icon = "glyphish_07_map_marker.png" });
 
-            //new BasicAccordionPage(),
-            //new MyWorldListPage(),
-            //new WeatherAccordionPage(),
-
-            //(CDLTLL) Get Bar-Background color from the App's resources
+            //Get Bar-Background color from the App's resources
             Xamarin.Forms.OnPlatform<Xamarin.Forms.Color> onPlatBarBkgColor = 
                     (Xamarin.Forms.OnPlatform<Xamarin.Forms.Color>) Application.Current.Resources["BarBackgroundColor"];
 
@@ -48,9 +70,8 @@ namespace MyWorld.Client.UI
             {
                 BarBackgroundColor = onPlatBarBkgColor,
                 BarTextColor = onPlatBarTextColor
-                //BarBackgroundColor = Color.Blue,
-                //BarTextColor = Color.Yellow
             };
+            
             
         }
 
