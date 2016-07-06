@@ -35,6 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AppSettings.cs" />
     <Compile Include="DependencyInjection\MyWorldClientCoreModule.cs" />
     <Compile Include="Maps\ILocationViewModel.cs" />
     <Compile Include="Maps\LocationViewModel.cs" />
@@ -45,6 +46,8 @@
     <Compile Include="Model\Item.cs" />
     <Compile Include="Model\MyWorldRoot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Base\BaseRequest.cs" />
+    <Compile Include="Services\Base\IBaseRequest.cs" />
     <Compile Include="Services\IMyWorldRootService.cs" />
     <Compile Include="Services\MyWorldRootAzureSFService.cs" />
     <Compile Include="Services\MyWorldRootMockService.cs" />

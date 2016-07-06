@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "exports": {
+    "VehiclesStatefulService.Contracts/1.0.0": {
+      "type": "project",
+      "framework": ".NETFramework,Version=v4.5.2",
+      "compile": {
+        "bin/x64/Debug/VehiclesStatefulService.Contracts.dll": {}
+      },
+      "runtime": {
+        "../packages/Microsoft.ServiceFabric.5.1.150/lib/net45/Microsoft.ServiceFabric.Internal.Strings.dll": {},
+        "../packages/Microsoft.ServiceFabric.5.1.150/lib/net45/Microsoft.ServiceFabric.Internal.dll": {},
+        "../packages/Microsoft.ServiceFabric.5.1.150/lib/net45/System.Fabric.dll": {},
+        "../packages/Microsoft.ServiceFabric.Data.2.1.150/lib/net45/Microsoft.ServiceFabric.Data.Interfaces.dll": {},
+        "../packages/Microsoft.ServiceFabric.Data.2.1.150/lib/net45/Microsoft.ServiceFabric.Data.dll": {},
+        "../packages/Microsoft.ServiceFabric.Services.2.1.150/lib/net45/Microsoft.ServiceFabric.Services.dll": {},
+        "../packages/Microsoft.ServiceFabric.Services.2.1.150/lib/net45/ServiceFabricServiceModel.dll": {},
+        "bin/x64/Debug/VehiclesStatefulService.Contracts.dll": {}
+      },
+      "contentFiles": {
+        "bin/x64/Debug/VehiclesStatefulService.Contracts.pdb": {
+          "buildAction": "None",
+          "codeLanguage": "any",
+          "copyToOutput": true
+        }
+      }
+    }
+  }
+}

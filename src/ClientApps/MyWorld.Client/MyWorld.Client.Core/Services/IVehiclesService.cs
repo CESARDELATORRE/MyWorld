@@ -10,7 +10,8 @@ namespace MyWorld.Client.Core.Services
 
     public interface IVehiclesService
     {
-        Task<IList<Vehicle>> GetVehiclesNearby(string tenantId, double latitude, double longitude, double distanceRadians = 0);
+        Task<IList<Vehicle>> GetVehiclesInArea(string tenantId, double topLatitude, double leftLongitude, double bottomLatitude, double rightLongitude);
+
         Task<IList<Vehicle>> GetAllVehiclesFromTenant(string tenantId);
     }
 

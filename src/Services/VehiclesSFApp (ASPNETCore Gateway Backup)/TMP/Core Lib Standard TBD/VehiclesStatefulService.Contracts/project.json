@@ -1,0 +1,17 @@
+﻿{
+  "version": "1.0.0-*",
+
+  "dependencies": {
+    "NETStandard.Library": "1.5.0-rc2-24027",
+    "Microsoft.NETCore.Portable.Compatibility": "1.0.1-rc2-24027",
+    "Microsoft.ServiceFabric.Services": "2.1.150"
+  },
+
+  "frameworks": {
+    "netstandard1.5": {
+      "imports": "net452"
+    }
+  }
+}
+
+

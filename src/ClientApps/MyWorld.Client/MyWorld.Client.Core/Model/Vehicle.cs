@@ -8,7 +8,7 @@ namespace MyWorld.Client.Core.Model
     public class Vehicle
     {
         [JsonProperty("id")]
-        public int Id { get; set; } = 0;
+        public Guid Id { get; set; }
 
         [JsonProperty("tenantid")]
         public string TenantId { get; set; } = string.Empty;

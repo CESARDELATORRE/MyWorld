@@ -1,0 +1,16 @@
+﻿{
+  "version": "1.0.0-*",
+
+  "dependencies": {
+    "Microsoft.ServiceFabric.Services": "2.1.150"
+  },
+
+  "frameworks": {
+    "net452": {
+      "dependencies": {
+
+      }
+    }
+  }
+
+  }

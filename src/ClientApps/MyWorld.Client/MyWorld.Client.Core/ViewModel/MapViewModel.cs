@@ -275,8 +275,29 @@ namespace MyWorld.Client.Core.ViewModel
                 var distanceRadians =
                     DegreesToRadians(Math.Max(VisibleRegion.LatitudeDegrees, VisibleRegion.LongitudeDegrees) / 2);
 
+                var center = VisibleRegion.Center;
+                var halfheightDegrees = VisibleRegion.LatitudeDegrees / 2;
+                var halfwidthDegrees = VisibleRegion.LongitudeDegrees / 2;
+
+                var topLatitude = center.Latitude + halfheightDegrees;
+                var leftLongitude = center.Longitude - halfwidthDegrees;
+                var bottomLatitude = center.Latitude - halfheightDegrees;
+                var rightLongitude = center.Longitude + halfwidthDegrees;
+                
+                // Adjust for Internation Date Line (+/- 180 degrees longitude)
+                if (leftLongitude < -180)
+                    leftLongitude = 180 + (180 + leftLongitude);
+
+                if (rightLongitude > 180)
+                    rightLongitude = (rightLongitude - 180) - 180;
+                
+
                 // (CDLTLL) Query and obtain data from a real service or from the mock service depending on the injected implementation
-                var vehiclesInCurrentMapArea = await _vehiclesService.GetVehiclesNearby(_tenantID, MapCenter.Latitude, MapCenter.Longitude, distanceRadians);
+                var vehiclesInCurrentMapArea = await _vehiclesService.GetVehiclesInArea(_tenantID,
+                                                                                        topLatitude,
+                                                                                        leftLongitude,
+                                                                                        bottomLatitude,
+                                                                                        rightLongitude);
 
                 //(CDLTLL - Check this, not being used)
                 Vehicles = new ObservableCollection<Vehicle>(vehiclesInCurrentMapArea);
