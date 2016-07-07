@@ -9,7 +9,7 @@ using Microsoft.ServiceFabric.Services.Runtime;
 
 namespace VehiclesStatefulService
 {
-    [EventSource(Name = "MyCompany-VehiclesSFApp-VehiclesStatefulService")]
+    [EventSource(Name = "MyWorld-VehiclesSFApp-VehiclesStatefulService")]
     internal sealed class ServiceEventSource : EventSource
     {
         public static readonly ServiceEventSource Current = new ServiceEventSource();

@@ -2,13 +2,25 @@
 <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VehiclesSFAppType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="OWIN_InstanceCount" DefaultValue="-1" />
-    <Parameter Name="VehiclesStatefulService_PartitionCount" DefaultValue="60" />
+    <Parameter Name="VehiclesStatefulService_PartitionCount" DefaultValue="1" />
     <Parameter Name="VehiclesStatefulService_MinReplicaSetSize" DefaultValue="2" />
     <Parameter Name="VehiclesStatefulService_TargetReplicaSetSize" DefaultValue="2" />
+    <Parameter Name="DummyActorService_PartitionCount" DefaultValue="10" />
+    <Parameter Name="DummyActorService_MinReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="DummyActorService_TargetReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="VehicleActorService_PartitionCount" DefaultValue="10" />
+    <Parameter Name="VehicleActorService_MinReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="VehicleActorService_TargetReplicaSetSize" DefaultValue="3" />
   </Parameters>
   <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion 
        should match the Name and Version attributes of the ServiceManifest element defined in the 
        ServiceManifest.xml file. -->
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="VehicleActorPkg" ServiceManifestVersion="1.0.0" />
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="DummyActorPkg" ServiceManifestVersion="1.0.0" />
+  </ServiceManifestImport>
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="VehiclesStatelessGateway.OWINPkg" ServiceManifestVersion="1.0.0" />
     <ConfigOverrides />
@@ -31,6 +43,16 @@
     <Service Name="VehiclesStatefulService">
       <StatefulService ServiceTypeName="VehiclesStatefulServiceType" TargetReplicaSetSize="[VehiclesStatefulService_TargetReplicaSetSize]" MinReplicaSetSize="[VehiclesStatefulService_MinReplicaSetSize]">
         <UniformInt64Partition PartitionCount="[VehiclesStatefulService_PartitionCount]" LowKey="10001000100010" HighKey="3333333333333330000" />
+      </StatefulService>
+    </Service>
+    <Service Name="DummyActorService" GeneratedIdRef="3e6a6d51-d5bb-486c-a15d-bbc8d821a8e7|Persisted">
+      <StatefulService ServiceTypeName="DummyActorServiceType" TargetReplicaSetSize="[DummyActorService_TargetReplicaSetSize]" MinReplicaSetSize="[DummyActorService_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[DummyActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
+    </Service>
+    <Service Name="VehicleActorService" GeneratedIdRef="a029743f-ace8-49b8-9d37-8b0c2f3ad62f|Persisted">
+      <StatefulService ServiceTypeName="VehicleActorServiceType" TargetReplicaSetSize="[VehicleActorService_TargetReplicaSetSize]" MinReplicaSetSize="[VehicleActorService_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[VehicleActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
       </StatefulService>
     </Service>
     <!-- Sample Definitions - Also need to add the InstanceCount and Pkg parameters

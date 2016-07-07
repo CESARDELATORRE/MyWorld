@@ -11,7 +11,8 @@ namespace Vehicles.Domain.ServiceContracts
     {
         Task<IList<Vehicle>> GetTenantVehiclesAsync(string tenantIdParam);
 
-        Task<IList<Vehicle>> GetVehiclesInAreaAsync(string tenantId, double topLatitude, double leftLongitude, double bottomLatitude, double rightLongitude);
+        Task<IList<Vehicle>> GetVehiclesInAreaAsync(double topLatitude, double leftLongitude, double bottomLatitude, double rightLongitude);
+        Task<IList<Vehicle>> GetVehiclesInAreaByTenantAsync(string tenantId, double topLatitude, double leftLongitude, double bottomLatitude, double rightLongitude);
 
         Task<string> GetCounter();
     }

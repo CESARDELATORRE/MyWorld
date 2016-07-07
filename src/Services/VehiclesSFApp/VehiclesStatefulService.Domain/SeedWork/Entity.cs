@@ -1,23 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace Vehicles.Domain.SeedWork
 {
+    [DataContract]
     public abstract class Entity
     {
+        [DataMember]
         public virtual Guid Id { get; set; }
 
         public Entity()
         {
-            this.GenerateNewIdentity();
         }
         
         public void GenerateNewIdentity()
         {
-                this.Id = IdentityGenerator.NewSequentialGuid();
+            this.Id = IdentityGenerator.NewSequentialGuid();
         }
 
     }

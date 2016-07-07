@@ -9,7 +9,7 @@ using Microsoft.ServiceFabric.Services.Runtime;
 
 namespace VehiclesStatelessGateway.OWIN
 {
-    [EventSource(Name = "MyCompany-VehiclesSFApp-OWIN")]
+    [EventSource(Name = "MyWorld-VehiclesSFApp-Gateway-OWIN")]
     internal sealed class ServiceEventSource : EventSource
     {
         public static readonly ServiceEventSource Current = new ServiceEventSource();

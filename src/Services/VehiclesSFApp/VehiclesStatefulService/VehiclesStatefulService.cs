@@ -9,15 +9,17 @@ using Microsoft.ServiceFabric.Services.Communication.Runtime;
 using Microsoft.ServiceFabric.Services.Runtime;
 
 using Microsoft.ServiceFabric.Services.Remoting.Runtime;
+using Microsoft.ServiceFabric.Actors;
 
 using Vehicles.Domain.Model;
 using Vehicles.Domain.ServiceContracts;
+using Vehicles.Domain.ActorContracts;
 
 using GeographicLib.GeoCoordinatePortable;
 //using System.Device.Location;
 using GeographicLib;
 using GeographicLib.Tiles;
-
+using Microsoft.ServiceFabric.Actors.Client;
 
 namespace VehiclesStatefulService
 {
@@ -116,42 +118,67 @@ namespace VehiclesStatefulService
             {
                 
                 Vehicle vehicle1 = new Vehicle { Alias = "Red Daemon", TenantId = "CDLTLL", Make = "Chevrolet", Model = "Camaro", Latitude = 47.644958, Longitude = -122.131077, Year = "2012", LicensePlate = "AJX6940", VIN = "QWERTYUIOPASDFG17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/Chevy-Camaro-RS-2012-small.jpg" };
+                vehicle1.GenerateNewIdentity();
                 long vehicle1PartitionKey = vehicle1.GetPartitionKey();
                 if ((vehicle1PartitionKey > _currentInt64RangePartitionLowKey) && (vehicle1PartitionKey < _currentInt64RangePartitionHighKey))
                 {
                     await vehiclesPartitionDictionary.AddOrUpdateAsync(tx, vehicle1.Id, vehicle1, (key, value) => vehicle1);
+
+                    IVehicleActor actorProxy1 = ActorProxy.Create<IVehicleActor>(new ActorId(vehicle1.Id), "VehiclesSFApp", "VehicleActorService");
+                    await actorProxy1.SetVehicleAsync(vehicle1);
+
                     ServiceEventSource.Current.ServiceMessage(this, "Added Car: {0} with Id: {1} TenantId: {2}", vehicle1.FullTitle, vehicle1.Id, vehicle1.TenantId);
                 }
 
                 Vehicle vehicle2 = new Vehicle { Alias = "The Beast", TenantId = "CDLTLL", Make = "Chevrolet", Model = "Tahoe", Latitude = 47.661542, Longitude = -122.131231, Year = "2015", LicensePlate = "XXX1234", VIN = "ASDFGUIOPASDFGX17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/Chevy-Tahoe-Z71-2015-small.jpg" };
+                vehicle2.GenerateNewIdentity();
                 long vehicle2PartitionKey = vehicle2.GetPartitionKey();
                 if ((vehicle2PartitionKey > _currentInt64RangePartitionLowKey) && (vehicle2PartitionKey < _currentInt64RangePartitionHighKey))
                 {
                     await vehiclesPartitionDictionary.AddOrUpdateAsync(tx, vehicle2.Id, vehicle2, (key, value) => vehicle2);
+
+                    IVehicleActor actorProxy2 = ActorProxy.Create<IVehicleActor>(new ActorId(vehicle2.Id), "VehiclesSFApp", "VehicleActorService");
+                    await actorProxy2.SetVehicleAsync(vehicle2);
+
                     ServiceEventSource.Current.ServiceMessage(this, "Added Car: {0} with Id: {1} TenantId: {2}", vehicle2.FullTitle, vehicle2.Id, vehicle2.TenantId);
                 }
 
                 Vehicle vehicle3 = new Vehicle { Alias = "Kicking Horse", TenantId = "TENANT2", Make = "Ford", Model = "Mustang", Latitude = 47.654177, Longitude = -122.132442, Year = "2012", LicensePlate = "AJX6940", VIN = "QWERTYUIOPASDFG17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/Chevy-Camaro-RS-2012-small.jpg" };
+                vehicle3.GenerateNewIdentity();
                 long vehicle3PartitionKey = vehicle3.GetPartitionKey();
                 if ((vehicle3PartitionKey > _currentInt64RangePartitionLowKey) && (vehicle3PartitionKey < _currentInt64RangePartitionHighKey))
                 {
                     await vehiclesPartitionDictionary.AddOrUpdateAsync(tx, vehicle3.Id, vehicle3, (key, value) => vehicle3);
+
+                    IVehicleActor actorProxy3 = ActorProxy.Create<IVehicleActor>(new ActorId(vehicle3.Id), "VehiclesSFApp", "VehicleActorService");
+                    await actorProxy3.SetVehicleAsync(vehicle3);
+
                     ServiceEventSource.Current.ServiceMessage(this, "Added Car: {0} with Id: {1} TenantId: {2}", vehicle3.FullTitle, vehicle3.Id, vehicle3.TenantId);
                 }
 
                 Vehicle vehicle4 = new Vehicle { Alias = "The Explorer", TenantId = "TENANT2", Make = "Ford", Model = "Explorer", Latitude = 47.645120, Longitude = -122.138143, Year = "2015", LicensePlate = "XXX1234", VIN = "ASDFGUIOPASDFGX17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/Chevy-Tahoe-Z71-2015-small.jpg" };
+                vehicle4.GenerateNewIdentity();
                 long vehicle4PartitionKey = vehicle4.GetPartitionKey();
                 if ((vehicle4PartitionKey > _currentInt64RangePartitionLowKey) && (vehicle4PartitionKey < _currentInt64RangePartitionHighKey))
                 {
                     await vehiclesPartitionDictionary.AddOrUpdateAsync(tx, vehicle4.Id, vehicle4, (key, value) => vehicle4);
+
+                    IVehicleActor actorProxy4 = ActorProxy.Create<IVehicleActor>(new ActorId(vehicle4.Id), "VehiclesSFApp", "VehicleActorService");
+                    await actorProxy4.SetVehicleAsync(vehicle4);
+
                     ServiceEventSource.Current.ServiceMessage(this, "Added Car: {0} with Id: {1} TenantId: {2}", vehicle4.FullTitle, vehicle4.Id, vehicle4.TenantId);
                 }
 
                 Vehicle vehicle5 = new Vehicle { Alias = "The Macchina", TenantId = "CDLTLL", Make = "BMW", Model = "Z4", Latitude = 40.681608, Longitude = -3.620753, Year = "2007", LicensePlate = "M-XXX1234", VIN = "SPDFGUIOPASDFGX17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/BMW-Z4-2007-small.jpg" };
+                vehicle5.GenerateNewIdentity();
                 long vehicle5PartitionKey = vehicle5.GetPartitionKey();
                 if ((vehicle5PartitionKey > _currentInt64RangePartitionLowKey) && (vehicle5PartitionKey < _currentInt64RangePartitionHighKey))
                 {
                     await vehiclesPartitionDictionary.AddOrUpdateAsync(tx, vehicle5.Id, vehicle5, (key, value) => vehicle5);
+
+                    IVehicleActor actorProxy5 = ActorProxy.Create<IVehicleActor>(new ActorId(vehicle5.Id), "VehiclesSFApp", "VehicleActorService");
+                    await actorProxy5.SetVehicleAsync(vehicle5);
+
                     ServiceEventSource.Current.ServiceMessage(this, "Added Car: {0} with Id: {1} TenantId: {2}", vehicle5.FullTitle, vehicle5.Id, vehicle5.TenantId);
                 } 
 
@@ -170,42 +197,6 @@ namespace VehiclesStatefulService
                 long numVehicles = await vehiclesPartitionDictionary.GetCountAsync(tx);
                 if(numVehicles > 0)
                 {
-                    //(CDLLTLL) TO DO - Obtaining Coordinates from "any" Int64QuadKey might fail until the range is right..
-                    //DELETE - Too many keys to check if valid...
-                    //double currentPartitionHighLatitude, currentPartitionHighLongitude;
-                    //double currentPartitionLowLatitude, currentPartitionLowLongitude;
-                    //int highQuadKeyLevelDetail, lowQuadKeyLevelDetail;
-
-                    //long HighQuadKeyInPartition;
-                    ////Search for first valid QuadKey in Partition, starting from HIGH
-                    //for (long currentPartitionKeyToCheck = _currentInt64RangePartitionHighKey ; currentPartitionKeyToCheck >= _currentInt64RangePartitionLowKey; currentPartitionKeyToCheck--)
-                    //{
-                    //    bool isValid = false;
-                    //    isValid = GeoTileTool.ValidateQuadKey(currentPartitionKeyToCheck);
-                    //    if (isValid)
-                    //    {
-                    //        HighQuadKeyInPartition = currentPartitionKeyToCheck;
-                    //        GeoTileTool.Int64QuadKeyToGeoCoordinate(HighQuadKeyInPartition, out currentPartitionHighLatitude, out currentPartitionHighLongitude, out highQuadKeyLevelDetail);
-                    //        _currentPartitionHighGeoCoordinate = new GeoCoordinate(currentPartitionHighLatitude, currentPartitionHighLongitude);
-                    //        break;
-                    //    }
-                    //}
-
-                    //long LowQuadKeyInPartition;
-                    ////Search for first valid QuadKey in Partition, starting from LOW
-                    //for (long currentPartitionKeyToCheck = _currentInt64RangePartitionLowKey; currentPartitionKeyToCheck <= _currentInt64RangePartitionHighKey; currentPartitionKeyToCheck++)
-                    //{
-                    //    bool isValid = false;
-                    //    isValid = GeoTileTool.ValidateQuadKey(currentPartitionKeyToCheck);
-                    //    if (isValid)
-                    //    {
-                    //        LowQuadKeyInPartition = currentPartitionKeyToCheck;
-                    //        GeoTileTool.Int64QuadKeyToGeoCoordinate(LowQuadKeyInPartition, out currentPartitionLowLatitude, out currentPartitionLowLongitude, out lowQuadKeyLevelDetail);
-                    //        _currentPartitionLowGeoCoordinate = new GeoCoordinate(currentPartitionLowLatitude, currentPartitionLowLongitude);
-                    //        break;
-                    //    }
-                    //}
-
                     //Get IEnumerable and list what's in the Vehicles Dictionary
                     Microsoft.ServiceFabric.Data.IAsyncEnumerable<KeyValuePair<Guid, Vehicle>> vehiclesPartitionEnumerable =
                                                 await vehiclesPartitionDictionary.CreateEnumerableAsync(tx, EnumerationMode.Unordered);
@@ -259,10 +250,9 @@ namespace VehiclesStatefulService
             using (var tx = this.StateManager.CreateTransaction())
             {
                 var result = await myDictionary.TryGetValueAsync(tx, "Counter");
-                await myDictionary.AddOrUpdateAsync(tx, "Counter", 0, (key, value) => 12);
+                await myDictionary.AddOrUpdateAsync(tx, "Counter", 12, (key, value) => 121212);
                 await tx.CommitAsync();
             }
-
         }
 
         public async Task<string> GetCounter()
@@ -277,25 +267,36 @@ namespace VehiclesStatefulService
                 //await tx.CommitAsync();
 
                 retCounter = result.Value.ToString();
-            }
-            
+            }           
             return retCounter;
-
         }
         
         public async Task<IList<Vehicle>> GetTenantVehiclesAsync(string tenantIdParam)
         {
-            ServiceEventSource.Current.Message("Called GetTenantVehiclesAsync to return collection of Vehicles in partition {0} from TetantId {1}", this.Context.PartitionId, tenantIdParam);
+            ServiceEventSource.Current.ServiceMessage(this, "Called GetTenantVehiclesAsync in STATEFUL SERVICE to return collection of Vehicles in partition {0} from TetantId {1}", this.Context.PartitionId, tenantIdParam);
 
             var queryResult = await QueryReliableDictionary<Vehicle>(this.StateManager, "VehiclesDictionary", vehicle => !string.IsNullOrWhiteSpace(vehicle.TenantId) && (vehicle.TenantId.IndexOf(tenantIdParam, StringComparison.OrdinalIgnoreCase) >= 0));
 
             return queryResult;
         }
 
-        
-        public async Task<IList<Vehicle>> GetVehiclesInAreaAsync(string tenantIdParam, double topLatitude, double leftLongitude, double bottomLatitude, double rightLongitude)
+        public async Task<IList<Vehicle>> GetVehiclesInAreaAsync(double topLatitude, double leftLongitude, double bottomLatitude, double rightLongitude)
         {
-            ServiceEventSource.Current.Message("Called GetVehiclesInAreaAsync to return collection of Vehicles in partition {0} from TetantId {1}", this.Context.PartitionId, tenantIdParam);
+            ServiceEventSource.Current.ServiceMessage(this, "Called GetVehiclesInAreaAsync in STATEFUL SERVICE to return collection of Vehicles in partition {0} for all Tenants", this.Context.PartitionId);
+
+            var queryResult = await QueryReliableDictionary<Vehicle>(this.StateManager, "VehiclesDictionary",
+                                                                     vehicle => vehicle.Latitude < topLatitude &&
+                                                                                vehicle.Latitude > bottomLatitude &&
+                                                                                vehicle.Longitude > leftLongitude &&
+                                                                                vehicle.Longitude < rightLongitude
+                                                                    );
+
+            return queryResult;
+        }
+
+        public async Task<IList<Vehicle>> GetVehiclesInAreaByTenantAsync(string tenantIdParam, double topLatitude, double leftLongitude, double bottomLatitude, double rightLongitude)
+        {
+            ServiceEventSource.Current.ServiceMessage(this, "Called GetVehiclesInAreaByTenantAsync in STATEFUL SERVICE to return collection of Vehicles in partition {0} from TetantId {1}", this.Context.PartitionId, tenantIdParam);
 
             var queryResult = await QueryReliableDictionary<Vehicle>(this.StateManager, "VehiclesDictionary",
                                                                      vehicle => !string.IsNullOrWhiteSpace(vehicle.TenantId) &&
@@ -305,15 +306,16 @@ namespace VehiclesStatefulService
                                                                                 vehicle.Longitude > leftLongitude &&
                                                                                 vehicle.Longitude < rightLongitude
                                                                     );
-            foreach (Vehicle vehicle in queryResult)
-            {
-                ServiceEventSource.Current.ServiceMessage(this, "Returning Existing Car: {0} -- Vehicle-Id: {1} -- TenantId: {2} -- Orig-Latitude {3}, Orig-Longitude {4}, GeoQuadKey {5}, Geohash {6}", vehicle.FullTitle, vehicle.Id, vehicle.TenantId, vehicle.Latitude, vehicle.Longitude, vehicle.GeoQuadKey, vehicle.Geohash);
-            }
+            //Check queried values
+            //foreach (Vehicle vehicle in queryResult)
+            //{
+            //    ServiceEventSource.Current.ServiceMessage(this, "Returning Existing Car: {0} -- Vehicle-Id: {1} -- TenantId: {2} -- Orig-Latitude {3}, Orig-Longitude {4}, GeoQuadKey {5}, Geohash {6}", vehicle.FullTitle, vehicle.Id, vehicle.TenantId, vehicle.Latitude, vehicle.Longitude, vehicle.GeoQuadKey, vehicle.Geohash);
+            //}
 
             return queryResult;
         }
 
-        //Generic query method returning a IList<T>
+        //Generic query method based on a Filter, returning a IList<T>
         public static async Task<IList<T>> QueryReliableDictionary<T>(Microsoft.ServiceFabric.Data.IReliableStateManager stateManager,
                                                                                           string reliableDictionaryName,
                                                                                           Func<T, bool> filter)
@@ -377,7 +379,7 @@ namespace VehiclesStatefulService
 
         //    using (var tx = this.StateManager.CreateTransaction())
         //    {
-        //        ServiceEventSource.Current.Message("Generating vehicle list for {0} items", await vehiclesPartitionDictionary.GetCountAsync(tx));
+        //        ServiceEventSource.Current.ServiceMessage(this, "Generating vehicle list for {0} items", await vehiclesPartitionDictionary.GetCountAsync(tx));
 
         //        Microsoft.ServiceFabric.Data.IAsyncEnumerable<KeyValuePair<Guid, Vehicle>> vehiclesPartitionEnumerable =
         //                    await vehiclesPartitionDictionary.CreateEnumerableAsync(tx, EnumerationMode.Unordered);

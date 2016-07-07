@@ -27,6 +27,8 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DummyActor\DummyActor.csproj" />
+    <ProjectReference Include="..\VehicleActor\VehicleActor.csproj" />
     <ProjectReference Include="..\VehiclesStatefulService\VehiclesStatefulService.csproj" />
     <ProjectReference Include="..\VehiclesStatelessGateway.OWIN\VehiclesStatelessGateway.OWIN.csproj" />
   </ItemGroup>

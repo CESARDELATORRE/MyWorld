@@ -102,8 +102,7 @@ namespace MyWorld.Client.Core.ViewModel
             }
         }
 
-        //string tenantID = Settings.TenantID;
-        string _tenantID = "CDLTLL";
+        string _tenantID = AppSettings.DefaultTenantId;
         public string TenantID
         {
             get { return _tenantID; }
