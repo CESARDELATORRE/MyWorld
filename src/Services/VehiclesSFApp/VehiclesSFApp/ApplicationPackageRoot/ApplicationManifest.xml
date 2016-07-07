@@ -2,10 +2,10 @@
 <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VehiclesSFAppType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="OWIN_InstanceCount" DefaultValue="-1" />
-    <Parameter Name="VehiclesStatefulService_PartitionCount" DefaultValue="1" />
+    <Parameter Name="VehiclesStatefulService_PartitionCount" DefaultValue="60" />
     <Parameter Name="VehiclesStatefulService_MinReplicaSetSize" DefaultValue="2" />
     <Parameter Name="VehiclesStatefulService_TargetReplicaSetSize" DefaultValue="2" />
-    <Parameter Name="DummyActorService_PartitionCount" DefaultValue="10" />
+    <Parameter Name="DummyActorService_PartitionCount" DefaultValue="1" />
     <Parameter Name="DummyActorService_MinReplicaSetSize" DefaultValue="3" />
     <Parameter Name="DummyActorService_TargetReplicaSetSize" DefaultValue="3" />
     <Parameter Name="VehicleActorService_PartitionCount" DefaultValue="10" />
