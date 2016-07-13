@@ -17,12 +17,16 @@ namespace MyWorld.Client.UI {
     public partial class VehiclesListPage : global::Xamarin.Forms.ContentPage {
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.ListView list;
+        private global::Xamarin.Forms.SearchBar searchBar;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.ListView ListViewVehicles;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             this.LoadFromXaml(typeof(VehiclesListPage));
-            list = this.FindByName<global::Xamarin.Forms.ListView>("list");
+            searchBar = this.FindByName<global::Xamarin.Forms.SearchBar>("searchBar");
+            ListViewVehicles = this.FindByName<global::Xamarin.Forms.ListView>("ListViewVehicles");
         }
     }
 }

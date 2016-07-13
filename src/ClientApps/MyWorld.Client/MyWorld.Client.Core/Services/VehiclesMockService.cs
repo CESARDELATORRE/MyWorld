@@ -9,7 +9,7 @@ namespace MyWorld.Client.Core.Services
 {
     public class VehiclesMockService : IVehiclesService
     {
-        public async Task<IList<Vehicle>> GetVehiclesInArea(string tenantId, double topLatitude, double leftLongitude, double bottomLatitude, double rightLongitude)
+        public async Task<IList<Vehicle>> GetVehiclesInArea(string urlPrefix, string tenantId, double topLatitude, double leftLongitude, double bottomLatitude, double rightLongitude)
         {
             //Vehicles - Mock data
             List<Vehicle>  vehicles = new List<Vehicle>();
@@ -22,7 +22,7 @@ namespace MyWorld.Client.Core.Services
             return await Task.Run(() => vehicles);
         }
 
-        public async Task<IList<Vehicle>> GetAllVehiclesFromTenant(string tenantId)
+        public async Task<IList<Vehicle>> GetAllVehiclesFromTenant(string urlPrefix, string tenantId)
         {
             //Vehicles - Mock data
             List<Vehicle> vehicles = new List<Vehicle>();

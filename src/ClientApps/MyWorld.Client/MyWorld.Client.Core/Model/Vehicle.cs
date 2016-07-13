@@ -8,6 +8,7 @@ namespace MyWorld.Client.Core.Model
     public class Vehicle
     {
         [JsonProperty("id")]
+        //[JsonConverter(typeof(Guid))]
         public Guid Id { get; set; }
 
         [JsonProperty("tenantid")]

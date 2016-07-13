@@ -4,7 +4,7 @@ namespace MyWorld.Client.Core.Services
 {
     public interface IBaseRequest
     {
-        string UrlPrefix { get; set; }
+        //string UrlPrefix { get; set; }
 
         Task DeleteAsync(string url);
         Task PostAsync(string url);

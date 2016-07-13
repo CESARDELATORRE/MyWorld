@@ -11,27 +11,27 @@ namespace MyWorld.Client.Core.Services
 {
     public class BaseRequest : IBaseRequest
     {
-        protected string _UrlPrefix = string.Empty;
+        //protected string _urlPrefix = string.Empty;
         //protected int _TenantId = 0;
 
-        public string UrlPrefix
-        {
-            get
-            {
-                return _UrlPrefix;
-            }
+        //public string UrlPrefix
+        //{
+        //    get
+        //    {
+        //        return _urlPrefix;
+        //    }
 
-            set
-            {
-                if (string.IsNullOrWhiteSpace(value) || 
-                    !Uri.IsWellFormedUriString(value, UriKind.Absolute))
-                {
-                    return;
-                }
+        //    set
+        //    {
+        //        if (string.IsNullOrWhiteSpace(value) || 
+        //            !Uri.IsWellFormedUriString(value, UriKind.Absolute))
+        //        {
+        //            return;
+        //        }
 
-                _UrlPrefix = value;
-            }
-        }
+        //        _urlPrefix = value;
+        //    }
+        //}
 
         //public BaseRequest(string urlPrefix, int tenantId)
         //{
@@ -161,6 +161,19 @@ namespace MyWorld.Client.Core.Services
 
             response.EnsureSuccessStatusCode();
         }
+
+        public async Task<T> PutAsync<T, U>(string url, U entity)
+        {
+            HttpClient httpClient = CreateHttpClient();
+
+            var content = JsonConvert.SerializeObject(entity);
+            var response = await httpClient.PutAsync(url, new StringContent(content, Encoding.UTF8, "application/json"));
+
+            string responseContent = await response.Content.ReadAsStringAsync();
+
+            return await Task.Run(() => JsonConvert.DeserializeObject<T>(responseContent));
+        }
+
 
         public async Task DeleteAsync(string url)
         {

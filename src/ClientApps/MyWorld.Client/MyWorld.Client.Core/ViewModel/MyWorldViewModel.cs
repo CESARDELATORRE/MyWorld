@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
+using System.Collections.ObjectModel;
+using System.Collections.Generic;
+using System.Linq;
+
 using MyWorld.Client.Core.Services;
+using MyWorld.Client.Core.Helpers;
+
 
 namespace MyWorld.Client.Core.ViewModel
 {
@@ -15,27 +21,30 @@ namespace MyWorld.Client.Core.ViewModel
     {
         IMyWorldRootService _myWorldRootService;
 
-        //(CDLTLL) Constructor - TBD - Still with NO dependencies
+        //(CDLTLL) Constructor with injected dependencies
         public MyWorldViewModel(IMyWorldRootService injectedVehiclesService)
         {
-            //myWorldRootService = new MyWorldRootMockService();
+            //Injected dependencies
             _myWorldRootService = injectedVehiclesService;
-            
         }
 
         public string Title { get; set; }
-        
 
-        //string tenantID = Settings.TenantID;
-        string tenantID = "CDLTLL";
-        public string TenantID
+
+        //TenantId 
+        public string CurrentTenantId
         {
-            get { return tenantID; }
-            set
+            get { return Settings.Current.CurrentTenantId; }
+        }
+
+        public string UrlPrefix
+        {
+            get
             {
-                tenantID = value;
-                OnPropertyChanged();
-                //Settings.TenantID = value;
+                if (Settings.Current.UseCloud)
+                    return Settings.Current.CloudServicelBaseUri;
+                else
+                    return Settings.Current.LocalServicelBaseUri;
             }
         }
 
@@ -48,61 +57,138 @@ namespace MyWorld.Client.Core.ViewModel
 
         public void Appearing()
         {
-            Device.BeginInvokeOnMainThread(ReloadMyWorldRoot);
+            this.GetMyWorldCommand.Execute(false);
+
+            //Method 2 to refresh
+            //Device.BeginInvokeOnMainThread(ReloadMyWorldRoot);
         }
 
-        private async void ReloadMyWorldRoot()
-        {
-            MyWorld = await _myWorldRootService.GetMyWorldData();
-        }
+        //Method 2 to refresh
+        //private async void ReloadMyWorldRoot()
+        //{
+        //    this.MyWorld = await _myWorldRootService.GetMyWorldData(this.UrlPrefix, this.CurrentTenantId);
+        //}
 
-            bool isBusy = false;
+        bool isBusy = false;
         public bool IsBusy
         {
             get { return isBusy; }
             set { isBusy = value; OnPropertyChanged(); }
         }
 
-        //ICommand getMyWorld;
-        //public ICommand GetMyWorldCommand =>
-        //        getMyWorld ??
-        //        (getMyWorld = new Command(async () => await ExecuteGetMyWorldCommand()));
+        ICommand _getMyWorldData;
+        public ICommand GetMyWorldCommand =>
+                _getMyWorldData ??
+                (_getMyWorldData = new Command(async () => await ExecuteGetMyWorldDataCommand()));
 
-        //private async Task ExecuteGetMyWorldCommand()
-        //{
-        //    if (IsBusy)
-        //        return;
+        private async Task ExecuteGetMyWorldDataCommand()
+        {
+            if (IsBusy)
+                return;
 
-        //    IsBusy = true;
-        //    try
-        //    {
-        //        MyWorldRoot myWorldRoot = null;
-                
-        //        if (useMockData)
-        //        {
-        //            //Get Items from Mock Data
-        //            myWorldRoot = await ItemsService.GetWeather(local.Latitude, local.Longitude, units);
-        //        }
-        //        else
-        //        {
-        //            //Get Items from real Services
+            IsBusy = true;
+            try
+            {
+                this.MyWorld = await _myWorldRootService.GetMyWorldData(this.UrlPrefix, this.CurrentTenantId);
+                if (_vehicles != null)
+                    VehiclesToShow.Clear();
 
-        //            //(CDLTLL) Get GPS position - var local = await CrossGeolocator.Current.GetPositionAsync(10000);
+                VehiclesToShow = new ObservableCollection<Vehicle>(this.MyWorld.Vehicles);
+            }
+            catch (Exception ex)
+            {
+                //(CDLTLL) Xamarin.Insights.Report(ex);  // --> Add here HockeyApp telemetry for crash/exception, etc.
+                throw;
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
 
-        //            myWorldRoot = await ItemsService.GetWeather(Location.Trim(), units);
-        //        }
+        //(CDLTLL) Data in Vehicles is filtered from actual data in-memory in the collection.
+        // Data is not reloaded from the original Services/DB/Mock until the method ExecuteGetMyWorldDataCommand() is called
+        ObservableCollection<Vehicle> _vehicles;
+        public ObservableCollection<Vehicle> VehiclesToShow
+        {
+            get
+            {
+                if (!string.IsNullOrEmpty(_searchText))  //There's text to search for
+                {
+                    ObservableCollection<Vehicle> vehiclesSubset = new ObservableCollection<Vehicle>();
+                    if (_vehicles != null)
+                    {
 
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        //(CDLTLL) Xamarin.Insights.Report(ex);
-        //        throw;
-        //    }
-        //    finally
-        //    {
-        //        IsBusy = false;
-        //    }
-        //}
+                        List<Vehicle> entities = (from p in _vehicles
+                                                  where p.FullTitle.ToUpper().Contains(_searchText.ToUpper())
+                                                  select p).ToList<Vehicle>();
+                        if (entities != null && entities.Any())
+                        {
+                            vehiclesSubset = new ObservableCollection<Vehicle>(entities);
+                        }
+                    }
+                    return vehiclesSubset;
+                }
+                else    //if SearchText is empty, return all the vehicles
+                {
+                    return _vehicles;
+                }
+            }
+            set
+            {
+                _vehicles = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _searchText = string.Empty;
+        public string SearchText
+        {
+            get { return _searchText; }
+            set
+            {
+                if (_searchText != value)
+                {
+                    _searchText = value ?? string.Empty;
+                    OnPropertyChanged();
+
+                    // Perform the search
+                    if (SearchCommand.CanExecute(null))
+                    {
+                        SearchCommand.Execute(null);
+                    }
+
+                }
+
+            }
+        }
+
+
+        #region Command and associated methods for SearchCommand
+        private Xamarin.Forms.Command _searchCommand;
+
+        public System.Windows.Input.ICommand SearchCommand
+        {
+            get
+            {
+                _searchCommand = _searchCommand ?? new Xamarin.Forms.Command(DoSearchCommand, CanExecuteSearchCommand);
+                return _searchCommand;
+            }
+        }
+
+        private void DoSearchCommand()
+        {
+            // Refresh the list, which will automatically apply the search text
+
+            OnPropertyChanged("VehiclesToShow");
+            //RaisePropertyChanged(() => Vehicles);
+        }
+
+        private bool CanExecuteSearchCommand()
+        {
+            return true;
+        }
+        #endregion
 
         public event PropertyChangedEventHandler PropertyChanged;
 

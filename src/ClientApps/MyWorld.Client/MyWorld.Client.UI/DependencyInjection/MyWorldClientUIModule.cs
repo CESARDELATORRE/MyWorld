@@ -14,7 +14,8 @@ namespace MyWorld.Client.UI.DependencyInjection
         {
             builder.RegisterType<MapPage>().SingleInstance();
             builder.RegisterType<VehiclesListPage>().SingleInstance();
-            
+            builder.RegisterType<SettingsPage>().SingleInstance();
+
         }
     }
 

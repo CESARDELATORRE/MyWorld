@@ -10,7 +10,7 @@ namespace MyWorld.Client.Core.Services
 
     public interface IMyWorldRootService
     {
-        Task<MyWorldRoot> GetMyWorldData();
+        Task<MyWorldRoot> GetMyWorldData(string urlPrefix, string tenantId);
     }
 
 }

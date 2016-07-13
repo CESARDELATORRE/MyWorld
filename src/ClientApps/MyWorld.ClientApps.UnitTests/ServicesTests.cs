@@ -11,13 +11,14 @@ namespace MyWorld.ClientApps.UnitTests
     {
 
         [Fact]
-        public void GettingFakeVehiclesDataTest()
+        public async Task GettingFakeVehiclesDataTest()
         {
             IMyWorldRootService myWorldRootService;
-            myWorldRootService = new MyWorldRootMockService();
-            MyWorldRoot myWorld = myWorldRootService.GetMyWorldData();
+            IVehiclesService vehiclesService = new VehiclesMockService(); 
+            myWorldRootService = new MyWorldRootMockService(vehiclesService);
+            MyWorldRoot myWorld = await myWorldRootService.GetMyWorldData("CDLTLL");
 
-            Assert.Equal(2, myWorld.Vehicles.Count);
+            await Task.Run(() => { Assert.Equal(3, myWorld.Vehicles.Count); });
         }
 
     }

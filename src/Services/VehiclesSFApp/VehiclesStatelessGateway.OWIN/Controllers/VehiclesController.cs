@@ -98,7 +98,10 @@ namespace VehiclesStatelessGateway.OWIN.Controllers
                     ServiceProxy.Create<IVehiclesStatefulService>(_vehiclesStatefulServiceUriInstance, new ServicePartitionKey(minKey));
 
                 //Async call aggregating the results
-                IList<Vehicle> currentPartitionResult = await vehiclesServiceClient.GetTenantVehiclesAsync(tenantId);
+                IList<Vehicle> currentPartitionResult;
+
+                currentPartitionResult = await vehiclesServiceClient.GetTenantVehiclesAsync(tenantId);
+                
                 if (currentPartitionResult.Count > 0)
                 {
                     //Aggregate List from current partition to our global result
@@ -107,7 +110,41 @@ namespace VehiclesStatelessGateway.OWIN.Controllers
             }
             //Return the aggregated list from all the partitions
             return aggregatedVehiclesList;
+        }
 
+        //(CDLTLL) This method should be substituted by a paginated method (20 vehicles per page or so). 
+        //No method should return ALL the vehicles as potentially there could be thousands or millions...
+        [HttpGet]
+        [Route("api/vehicles/")]
+        public async Task<IEnumerable<Vehicle>> GetTenantVehicles()
+        {
+            ServiceEventSource.Current.Message("Called GetVehiclesInArea in STATELESS GATEWAY service to return collection of all the Vehicles");
+
+            List<Vehicle> aggregatedVehiclesList = new List<Vehicle>();
+
+            ServicePartitionList partitions = await _fabricClient.QueryManager.GetPartitionListAsync(_vehiclesStatefulServiceUriInstance);
+
+            foreach (Partition p in partitions)
+            {
+                long minKey = (p.PartitionInformation as Int64RangePartitionInformation).LowKey;
+                IVehiclesStatefulService vehiclesServiceClient =
+                    ServiceProxy.Create<IVehiclesStatefulService>(_vehiclesStatefulServiceUriInstance, new ServicePartitionKey(minKey));
+
+                //Async call aggregating the results
+                IList<Vehicle> currentPartitionResult;
+
+                //(CDLTLL) This method should be substituted by a paginated method (20 vehicles per page or so). 
+                //No method should return ALL the vehicles as potentially there could be thousands or millions...
+                currentPartitionResult = await vehiclesServiceClient.GetAllVehiclesAsync();
+
+                if (currentPartitionResult.Count > 0)
+                {
+                    //Aggregate List from current partition to our global result
+                    aggregatedVehiclesList.AddRange(currentPartitionResult);
+                }
+            }
+            //Return the aggregated list from all the partitions
+            return aggregatedVehiclesList;
         }
 
         [HttpGet]
@@ -130,19 +167,78 @@ namespace VehiclesStatelessGateway.OWIN.Controllers
             return vehicle;
         }
 
+        [HttpPost]
+        [Route("api/vehicles/create")]
+        public async Task<Guid> CreateVehicle([FromBody] Vehicle vehicleToCreate)
+        {
+            ServiceEventSource.Current.Message("Creating a Vehicle from Web API method");
+
+            vehicleToCreate.GenerateNewIdentity();
+            ActorId actorId = new ActorId(vehicleToCreate.Id);
+
+            IVehicleActor vehicleActor = ActorProxy.Create<IVehicleActor>(actorId, "VehiclesSFApp", "VehicleActorService");
+
+            try
+            {
+                await vehicleActor.SetVehicleAsync(vehicleToCreate);
+                ServiceEventSource.Current.Message("VehicleActor created successfully. VehicleActorID: {0} - VehicleId", actorId, vehicleToCreate.Id);
+            }
+            catch (InvalidOperationException ex)
+            {
+                ServiceEventSource.Current.Message("Web API: Actor rejected {0}: {1}", vehicleToCreate, ex);
+                throw;
+            }
+            catch (Exception ex)
+            {
+                ServiceEventSource.Current.Message("Web Service: Exception {0}: {1}", vehicleToCreate, ex);
+                throw;
+            }
+
+            return vehicleToCreate.Id;
+        }
+
+        [HttpPut]
+        [Route("api/vehicles/update")]
+        public async Task<Guid> UpdateVehicle([FromBody] Vehicle vehicleToUpdate)
+        {
+            ServiceEventSource.Current.Message("Updating Vehicle {0} from Web API method", vehicleToUpdate.Id);
+
+            ActorId actorId = new ActorId(vehicleToUpdate.Id);
+
+            IVehicleActor vehicleActor = ActorProxy.Create<IVehicleActor>(actorId, "VehiclesSFApp", "VehicleActorService");
+
+            try
+            {
+                await vehicleActor.SetVehicleAsync(vehicleToUpdate);
+                ServiceEventSource.Current.Message("VehicleActor created successfully. VehicleActorID: {0} - VehicleId", actorId, vehicleToUpdate.Id);
+            }
+            catch (InvalidOperationException ex)
+            {
+                ServiceEventSource.Current.Message("Web API: Actor rejected {0}: {1}", vehicleToUpdate, ex);
+                throw;
+            }
+            catch (Exception ex)
+            {
+                ServiceEventSource.Current.Message("Web Service: Exception {0}: {1}", vehicleToUpdate, ex);
+                throw;
+            }
+
+            return vehicleToUpdate.Id;
+        }
+
         //// Create actor proxy and send the request
         //IRestockRequestActor restockRequestActor = ActorProxy.Create<IRestockRequestActor>(actorId, this.ApplicationName);
         //await restockRequestActor.AddRestockRequestAsync(request);
 
-            //try
-            //{
-            //    return customerOrder.GetOrderStatusAsStringAsync();
-            //}
-            //catch (Exception ex)
-            //{
-            //    ServiceEventSource.Current.Message("Web Service: Exception {0}: {1}", customerOrder, ex);
+        //try
+        //{
+        //    return customerOrder.GetOrderStatusAsStringAsync();
+        //}
+        //catch (Exception ex)
+        //{
+        //    ServiceEventSource.Current.Message("Web Service: Exception {0}: {1}", customerOrder, ex);
 
-            //    throw;
-            //}
+        //    throw;
+        //}
     }
 }

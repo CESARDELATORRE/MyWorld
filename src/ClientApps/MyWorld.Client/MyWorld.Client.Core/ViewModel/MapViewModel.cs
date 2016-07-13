@@ -18,6 +18,8 @@ using MyWorld.Client.Core.Model;
 using MyWorld.Client.Core.Services;
 using System.Linq;
 
+using MyWorld.Client.Core.Helpers;
+
 namespace MyWorld.Client.Core.ViewModel
 {
     public class MapViewModel : INotifyPropertyChanged
@@ -37,10 +39,6 @@ namespace MyWorld.Client.Core.ViewModel
             //Injected/DI thru constructor
             _vehiclesService = injectedVehiclesService;
 
-            //With NO Dependency Injection in the constructor
-            //_vehiclesService = new VehiclesMockService();   
-
-            //(TODO:)Needs to be injected/DI with Constructor dependency
             _geolocator = Plugin.Geolocator.CrossGeolocator.Current;
 
             Title = "Map";
@@ -102,15 +100,19 @@ namespace MyWorld.Client.Core.ViewModel
             }
         }
 
-        string _tenantID = AppSettings.DefaultTenantId;
-        public string TenantID
+        public string CurrentTenantId
         {
-            get { return _tenantID; }
-            set
+            get { return Settings.Current.CurrentTenantId; }
+        }
+
+        public string UrlPrefix
+        {
+            get
             {
-                _tenantID = value;
-                OnPropertyChanged();
-                //Settings.TenantID = value;
+                if (Settings.Current.UseCloud)
+                    return Settings.Current.CloudServicelBaseUri;
+                else
+                    return Settings.Current.LocalServicelBaseUri;
             }
         }
 
@@ -289,10 +291,10 @@ namespace MyWorld.Client.Core.ViewModel
 
                 if (rightLongitude > 180)
                     rightLongitude = (rightLongitude - 180) - 180;
-                
 
                 // (CDLTLL) Query and obtain data from a real service or from the mock service depending on the injected implementation
-                var vehiclesInCurrentMapArea = await _vehiclesService.GetVehiclesInArea(_tenantID,
+                var vehiclesInCurrentMapArea = await _vehiclesService.GetVehiclesInArea(this.UrlPrefix,
+                                                                                        CurrentTenantId,
                                                                                         topLatitude,
                                                                                         leftLongitude,
                                                                                         bottomLatitude,
@@ -317,6 +319,8 @@ namespace MyWorld.Client.Core.ViewModel
                 }
 
                 //UpdatePins(pins);
+                if (Pins!=null)
+                    Pins.Clear();
                 Pins = new ObservableCollection<ILocationViewModel>(pinsList);
             }
             finally
@@ -357,8 +361,6 @@ namespace MyWorld.Client.Core.ViewModel
                 }));
             }
         }
-
-
 
         private double DegreesToRadians(double degrees)
         {

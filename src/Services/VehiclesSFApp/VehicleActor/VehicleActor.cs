@@ -9,6 +9,10 @@ using Microsoft.ServiceFabric.Actors.Client;
 
 using Vehicles.Domain.Model;
 using Vehicles.Domain.ActorContracts;
+using System.Fabric;
+using Vehicles.Domain.ServiceContracts;
+using Microsoft.ServiceFabric.Services.Remoting.Client;
+using Microsoft.ServiceFabric.Services.Client;
 
 namespace VehicleActor
 {
@@ -46,13 +50,26 @@ namespace VehicleActor
             return this.StateManager.GetStateAsync<Vehicle>(VehicleEntityPropertyName);
         }
 
-        Task IVehicleActor.SetVehicleAsync(Vehicle vehicle)
+        async Task IVehicleActor.SetVehicleAsync(Vehicle vehicle)
         {
-            //Check if TryAddStateAsync() only adds or also updates..
-            return this.StateManager.TryAddStateAsync(VehicleEntityPropertyName, vehicle);
+            //Create or Update a Vehicle in its related VehicleActor object
+            var resultUpdatingActor = this.StateManager.TryAddStateAsync(VehicleEntityPropertyName, vehicle);
 
-            //Only if Vehicle's data/Guid is empty, then we update it with a new Vehicle
-            //return this.StateManager.AddOrUpdateStateAsync(VehicleEntityPropertyName, vehicle, (key, value) => value.Id == Guid.Empty ? vehicle : value);
+            //Create or Update the same Vehicle into Stateful Services
+            //like multiple possible "QueryViews" on Stateful Services using Reliable Collections under the covers.
+            //These Stateful services could be multiple "Read/query views" like in CQRS architectures with several "Read-sides"
+            FabricClient fabricClient = new FabricClient();
+            string vehiclesStatefulServiceUri = "fabric:/VehiclesSFApp/VehiclesStatefulService";
+            Uri vehiclesStatefulServiceUriInstance = new Uri(vehiclesStatefulServiceUri);
+
+            long vehiclePartitionKey = vehicle.GetPartitionKey();
+            IVehiclesStatefulService vehiclesServiceClient = 
+                                    ServiceProxy.Create<IVehiclesStatefulService>(vehiclesStatefulServiceUriInstance, 
+                                                                                  new ServicePartitionKey(vehiclePartitionKey));
+
+            bool result = await vehiclesServiceClient.AddOrUpdateVehicleAsync(vehicle);
+
+            return;            
         }
 
 

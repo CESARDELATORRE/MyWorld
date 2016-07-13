@@ -4,6 +4,7 @@ using Xamarin.Forms;
 
 using MyWorld.Client.Core.ViewModel;
 using MyWorld.Client.Core.Model;
+using MyWorld.Client.UI.Helpers;
 
 namespace MyWorld.Client.UI
 {
@@ -13,15 +14,24 @@ namespace MyWorld.Client.UI
         {
             InitializeComponent();
 
-            //(CDLTLL - TBD - Still NO Dependency Injection of the ViewModel)
-            //MyWorldViewModel viewModel = new MyWorldViewModel();
-
             this.BindingContext = injectedMyWorldViewModel;
 
             //Page appearing/disappearing events
             this.Appearing += (sender, args) =>
             {
                 injectedMyWorldViewModel.Appearing();
+            };
+
+            ListViewVehicles.ItemTapped += (sender, e) => ListViewVehicles.SelectedItem = null;
+            ListViewVehicles.ItemSelected += async (sender, e) =>
+            {
+                var vehicle = ListViewVehicles.SelectedItem as Vehicle;
+                if (vehicle == null)
+                    return;
+
+                await PageNavigationController.PushAsync(Navigation, new VehicleDetailsPage(vehicle));
+
+                ListViewVehicles.SelectedItem = null;
             };
 
         }

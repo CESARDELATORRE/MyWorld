@@ -14,7 +14,17 @@
 
     <!-- With plain ImageCell in ListView -->
     <StackLayout VerticalOptions="FillAndExpand" Padding="5,20,5,0" >
-      <ListView x:Name="list" ItemsSource="{Binding MyWorld.Vehicles}">
+
+      <SearchBar x:Name="searchBar" Text="{Binding SearchText}"  SearchCommand="{Binding SearchCommand}">
+      </SearchBar>
+
+      <ListView x:Name="ListViewVehicles" 
+                ItemsSource="{Binding VehiclesToShow}"
+                CachingStrategy="RecycleElement"
+                IsPullToRefreshEnabled="True"
+                RefreshCommand="{Binding GetMyWorldCommand}" 
+                IsRefreshing="{Binding IsBusy, Mode=OneWay}">
+        
         <ListView.ItemTemplate>
           <DataTemplate>
             <ImageCell
@@ -24,6 +34,7 @@
             </ImageCell>
           </DataTemplate>
         </ListView.ItemTemplate>
+        
       </ListView>
     </StackLayout>
     

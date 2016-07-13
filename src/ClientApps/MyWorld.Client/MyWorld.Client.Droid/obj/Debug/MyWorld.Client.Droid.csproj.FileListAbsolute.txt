@@ -1,4 +1,5 @@
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug\Autofac.dll
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\MyWorld.Client.Droid.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug\MyWorld.Client.Droid.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug\MyWorld.Client.Droid.pdb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug\MyWorld.Client.Droid.apk
@@ -10,6 +11,8 @@ D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug\Plugin.Geolocator.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug\Plugin.Permissions.Abstractions.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug\Plugin.Permissions.dll
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug\Plugin.Settings.Abstractions.dll
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug\Plugin.Settings.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug\Xamarin.Android.Support.Animated.Vector.Drawable.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug\Xamarin.Android.Support.Design.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug\Xamarin.Android.Support.v4.dll
@@ -45,6 +48,8 @@ D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug\Plugin.Permissions.Abstractions.pdb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug\Plugin.Permissions.Abstractions.xml
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug\Plugin.Permissions.Abstractions.dll.mdb
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug\Plugin.Settings.xml
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug\Plugin.Settings.Abstractions.xml
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug\Xamarin.Forms.Core.pdb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug\Xamarin.Forms.Core.xml
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug\Xamarin.Forms.Core.dll.mdb
@@ -58,7 +63,6 @@ D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug\MyWorld.Client.Core.pdb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug\Newtonsoft.Json.xml
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\MyWorld.Client.Droid.csprojResolveAssemblyReference.cache
-D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\MyWorld.Client.Droid.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\MyWorld.Client.Droid.pdb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\android\bin\MyWorld.Client.Droid.apk
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\res\layout\tabs.xml
@@ -80,14 +84,18 @@ D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\res\drawable-xxhdpi\tab_vehicles.png
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\res\drawable\glyphish_07_map_marker.png
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\res\drawable\glyphish_103_map.png
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\res\drawable\tab_settings.png
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\res\drawable-hdpi\tab_settings.png
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\res\drawable-xhdpi\tab_settings.png
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\res\drawable-xxhdpi\tab_settings.png
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\R.cs.flag
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\uploadflags.txt
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug\MyWorld.Client.Droid.dll.mdb
-D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug\MyWorld.Client.UI.dll.mdb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug\Java.Interop.dll.mdb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug\Mono.Android.dll.mdb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug\mscorlib.dll.mdb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug\MyWorld.Client.Core.dll.mdb
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug\MyWorld.Client.UI.dll.mdb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug\System.ComponentModel.Composition.dll.mdb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug\System.Core.dll.mdb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug\System.dll.mdb
@@ -118,5 +126,7 @@ D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\res\layout\toolbar.xml
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\res\layout\main.xml
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\obj\Debug\MyWorld.Client.Droid.dll.mdb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Droid\bin\Debug\MyWorld.Client.Droid.dll.mdb

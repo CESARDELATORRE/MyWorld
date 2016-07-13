@@ -5,21 +5,24 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using static Newtonsoft.Json.JsonConvert;
 
+using MyWorld.Client.Core.Helpers;
+
 namespace MyWorld.Client.Core.Services
 {
 
     public class MyWorldRootAzureSFService : IMyWorldRootService
     {
         IVehiclesService _vehiclesService;
+        Settings _settings;
         public MyWorldRootAzureSFService(IVehiclesService injectedVehiclesService)
         {
             _vehiclesService = injectedVehiclesService;
         }
 
-        public async Task<MyWorldRoot> GetMyWorldData()
+        public async Task<MyWorldRoot> GetMyWorldData(string urlPrefix, string tenantId)
         {
             MyWorldRoot myWorldData = new MyWorldRoot();
-            myWorldData.TenantID = "CDLTLL";
+            myWorldData.TenantID = tenantId;
 
             //People - Mock data
             myWorldData.People = new List<Person>();
@@ -31,7 +34,7 @@ namespace MyWorld.Client.Core.Services
             myWorldData.People.Add(new Person { Id = 6, FirstName = "Vicente", LastName = "Vazquez" });
 
             //Vehicles - Mock data
-            myWorldData.Vehicles = await _vehiclesService.GetAllVehiclesFromTenant("CDLTLL");
+            myWorldData.Vehicles = await _vehiclesService.GetAllVehiclesFromTenant(urlPrefix, tenantId);
 
             //myWorldData.Vehicles = new List<Vehicle>();
             //myWorldData.Vehicles.Add(new Vehicle { Id = 100, Make = "Chevrolet", Model = "Camaro", Year = "2012", LicensePlate = "AJX6940", VIN = "QWERTYUIOPASDFG17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/Chevy-Camaro-RS-2012-small.jpg" });

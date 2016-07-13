@@ -6,6 +6,8 @@ using Autofac;
 using MyWorld.Client.Core.Services;
 using MyWorld.Client.Core.ViewModel;
 
+using MyWorld.Client.Core.Helpers;
+
 namespace MyWorld.Client.Core.DependencyInjection
 {
     public class MyWorldClientCoreModule : Module
@@ -16,14 +18,13 @@ namespace MyWorld.Client.Core.DependencyInjection
         {
             if (UseMockServices) // MockService implementation classes
             {
-                //(TODO:) Confirm if SingleInstance is right in this case
-                builder.RegisterType<VehiclesMockService>().As<IVehiclesService>().SingleInstance();
-                builder.RegisterType<MyWorldRootMockService>().As<IMyWorldRootService>().SingleInstance();               
+                builder.RegisterType<VehiclesMockService>().As<IVehiclesService>().InstancePerDependency();
+                builder.RegisterType<MyWorldRootMockService>().As<IMyWorldRootService>().InstancePerDependency();               
             }
             else  // Classes consuming Azure / Azure Service Fabric services
             {
-                builder.RegisterType<VehiclesAzureSFService>().As<IVehiclesService>().SingleInstance();
-                builder.RegisterType<MyWorldRootAzureSFService>().As<IMyWorldRootService>().SingleInstance();
+                builder.RegisterType<VehiclesAzureSFService>().As<IVehiclesService>().InstancePerDependency();
+                builder.RegisterType<MyWorldRootAzureSFService>().As<IMyWorldRootService>().InstancePerDependency();
             }
 
             //Classes to register no matter what 
@@ -31,7 +32,8 @@ namespace MyWorld.Client.Core.DependencyInjection
             //Single Instance for ViewModels     
             builder.RegisterType<MapViewModel>().SingleInstance();
             builder.RegisterType<MyWorldViewModel>().SingleInstance();
-            
+            builder.RegisterType<SettingsViewModel>().SingleInstance();
+
             //"n" instances for VehicleDetailsViewModel (When implemented)
             //builder.RegisterType<VehicleDetailsViewModel>();
         }

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyWorld.Client.UI.Pages.SettingsPage"
+             xmlns:local="clr-namespace:MyWorld.Client.UI;assembly=MyWorld.Client.UI"
+             Title="Settings"
+             NavigationPage.BackButtonTitle="Settings"
+             Icon="tab_settings.png"
+             BackgroundColor="{DynamicResource WindowBackground}">
+
+  <StackLayout Orientation="Vertical" Padding="10">
+    
+    <Label Font="Bold,20" Text="Services location" />
+    
+    <StackLayout Orientation="Horizontal">
+      <Label Text="Use Service Fabric in Azure Cloud" VerticalOptions="Center" />
+      <Switch IsToggled="{Binding UseCloud}" VerticalOptions="Center" />
+    </StackLayout>
+
+    <Label Text="Local Service: " VerticalOptions="Center" />
+    <Entry Text="{Binding LocalServiceBaseUri}" Placeholder="Your Local Service Url" />
+
+    <Label Text="Cloud Service: " VerticalOptions="Center" />
+    <Entry Text="{Binding CloudServiceBaseUri}" Placeholder="Your Service Url in the Cloud" />
+
+    <Label Text="Tenant ID: " VerticalOptions="Center" />
+    <Entry Text="{Binding CurrentTenantId}" Placeholder="CDLTLL" />
+  </StackLayout>
+
+</ContentPage>

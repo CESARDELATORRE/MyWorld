@@ -57,19 +57,19 @@ namespace MyWorld.Client.UI
             tabs.BackgroundColor = onPlatWindowBkgColor;
             tabs.Children.Add(container.Resolve<VehiclesListPage>());
             tabs.Children.Add(container.Resolve<MapPage>());            
-            tabs.Children.Add(new MapPinPage { Title = "Pins", Icon = "glyphish_07_map_marker.png" });
+            tabs.Children.Add(container.Resolve<SettingsPage>());
 
             //Get Bar-Background color from the App's resources
-            Xamarin.Forms.OnPlatform<Xamarin.Forms.Color> onPlatBarBkgColor = 
-                    (Xamarin.Forms.OnPlatform<Xamarin.Forms.Color>) Application.Current.Resources["BarBackgroundColor"];
+            //Xamarin.Forms.OnPlatform<Xamarin.Forms.Color> onPlatBarBkgColor = 
+            //        (Xamarin.Forms.OnPlatform<Xamarin.Forms.Color>) Application.Current.Resources["BarBackgroundColor"];
 
-            Xamarin.Forms.OnPlatform<Xamarin.Forms.Color> onPlatBarTextColor =
-                    (Xamarin.Forms.OnPlatform<Xamarin.Forms.Color>)Application.Current.Resources["BarBackgroundColor"];
+            //Xamarin.Forms.OnPlatform<Xamarin.Forms.Color> onPlatBarTextColor =
+            //        (Xamarin.Forms.OnPlatform<Xamarin.Forms.Color>)Application.Current.Resources["BarBackgroundColor"];
 
             MainPage = new NavigationPage(tabs)
             {
-                BarBackgroundColor = onPlatBarBkgColor,
-                BarTextColor = onPlatBarTextColor
+                //BarBackgroundColor = onPlatBarBkgColor,
+                //BarTextColor = onPlatBarTextColor
             };
             
             
