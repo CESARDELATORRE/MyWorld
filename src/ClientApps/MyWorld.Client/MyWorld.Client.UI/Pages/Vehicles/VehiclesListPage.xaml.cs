@@ -6,11 +6,17 @@ using MyWorld.Client.Core.ViewModel;
 using MyWorld.Client.Core.Model;
 using MyWorld.Client.UI.Helpers;
 
+using MyWorld.Client.Core.Services;
+
 namespace MyWorld.Client.UI
 {
     public partial class VehiclesListPage : ContentPage
     {
-        public VehiclesListPage(MyWorldViewModel injectedMyWorldViewModel)
+        public VehiclesListPage(MyWorldViewModel injectedMyWorldViewModel,
+                                IVehiclesService injectedVehiclesService,
+                                VehicleDetailsViewModel.Factory vehicleDetailsViewModelFactory,
+                                VehicleDetailsPage.Factory vehicleDetailsPageFactory
+                                )
         {
             InitializeComponent();
 
@@ -26,10 +32,15 @@ namespace MyWorld.Client.UI
             ListViewVehicles.ItemSelected += async (sender, e) =>
             {
                 var vehicle = ListViewVehicles.SelectedItem as Vehicle;
+
                 if (vehicle == null)
                     return;
 
-                await PageNavigationController.PushAsync(Navigation, new VehicleDetailsPage(vehicle));
+                VehicleDetailsPage vehicleDetailsPage = vehicleDetailsPageFactory.Invoke(vehicle,
+                                                                                         injectedVehiclesService,
+                                                                                         vehicleDetailsViewModelFactory);
+                await PageNavigationController.PushAsync(Navigation,
+                                                         vehicleDetailsPage);
 
                 ListViewVehicles.SelectedItem = null;
             };

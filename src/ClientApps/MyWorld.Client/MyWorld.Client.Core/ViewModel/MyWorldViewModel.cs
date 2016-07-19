@@ -22,13 +22,13 @@ namespace MyWorld.Client.Core.ViewModel
         IMyWorldRootService _myWorldRootService;
 
         //(CDLTLL) Constructor with injected dependencies
-        public MyWorldViewModel(IMyWorldRootService injectedVehiclesService)
+        public MyWorldViewModel(IMyWorldRootService injectedMyWorldRootService)
         {
             //Injected dependencies
-            _myWorldRootService = injectedVehiclesService;
+            _myWorldRootService = injectedMyWorldRootService;
         }
 
-        public string Title { get; set; }
+        //public string Title { get; set; }
 
 
         //TenantId 

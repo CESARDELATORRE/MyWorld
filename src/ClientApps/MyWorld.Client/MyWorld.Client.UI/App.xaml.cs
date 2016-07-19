@@ -26,9 +26,10 @@ namespace MyWorld.Client.UI
 
             builder.RegisterModule<MyWorldClientUIModule>();
 
-            builder.RegisterModule(new MyWorldClientCoreModule(){UseMockServices = false});
+            builder.RegisterModule(new MyWorldClientCoreModule(){UseMockServices = true});
 
             var container = builder.Build();
+
             //
             #region Sample XML for Autofac Module's configuration
             // AutoFac can also register Modules in XML, like:

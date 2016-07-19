@@ -32,6 +32,17 @@ namespace MyWorld.Client.Core.Services
 
             return await Task.Run(() => vehicles);
         }
-        
+
+        public async Task<Guid> CreateVehicle(string urlPrefix, string tenantId, Vehicle vehicleToCreate)
+        {
+            return await Task.Run(() => new Guid());
+        }
+
+
+        public async Task<Guid> UpdateVehicle(string urlPrefix, string tenantId, Vehicle vehicleToUpdate)
+        {
+            return await Task.Run(() => new Guid());
+        }
+
     }
 }

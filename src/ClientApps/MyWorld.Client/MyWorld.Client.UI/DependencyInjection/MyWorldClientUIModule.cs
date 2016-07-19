@@ -8,15 +8,13 @@ using MyWorld.Client.UI.Pages;
 namespace MyWorld.Client.UI.DependencyInjection
 {
     public class MyWorldClientUIModule : Module
-    {
-        
+    {       
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<MapPage>().SingleInstance();
             builder.RegisterType<VehiclesListPage>().SingleInstance();
+            builder.RegisterType<VehicleDetailsPage>().SingleInstance();
             builder.RegisterType<SettingsPage>().SingleInstance();
-
         }
     }
-
 }

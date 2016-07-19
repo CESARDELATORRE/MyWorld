@@ -55,6 +55,7 @@
     <Compile Include="Services\VehiclesAzureSFService.cs" />
     <Compile Include="Services\VehiclesMockService.cs" />
     <Compile Include="ViewModel\MapViewModel.cs" />
+    <Compile Include="ViewModel\VehicleDetailsViewModel.cs" />
     <Compile Include="ViewModel\MyWorldViewModel.cs" />
     <Compile Include="ViewModel\SettingsViewModel.cs" />
   </ItemGroup>

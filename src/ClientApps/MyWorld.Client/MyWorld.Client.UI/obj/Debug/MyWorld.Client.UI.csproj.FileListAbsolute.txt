@@ -39,3 +39,5 @@ D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\bin\Debug\Ne
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\obj\Debug\MyWorld.Client.UI.pdb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\obj\Debug\MyWorld.Client.UI.dll.mdb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\bin\Debug\MyWorld.Client.UI.dll.mdb
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\obj\Debug\MyWorld.Client.UI.dll.mdb
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\bin\Debug\MyWorld.Client.UI.dll.mdb
