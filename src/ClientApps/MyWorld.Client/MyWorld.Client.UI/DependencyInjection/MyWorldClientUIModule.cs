@@ -13,7 +13,7 @@ namespace MyWorld.Client.UI.DependencyInjection
         {
             builder.RegisterType<MapPage>().SingleInstance();
             builder.RegisterType<VehiclesListPage>().SingleInstance();
-            builder.RegisterType<VehicleDetailsPage>().SingleInstance();
+            builder.RegisterType<VehicleDetailsPage>().InstancePerDependency();
             builder.RegisterType<SettingsPage>().SingleInstance();
         }
     }

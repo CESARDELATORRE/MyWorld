@@ -2,10 +2,50 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyWorld.Client.UI.VehicleDetailsPage"
+             xmlns:local="clr-namespace:MyWorld.Client.UI;assembly=MyWorld.Client.UI"
              Title="Vehicle Details"
+             NavigationPage.BackButtonTitle="Vehicles"
              Icon="tab_vehicles.png"
              BackgroundColor="{DynamicResource WindowBackground}">
 
-  <Label Text="Future Vehicle's Detail Page" VerticalOptions="Center" HorizontalOptions="Center" />
+  <StackLayout Orientation="Vertical" Padding="10">
+
+    <Label Text="Vehicle's Details" Font="Bold,20" VerticalOptions="Center" HorizontalOptions="Center" />
+
+    <Button Text="Save Vehicle" Command="{Binding SaveVehicleCommand}"/>
+    
+    <Label Text="Make: " VerticalOptions="Center" />
+    <Entry Text="{Binding Vehicle.Make}" Placeholder="" />
+
+    <Label Text="Model: " VerticalOptions="Center" />
+    <Entry Text="{Binding Vehicle.Model}" Placeholder="" />
+
+    <!--Label  FullTitle -->
+    <Button Text="Get GPS Coordinates" Command="{Binding GetGPSCoordinatesCommand}"/>
+    <Label Text="Latitude: " VerticalOptions="Center" />
+    <Entry Text="{Binding Latitude}" Placeholder="" />
+
+    <Label Text="Longitude: " VerticalOptions="Center" />
+    <Entry Text="{Binding Longitude}" Placeholder="" />
+
+    <Label Text="Year: " VerticalOptions="Center" />
+    <Entry Text="{Binding Vehicle.Year}" Placeholder="" />
+
+    <Label Text="LicensePlate: " VerticalOptions="Center" />
+    <Entry Text="{Binding Vehicle.LicensePlate}" Placeholder="" />
+
+    <Label Text="VIN: " VerticalOptions="Center" />
+    <Entry Text="{Binding Vehicle.VIN}" Placeholder="" />
+
+    <Label Text="FrontViewPhoto: " VerticalOptions="Center" />
+    <Entry Text="{Binding Vehicle.FrontViewPhoto}" Placeholder="" />
+
+    <Label Text="BackViewPhoto: " VerticalOptions="Center" />
+    <Entry Text="{Binding Vehicle.BackViewPhoto}" Placeholder="" />
+
+    <Label Text="SideViewPhoto: " VerticalOptions="Center" />
+    <Entry Text="{Binding Vehicle.SideViewPhoto}" Placeholder="" />
+
+  </StackLayout>
   
 </ContentPage>

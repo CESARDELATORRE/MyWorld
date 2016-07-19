@@ -13,7 +13,7 @@ namespace MyWorld.Client.Core.Services
     public class MyWorldRootAzureSFService : IMyWorldRootService
     {
         IVehiclesService _vehiclesService;
-        Settings _settings;
+
         public MyWorldRootAzureSFService(IVehiclesService injectedVehiclesService)
         {
             _vehiclesService = injectedVehiclesService;

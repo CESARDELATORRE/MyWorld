@@ -34,7 +34,7 @@ namespace MyWorld.Client.Core.DependencyInjection
             builder.RegisterType<MyWorldViewModel>().SingleInstance();
             builder.RegisterType<SettingsViewModel>().SingleInstance();
 
-            //"n" instances for VehicleDetailsViewModel (When implemented)
+            //"n" instances for VehicleDetailsViewModel 
             builder.RegisterType<VehicleDetailsViewModel>().InstancePerDependency();
         }
     }

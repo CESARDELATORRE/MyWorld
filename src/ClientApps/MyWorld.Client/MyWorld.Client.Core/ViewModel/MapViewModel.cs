@@ -241,13 +241,7 @@ namespace MyWorld.Client.Core.ViewModel
 
         private async Task<Plugin.Geolocator.Abstractions.Position> FetchLocation()
         {
-            //try
-            //{
-                _lastPosition = await _geolocator.GetPositionAsync(timeoutMilliseconds: 10000);
-            //}
-            //catch (Exception e)
-            //{
-            //}
+            _lastPosition = await _geolocator.GetPositionAsync(timeoutMilliseconds: 10000);
 
             return _lastPosition;
         }

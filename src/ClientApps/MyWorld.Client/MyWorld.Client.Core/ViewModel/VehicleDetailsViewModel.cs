@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-using System.Collections.ObjectModel;
-using System.Collections.Generic;
-using System.Linq;
+using Plugin.Geolocator;
 
 using MyWorld.Client.Core.Services;
 using MyWorld.Client.Core.Helpers;
@@ -20,6 +18,7 @@ namespace MyWorld.Client.Core.ViewModel
     {
         public delegate VehicleDetailsViewModel Factory(IVehiclesService vehiclesService, Vehicle vehicle);
         IVehiclesService _vehiclesService;
+        private readonly Plugin.Geolocator.Abstractions.IGeolocator _geolocator;
 
         //(CDLTLL) Constructor with injected dependencies
         public VehicleDetailsViewModel(IVehiclesService vehiclesService, Vehicle vehicle)
@@ -27,6 +26,8 @@ namespace MyWorld.Client.Core.ViewModel
             //Injected dependencies
             _vehiclesService = vehiclesService;
             _vehicle = vehicle;
+
+            _geolocator = Plugin.Geolocator.CrossGeolocator.Current;
         }
 
         //TenantId 
@@ -50,8 +51,51 @@ namespace MyWorld.Client.Core.ViewModel
         public Vehicle Vehicle
         {
             get { return _vehicle; }
-            set { _vehicle = value; OnPropertyChanged(); }
+            set {
+                    _vehicle = value;
+                    OnPropertyChanged();
+                }
         }
+
+        public Double Latitude
+        {
+            get { return _vehicle.Latitude; }
+            set
+            {
+                _vehicle.Latitude = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public Double Longitude
+        {
+            get { return _vehicle.Longitude; }
+            set
+            {
+                _vehicle.Longitude = value;
+                OnPropertyChanged();
+            }
+        }
+
+        //public String Latitude
+        //{
+        //    get { return _vehicle.Latitude.ToString(); }
+        //    set
+        //    {
+        //        _vehicle.Latitude = System.Convert.ToDouble(value);
+        //        OnPropertyChanged();
+        //    }
+        //}
+
+        //public String Longitude
+        //{
+        //    get { return _vehicle.Longitude.ToString(); }
+        //    set
+        //    {      
+        //        _vehicle.Longitude = System.Convert.ToDouble(value);
+        //        OnPropertyChanged();
+        //    }
+        //}
 
         public void Appearing()
         {
@@ -87,7 +131,44 @@ namespace MyWorld.Client.Core.ViewModel
             IsBusy = true;
             try
             {
-                Guid createdVehicleGuid = await _vehiclesService.CreateVehicle(this.UrlPrefix, this.CurrentTenantId, _vehicle);
+                //If Guid is empty, then is a new Vehicle to Create and the GUID will be generated in the microservices
+                if (Vehicle.Id == Guid.Empty)  
+                {
+                    Guid createdVehicleGuid = await _vehiclesService.CreateVehicle(this.UrlPrefix, this.CurrentTenantId, Vehicle);
+                }
+                else
+                {
+                    Guid updatedVehicleGuid = await _vehiclesService.UpdateVehicle(this.UrlPrefix, this.CurrentTenantId, Vehicle);
+                }
+            }
+            catch (Exception ex)
+            {
+                //(CDLTLL) Xamarin.Insights.Report(ex);  // --> Add here HockeyApp telemetry for crash/exception, etc.
+                throw;
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+
+        ICommand _getGPSCoordinates;
+        public ICommand GetGPSCoordinatesCommand =>
+                _getGPSCoordinates ??
+                (_getGPSCoordinates = new Command(async () => await ExecuteGetGPSCoordinatesCommand()));
+
+        private async Task ExecuteGetGPSCoordinatesCommand()
+        {
+            if (IsBusy)
+                return;
+
+            IsBusy = true;
+            try
+            {
+                var localCoordinates = await _geolocator.GetPositionAsync(timeoutMilliseconds: 10000);
+                //weatherRoot = await WeatherService.GetWeather(local.Latitude, local.Longitude
+                Latitude = localCoordinates.Latitude;
+                Longitude = localCoordinates.Longitude;
             }
             catch (Exception ex)
             {

@@ -26,7 +26,7 @@ namespace MyWorld.Client.UI
 
             builder.RegisterModule<MyWorldClientUIModule>();
 
-            builder.RegisterModule(new MyWorldClientCoreModule(){UseMockServices = true});
+            builder.RegisterModule(new MyWorldClientCoreModule(){UseMockServices = false});
 
             var container = builder.Build();
 
