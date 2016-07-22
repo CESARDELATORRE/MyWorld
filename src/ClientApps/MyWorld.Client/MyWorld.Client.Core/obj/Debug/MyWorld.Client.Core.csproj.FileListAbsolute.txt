@@ -26,5 +26,6 @@ D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Core\bin\Debug\
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Core\bin\Debug\Xamarin.Forms.Xaml.xml
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Core\obj\Debug\MyWorld.Client.Core.dll
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Core\obj\Debug\MyWorld.Client.Core.pdb
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Core\obj\Debug\MyWorld.Client.Core.csprojResolveAssemblyReference.cache
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Core\obj\Debug\MyWorld.Client.Core.dll.mdb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Core\bin\Debug\MyWorld.Client.Core.dll.mdb
