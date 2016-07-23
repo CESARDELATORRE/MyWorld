@@ -51,7 +51,7 @@ namespace MyWorld.Client.Core.Helpers
 
         //Remote/Cloud Service Fabric cluster in Azure's cloud
         private const string CloudServicelBaseUriKey = "cloud_service_base_uri"; 
-        private static readonly string CloudServicelBaseUriDefault = "http://myworldcluster.westus.cloudapp.azure.com:19000/";   //Example http://yourclustername.westus.cloudapp.azure.com:9595/
+        private static readonly string CloudServicelBaseUriDefault = "http://myworldcluster.westus.cloudapp.azure.com:8740/";   //Example http://yourclustername.westus.cloudapp.azure.com:9595/
         public string CloudServicelBaseUri
         {
             get

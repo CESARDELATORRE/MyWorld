@@ -181,7 +181,6 @@ namespace MyWorld.Client.Core.ViewModel
             // Refresh the list, which will automatically apply the search text
 
             OnPropertyChanged("VehiclesToShow");
-            //RaisePropertyChanged(() => Vehicles);
         }
 
         private bool CanExecuteSearchCommand()
