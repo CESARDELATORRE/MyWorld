@@ -29,7 +29,6 @@
   <ItemGroup>
     <ProjectReference Include="..\DummyActor\DummyActor.csproj" />
     <ProjectReference Include="..\VehicleActor\VehicleActor.csproj" />
-    <ProjectReference Include="..\VehiclesBotService\VehiclesBotService.csproj" />
     <ProjectReference Include="..\VehiclesStatefulService\VehiclesStatefulService.csproj" />
     <ProjectReference Include="..\VehiclesStatelessGateway.OWIN\VehiclesStatelessGateway.OWIN.csproj" />
   </ItemGroup>

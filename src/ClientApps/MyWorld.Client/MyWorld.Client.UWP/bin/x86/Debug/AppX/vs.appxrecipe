@@ -28,13 +28,13 @@
     <AppXManifest Include="D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UWP\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-07-06T03:47:24.325</Modified>
+      <Modified>2016-07-24T03:02:45.377</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UWP\bin\x86\Debug\MyWorld.Client.UWP.exe">
       <PackagePath>entrypoint\MyWorld.Client.UWP.exe</PackagePath>
-      <Modified>2016-07-06T03:47:21.729</Modified>
+      <Modified>2016-07-24T03:02:42.925</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\CESARDL\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -456,6 +456,14 @@
       <PackagePath>Plugin.Geolocator.dll</PackagePath>
       <Modified>2016-02-01T13:40:30.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\CESARDL\.nuget\packages\Xam.Plugins.Settings\2.1.0\lib\UAP10\Plugin.Settings.Abstractions.dll">
+      <PackagePath>Plugin.Settings.Abstractions.dll</PackagePath>
+      <Modified>2015-12-19T02:06:24.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\CESARDL\.nuget\packages\Xam.Plugins.Settings\2.1.0\lib\UAP10\Plugin.Settings.dll">
+      <PackagePath>Plugin.Settings.dll</PackagePath>
+      <Modified>2015-12-19T02:06:24.000</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\CESARDL\.nuget\packages\Xamarin.Forms\2.2.0.45\lib\uap10.0\Xamarin.Forms.Core.dll">
       <PackagePath>Xamarin.Forms.Core.dll</PackagePath>
       <Modified>2016-05-30T15:12:48.000</Modified>
@@ -482,7 +490,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\bin\Debug\MyWorld.Client.UI.dll">
       <PackagePath>MyWorld.Client.UI.dll</PackagePath>
-      <Modified>2016-07-06T01:22:35.144</Modified>
+      <Modified>2016-07-24T03:01:02.255</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\bin\Debug\Autofac.dll">
       <PackagePath>Autofac.dll</PackagePath>
@@ -490,7 +498,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\bin\Debug\MyWorld.Client.Core.dll">
       <PackagePath>MyWorld.Client.Core.dll</PackagePath>
-      <Modified>2016-07-06T01:22:33.550</Modified>
+      <Modified>2016-07-24T03:01:00.857</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UI\bin\Debug\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
@@ -550,6 +558,10 @@
       <PackagePath>MyWorld.Client.Core\Readme_Geolocator_Plugin.txt</PackagePath>
       <Modified>2016-06-17T07:09:44.842</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Core\Readme_Settings_Plugin.txt">
+      <PackagePath>MyWorld.Client.Core\Readme_Settings_Plugin.txt</PackagePath>
+      <Modified>2016-07-09T18:29:59.821</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2016-05-07T01:04:13.742</Modified>
@@ -564,11 +576,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UWP\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-07-06T03:47:23.729</Modified>
+      <Modified>2016-07-24T03:02:44.865</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UWP\bin\x86\Debug\Core\MyWorld.Client.UWP.exe">
       <PackagePath>MyWorld.Client.UWP.exe</PackagePath>
-      <Modified>2016-07-06T03:47:24.316</Modified>
+      <Modified>2016-07-24T03:02:45.365</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

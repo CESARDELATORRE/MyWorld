@@ -39,10 +39,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 Domain", "03 Domain", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehiclesStatelessGatewayOoC.OWIN", "VehiclesStatelessGatewayOoC.OWIN\VehiclesStatelessGatewayOoC.OWIN.csproj", "{B48C5E31-4F7E-44A5-90BA-7031635E76C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehiclesBotService", "VehiclesBotService\VehiclesBotService.csproj", "{BC62D4DB-F727-455C-86BF-6793D2E10715}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "07 Bot Services", "07 Bot Services", "{1F0D1B2C-6F9D-4859-A122-E9276D1347A1}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -137,12 +133,6 @@ Global
 		{B48C5E31-4F7E-44A5-90BA-7031635E76C2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B48C5E31-4F7E-44A5-90BA-7031635E76C2}.Release|x64.ActiveCfg = Release|Any CPU
 		{B48C5E31-4F7E-44A5-90BA-7031635E76C2}.Release|x64.Build.0 = Release|Any CPU
-		{BC62D4DB-F727-455C-86BF-6793D2E10715}.Debug|Any CPU.ActiveCfg = Debug|x64
-		{BC62D4DB-F727-455C-86BF-6793D2E10715}.Debug|x64.ActiveCfg = Debug|x64
-		{BC62D4DB-F727-455C-86BF-6793D2E10715}.Debug|x64.Build.0 = Debug|x64
-		{BC62D4DB-F727-455C-86BF-6793D2E10715}.Release|Any CPU.ActiveCfg = Release|x64
-		{BC62D4DB-F727-455C-86BF-6793D2E10715}.Release|x64.ActiveCfg = Release|x64
-		{BC62D4DB-F727-455C-86BF-6793D2E10715}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -160,6 +150,5 @@ Global
 		{D059F562-864D-4D5D-98EB-E0656A1884F5} = {699E7678-1907-4FF9-A866-7D6634C9719F}
 		{0DE99ED9-61C4-4DA5-9834-FF82A89FBE29} = {699E7678-1907-4FF9-A866-7D6634C9719F}
 		{B48C5E31-4F7E-44A5-90BA-7031635E76C2} = {B4930199-7DDC-4A35-8F5C-05B5514261A2}
-		{BC62D4DB-F727-455C-86BF-6793D2E10715} = {1F0D1B2C-6F9D-4859-A122-E9276D1347A1}
 	EndGlobalSection
 EndGlobal

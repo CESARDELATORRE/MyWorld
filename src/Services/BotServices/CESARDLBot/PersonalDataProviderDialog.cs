@@ -78,7 +78,7 @@ namespace CESARDLBot
                 {
                     if (entitiesFound.Count > 1)
                     {
-                        vinNumberResponse = "I found more than one vehicle with the " + vehicleToSearch + "name/make/model for the tenant/owner: " + tenantId;
+                        vinNumberResponse = "I found more than one vehicle with the " + vehicleToSearch + " name/make/model for the tenant/owner: " + tenantId;
                     }
                     else
                     {

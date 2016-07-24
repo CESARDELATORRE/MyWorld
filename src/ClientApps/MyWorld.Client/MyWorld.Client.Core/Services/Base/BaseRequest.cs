@@ -73,7 +73,7 @@ namespace MyWorld.Client.Core.Services
 
             try
             {
-                var response = await httpClient.GetStringAsync(url);
+                var response = await httpClient.GetStringAsync(url).ConfigureAwait(false);
                 result = await Task.Run(() => JsonConvert.DeserializeObject<T>(response));
             }
             catch
@@ -91,7 +91,7 @@ namespace MyWorld.Client.Core.Services
 
             try
             {
-                var response = await httpClient.GetStringAsync(url);
+                var response = await httpClient.GetStringAsync(url).ConfigureAwait(false); ;
                 result = await Task.Run(() => JsonConvert.DeserializeObject<IEnumerable<T>>(response));
             }
             catch
@@ -116,7 +116,7 @@ namespace MyWorld.Client.Core.Services
                 httpClient = CreateHttpClient();
             }
 
-            var response = await httpClient.GetStringAsync(url);
+            var response = await httpClient.GetStringAsync(url).ConfigureAwait(false); ;
             return response.ToString();
         }
 

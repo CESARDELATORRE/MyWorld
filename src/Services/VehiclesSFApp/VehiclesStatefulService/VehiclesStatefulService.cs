@@ -132,7 +132,7 @@ namespace VehiclesStatefulService
                 ServiceEventSource.Current.ServiceMessage(this, "Added Car: {0} with Id: {1} TenantId: {2}", vehicle2.FullTitle, vehicle2.Id, vehicle2.TenantId);
             }
 
-            Vehicle vehicle3 = new Vehicle { Alias = "Kicking Horse", TenantId = "TENANT2", Make = "Ford", Model = "Mustang", Latitude = 47.654177, Longitude = -122.132442, Year = "2012", LicensePlate = "AJX6940", VIN = "QWERTYUIOPASDFG17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/Chevy-Camaro-RS-2012-small.jpg" };
+            Vehicle vehicle3 = new Vehicle { Alias = "Kicking Horse", TenantId = "TENANT2", Make = "Ford", Model = "Mustang", Latitude = 47.654177, Longitude = -122.132442, Year = "2012", LicensePlate = "AJX6940", VIN = "QWERTYUIOPASDFG17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/Ford-Mustang-2015-small.jpg" };
             vehicle3.GenerateNewIdentity();
             long vehicle3PartitionKey = vehicle3.GetPartitionKey();
             if ((vehicle3PartitionKey > _currentInt64RangePartitionLowKey) && (vehicle3PartitionKey < _currentInt64RangePartitionHighKey))
@@ -143,7 +143,7 @@ namespace VehiclesStatefulService
                 ServiceEventSource.Current.ServiceMessage(this, "Added Car: {0} with Id: {1} TenantId: {2}", vehicle3.FullTitle, vehicle3.Id, vehicle3.TenantId);
             }
 
-            Vehicle vehicle4 = new Vehicle { Alias = "The Explorer", TenantId = "TENANT2", Make = "Ford", Model = "Explorer", Latitude = 47.645120, Longitude = -122.138143, Year = "2015", LicensePlate = "XXX1234", VIN = "ASDFGUIOPASDFGX17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/Chevy-Tahoe-Z71-2015-small.jpg" };
+            Vehicle vehicle4 = new Vehicle { Alias = "The Explorer", TenantId = "TENANT2", Make = "Ford", Model = "Explorer", Latitude = 47.645120, Longitude = -122.138143, Year = "2015", LicensePlate = "XXX1234", VIN = "ASDFGUIOPASDFGX17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/Ford-Explorer-2016-small.jpg" };
             vehicle4.GenerateNewIdentity();
             long vehicle4PartitionKey = vehicle4.GetPartitionKey();
             if ((vehicle4PartitionKey > _currentInt64RangePartitionLowKey) && (vehicle4PartitionKey < _currentInt64RangePartitionHighKey))
@@ -198,7 +198,7 @@ namespace VehiclesStatefulService
             //        ServiceEventSource.Current.ServiceMessage(this, "Added Car: {0} with Id: {1} TenantId: {2}", vehicle2.FullTitle, vehicle2.Id, vehicle2.TenantId);
             //    }
 
-            //    Vehicle vehicle3 = new Vehicle { Alias = "Kicking Horse", TenantId = "TENANT2", Make = "Ford", Model = "Mustang", Latitude = 47.654177, Longitude = -122.132442, Year = "2012", LicensePlate = "AJX6940", VIN = "QWERTYUIOPASDFG17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/Chevy-Camaro-RS-2012-small.jpg" };
+            //    Vehicle vehicle3 = new Vehicle { Alias = "Kicking Horse", TenantId = "TENANT2", Make = "Ford", Model = "Mustang", Latitude = 47.654177, Longitude = -122.132442, Year = "2012", LicensePlate = "AJX6940", VIN = "QWERTYUIOPASDFG17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/Ford-Mustang-2015-small.jpg" };
             //    vehicle3.GenerateNewIdentity();
             //    long vehicle3PartitionKey = vehicle3.GetPartitionKey();
             //    if ((vehicle3PartitionKey > _currentInt64RangePartitionLowKey) && (vehicle3PartitionKey < _currentInt64RangePartitionHighKey))
@@ -208,7 +208,7 @@ namespace VehiclesStatefulService
             //        ServiceEventSource.Current.ServiceMessage(this, "Added Car: {0} with Id: {1} TenantId: {2}", vehicle3.FullTitle, vehicle3.Id, vehicle3.TenantId);
             //    }
 
-            //    Vehicle vehicle4 = new Vehicle { Alias = "The Explorer", TenantId = "TENANT2", Make = "Ford", Model = "Explorer", Latitude = 47.645120, Longitude = -122.138143, Year = "2015", LicensePlate = "XXX1234", VIN = "ASDFGUIOPASDFGX17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/Chevy-Tahoe-Z71-2015-small.jpg" };
+            //    Vehicle vehicle4 = new Vehicle { Alias = "The Explorer", TenantId = "TENANT2", Make = "Ford", Model = "Explorer", Latitude = 47.645120, Longitude = -122.138143, Year = "2015", LicensePlate = "XXX1234", VIN = "ASDFGUIOPASDFGX17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/Ford-Explorer-2016-small.jpg" };
             //    vehicle4.GenerateNewIdentity();
             //    long vehicle4PartitionKey = vehicle4.GetPartitionKey();
             //    if ((vehicle4PartitionKey > _currentInt64RangePartitionLowKey) && (vehicle4PartitionKey < _currentInt64RangePartitionHighKey))
@@ -320,7 +320,8 @@ namespace VehiclesStatefulService
         {
             ServiceEventSource.Current.ServiceMessage(this, "Called GetTenantVehiclesAsync in STATEFUL SERVICE to return collection of Vehicles in partition {0} from TetantId {1}", this.Context.PartitionId, tenantIdParam);
 
-            var queryResult = await QueryReliableDictionary<Vehicle>(this.StateManager, "VehiclesDictionary", vehicle => !string.IsNullOrWhiteSpace(vehicle.TenantId) && (vehicle.TenantId.IndexOf(tenantIdParam, StringComparison.OrdinalIgnoreCase) >= 0));
+            var queryResult = await QueryReliableDictionary<Vehicle>(this.StateManager, "VehiclesDictionary", vehicle => !string.IsNullOrWhiteSpace(vehicle.TenantId) && (vehicle.TenantId == tenantIdParam));
+                                                                                                                                                                        //vehicle.TenantId.IndexOf(tenantIdParam, StringComparison.OrdinalIgnoreCase) >= 0)
 
             return queryResult;
         }
@@ -356,7 +357,7 @@ namespace VehiclesStatefulService
 
             var queryResult = await QueryReliableDictionary<Vehicle>(this.StateManager, "VehiclesDictionary",
                                                                      vehicle => !string.IsNullOrWhiteSpace(vehicle.TenantId) &&
-                                                                                (vehicle.TenantId.IndexOf(tenantIdParam, StringComparison.OrdinalIgnoreCase) >= 0) &&
+                                                                                vehicle.TenantId == tenantIdParam &&  //(vehicle.TenantId.IndexOf(tenantIdParam, StringComparison.OrdinalIgnoreCase) >= 0)
                                                                                 vehicle.Latitude < topLatitude &&
                                                                                 vehicle.Latitude > bottomLatitude &&
                                                                                 vehicle.Longitude > leftLongitude &&

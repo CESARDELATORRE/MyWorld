@@ -56,6 +56,11 @@ namespace MyWorld.Client.Core.Model
         public string SideViewPhoto { get; set; } = string.Empty;
 
 
+        public Vehicle ShallowCopy()
+        {
+            return (Vehicle)this.MemberwiseClone();
+        }
+
         //(CDLTLL - TBD)
         //ICommand imageCommand;
         //public ICommand iCommand =>

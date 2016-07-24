@@ -251,3 +251,5 @@ D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UWP\obj\x86\Deb
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UWP\obj\x86\Debug\Autofac\en\Autofac.Util.ReflectionExtensionsResources.resw
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UWP\obj\x86\Debug\resources.en.resfiles
 D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UWP\obj\x86\Debug\resources.en.resfiles.intermediate
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UWP\bin\x86\Debug\Plugin.Settings.Abstractions.dll
+D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.UWP\bin\x86\Debug\Plugin.Settings.dll

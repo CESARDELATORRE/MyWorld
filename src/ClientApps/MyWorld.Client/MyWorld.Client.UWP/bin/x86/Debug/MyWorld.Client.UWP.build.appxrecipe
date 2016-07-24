@@ -340,6 +340,12 @@
     <AppxPackagedFile Include="C:\Users\CESARDL\.nuget\packages\Xam.Plugin.Geolocator\3.0.4\lib\UAP10\Plugin.Geolocator.dll">
       <PackagePath>Plugin.Geolocator.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\CESARDL\.nuget\packages\Xam.Plugins.Settings\2.1.0\lib\UAP10\Plugin.Settings.Abstractions.dll">
+      <PackagePath>Plugin.Settings.Abstractions.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\CESARDL\.nuget\packages\Xam.Plugins.Settings\2.1.0\lib\UAP10\Plugin.Settings.dll">
+      <PackagePath>Plugin.Settings.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\CESARDL\.nuget\packages\Xamarin.Forms\2.2.0.45\lib\uap10.0\Xamarin.Forms.Core.dll">
       <PackagePath>Xamarin.Forms.Core.dll</PackagePath>
     </AppxPackagedFile>
@@ -411,6 +417,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Core\Readme_Geolocator_Plugin.txt">
       <PackagePath>MyWorld.Client.Core\Readme_Geolocator_Plugin.txt</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\GITREPOS\MyWorld\src\ClientApps\MyWorld.Client\MyWorld.Client.Core\Readme_Settings_Plugin.txt">
+      <PackagePath>MyWorld.Client.Core\Readme_Settings_Plugin.txt</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
