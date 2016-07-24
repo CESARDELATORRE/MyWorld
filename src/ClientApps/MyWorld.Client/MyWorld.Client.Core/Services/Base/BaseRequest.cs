@@ -102,7 +102,7 @@ namespace MyWorld.Client.Core.Services
             return result;
         }
 
-        protected async Task GetAsync(string url, string headerName = null, string headerValue = null)
+        protected async Task<String> GetAsync(string url, string headerName = null, string headerValue = null)
         {
             HttpClient httpClient;
 
@@ -116,7 +116,8 @@ namespace MyWorld.Client.Core.Services
                 httpClient = CreateHttpClient();
             }
 
-            var responseForDebuggingPurposes = await httpClient.GetStringAsync(url);
+            var response = await httpClient.GetStringAsync(url);
+            return response.ToString();
         }
 
 

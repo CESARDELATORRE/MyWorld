@@ -25,6 +25,15 @@ namespace MyWorld.Client.Core.Services
         //{
         //}
 
+        public async Task<String> PingVehiclesService(string urlPrefix)
+        {
+            //Sample: http://localhost:8740/api/ping/
+
+            string url = $"{urlPrefix}api/ping/";
+            String retVal = await GetAsync(url);
+            return retVal;
+
+        }
 
         public async Task<IList<Vehicle>> GetVehiclesInArea(string urlPrefix, string tenantId, double topLatitude, double leftLongitude, double bottomLatitude, double rightLongitude)
         {
