@@ -65,7 +65,10 @@ namespace VehiclesStatefulService
         /// <param name="cancellationToken">Canceled when Service Fabric needs to shut down this service replica.</param>
         protected override async Task RunAsync(CancellationToken cancellationToken)
         {
-
+            //The commented code below is IReadOnlyCollection needed if playing generating data within this current partition
+            /**
+            //*
+            //* 
             //(CDLTLL) Find out the HighKey and LowKey values for the this service's partition (current)
             //var fabricClient = new FabricClient(new FabricClientSettings() { HealthReportSendInterval = TimeSpan.FromSeconds(0) });
             var fabricClient = new FabricClient();
@@ -286,9 +289,13 @@ namespace VehiclesStatefulService
             //var resultList = await GetTenantVehiclesAsync("CDLTLL");
             //IList<Vehicle> VehiclesListTest = resultList;
 
+            //**
+            //**
+            */
+
             // *********************
             // *********************
-            // COUNTER stuff - To be deleted ---
+            // COUNTER stuff - To ping/test stateful service ---
             //Test code with a simple Counter in a Dictionary
 
             var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
@@ -326,7 +333,7 @@ namespace VehiclesStatefulService
             return queryResult;
         }
 
-        //(CDLTLL) This method should be substituted by a paginated method (20 per page or so). 
+        //(CDLTLL) This method should be substituted by a paginated method (50 items per page or so). 
         //No method should return ALL the vehicles as potentially there could be thousands or millions...
         public async Task<IList<Vehicle>> GetAllVehiclesAsync()
         {

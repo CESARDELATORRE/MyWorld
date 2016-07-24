@@ -8,10 +8,16 @@
              Icon="tab_vehicles.png"
              BackgroundColor="{DynamicResource WindowBackground}">
 
+  <ScrollView>
   <StackLayout Orientation="Vertical" Padding="10">
 
-    <Label Text="Vehicle's Details" Font="Bold,20" VerticalOptions="Center" HorizontalOptions="Center" />
+    <Label Text="Vehicle's Details" Font="Bold,25" VerticalOptions="Center" HorizontalOptions="Center" />
 
+    <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center" >
+    <Label Text="Tenant: " Font="Bold,15" VerticalOptions="Center" HorizontalOptions="Center" />
+    <Label Text="{Binding CurrentTenantId}" Font="Bold,15" VerticalOptions="Center" HorizontalOptions="Center" />
+    </StackLayout>
+    
     <Button Text="Save Vehicle" Command="{Binding SaveVehicleCommand}"/>
     
     <Label Text="Make: " VerticalOptions="Center" />
@@ -47,5 +53,6 @@
     <Entry Text="{Binding Vehicle.SideViewPhoto}" Placeholder="" />
 
   </StackLayout>
+  </ScrollView>
   
 </ContentPage>

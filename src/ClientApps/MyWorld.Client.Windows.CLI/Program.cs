@@ -26,8 +26,13 @@ namespace MyWorld.Client.Windows.CLI
 
         static void Main(string[] args)
         {
+            InitializeVehicleTemplates();
+
             AddMenuItem("Ping WebAPI service in Service Fabric Cluster", Ping);
-            AddMenuItem("Add new vehicles", AddVehicles);
+            AddMenuItem("Add a few new vehicles to your tenant", AddFewVehiclesToTenant);
+            AddMenuItem("Add hundreds of vehicles to WA state", AddVehiclesToWAState);
+            AddMenuItem("Add thousands of vehicles to the U.S.", AddVehiclesToTheUSA);
+
             //AddMenuItem("Update vehicles' coordinates Forward", UpdateCoordinatesForward);
             //AddMenuItem("Update vehicles' coordinates Backward", UpdateCoordinatesBackward);
             AddMenuItem("Quit", "q");
@@ -66,33 +71,23 @@ namespace MyWorld.Client.Windows.CLI
         static void Ping()
         {
             //var vehicleId = PromptTenantId();
-            Console.WriteLine("Pinging MyWorld WebAPI Front-End...");
+            Console.WriteLine("Pinging MyWorld WebAPI Front-End at: " + _urlPrefix);
             VehiclesAzureSFService vehiclesService = new VehiclesAzureSFService();
             var reVal = vehiclesService.PingVehiclesService(_urlPrefix);
 
             Console.WriteLine("\nResponse: {0}", reVal.Result.ToString());
         }
 
-
-        static void AddVehicles()
+        static void InitializeVehicleTemplates()
         {
-            //String tenantId = GetTenantId();
+            //These Vehicle-Templates are used ONLY when generating hundreds or thousands of vehicles from the CITY .CSV files
 
-            Console.WriteLine("\nAdding Thousands of vehicles to the MyWorld system");
-
-            //ADD VEHICLE 1 /////////////////////////////////////////////
-            //Seattle Pike's Place coordinates (47.608875,-122.340098)
-            Vehicle vehiclePlusCDLTLL = new Vehicle { TenantId = "CDLTLL", Make = "Ford", Model = "Mustang", Latitude = 47.608875, Longitude = -122.340098, Year = "2012", LicensePlate = "AJX6940", VIN = "QWERTYUIOPASDFG17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/Ford-Mustang-2015-small.jpg" };
-
-
-            //Add Type/Generic Vehicles
-            
-
-            //(CDLTLL) MOVE THIS TO A SINGLE EXECUTION!!
+            //Add Type/Generic Vehicles to re-use
+            //There vehicles do NOT have Coordinates (to be added) and the tenant is "TENANT" to be composed like "TENANT-1", "TENANT-2", etc.
             Vehicle vehicle1 = new Vehicle { TenantId = "TENANT", Make = "Chevrolet", Model = "Camaro", Year = "2012", LicensePlate = "AJX6940", VIN = "QWERTYUIOPASDFG17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/Chevy-Camaro-RS-2012-small.jpg" };
             _baseTypeVehicles.Add(1, vehicle1);
 
-            Vehicle vehicle2 = new Vehicle { TenantId = "TENANT", Make = "Chevrolet", Model = "Tahoe", Year = "2015", LicensePlate = "XXX1234", VIN = "ASDFGUIOPASDFGX17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/Chevy-Tahoe-Z71-2015-small.jpg" };
+            Vehicle vehicle2 = new Vehicle { TenantId = "TENANT", Make = "Chevrolet", Model = "Tahoe Z71", Year = "2015", LicensePlate = "XXX1234", VIN = "ASDFGUIOPASDFGX17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/Chevy-Tahoe-Z71-2015-small.jpg" };
             _baseTypeVehicles.Add(2, vehicle2);
 
             Vehicle vehicle3 = new Vehicle { TenantId = "TENANT", Make = "Ford", Model = "Mustang", Year = "2012", LicensePlate = "AJX6940", VIN = "QWERTYUIOPASDFG17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/Ford-Mustang-2015-small.jpg" };
@@ -101,22 +96,68 @@ namespace MyWorld.Client.Windows.CLI
             Vehicle vehicle4 = new Vehicle { TenantId = "TENANT", Make = "Ford", Model = "Explorer", Year = "2015", LicensePlate = "XXX1234", VIN = "ASDFGUIOPASDFGX17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/Ford-Explorer-2016-small.jpg" };
             _baseTypeVehicles.Add(4, vehicle4);
 
-            Vehicle vehicle5 = new Vehicle { TenantId = "TENANT", Make = "BMW", Model = "Z4", Year = "2007", LicensePlate = "M-XXX1234", VIN = "SPDFGUIOPASDFGX17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/BMW-Z4-2007-small.jpg" };
+            Vehicle vehicle5 = new Vehicle { TenantId = "TENANT", Make = "BMW", Model = "Z4 3.0si", Year = "2007", LicensePlate = "M-XXX1234", VIN = "SPDFGUIOPASDFGX17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/BMW-Z4-2007-small.jpg" };
             _baseTypeVehicles.Add(5, vehicle5);
+        }
 
+        static void AddFewVehiclesToTenant()
+        {
+            String tenantId = PromptForTenantId();  //Like CDLTLL, SCOTT, TENANT-1, etc.
+            Console.WriteLine("\nAdding a few vehicles to your tenant");
 
-            //AddVehiclesFromCSVFile("cities-us.csv");
+            //Create Vehicles ServiceAgent
+            VehiclesAzureSFService vehiclesService = new VehiclesAzureSFService();
+
+            Vehicle vehicle1 = new Vehicle { TenantId = tenantId, Make = "Chevrolet", Model = "Camaro RS", Latitude = 47.644958, Longitude = -122.131077, Year = "2012", LicensePlate = "CAM6940", VIN = "QWERTYUIOPASDFG17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/Chevy-Camaro-RS-2012-small.jpg" };
+            var retVal1 = vehiclesService.CreateVehicle(_urlPrefix, vehicle1.TenantId, vehicle1);
+            Guid createdVehicleGuid1 = retVal1.Result;
+
+            Vehicle vehicle2 = new Vehicle { TenantId = tenantId, Make = "Chevrolet", Model = "Tahoe Z71", Latitude = 47.661542, Longitude = -122.131231, Year = "2015", LicensePlate = "TAH1234", VIN = "ASDFGUIOPASDFGX17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/Chevy-Tahoe-Z71-2015-small.jpg" };
+            var retVal2 = vehiclesService.CreateVehicle(_urlPrefix, vehicle2.TenantId, vehicle2);
+            Guid createdVehicleGuid2 = retVal2.Result;
+
+            Vehicle vehicle3 = new Vehicle { TenantId = tenantId, Make = "BMW", Model = "Z4 3.0si", Latitude = 40.681608, Longitude = -3.620753, Year = "2007", LicensePlate = "M-XXX1234", VIN = "SPDFGUIOPASDFGX17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/BMW-Z4-2007-small.jpg" };
+            var retVal3 = vehiclesService.CreateVehicle(_urlPrefix, vehicle3.TenantId, vehicle3);
+            Guid createdVehicleGuid3 = retVal3.Result;
+
+            Vehicle vehicle4 = new Vehicle { TenantId = "CESARDL", Make = "Ford", Model = "Mustang", Latitude = 47.654177, Longitude = -122.132442, Year = "2012", LicensePlate = "ZXC6940", VIN = "FFFERTYUIOPASDFG17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/Ford-Mustang-2015-small.jpg" };
+            var retVal4 = vehiclesService.CreateVehicle(_urlPrefix, vehicle4.TenantId, vehicle4);
+            Guid createdVehicleGuid4 = retVal4.Result;
+
+            Vehicle vehicle5 = new Vehicle { TenantId = "CESARDL", Make = "Ford", Model = "Explorer", Latitude = 47.645120, Longitude = -122.138143, Year = "2015", LicensePlate = "IOP1234", VIN = "KKKKKKUIOPASDFGX17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/Ford-Explorer-2016-small.jpg" };
+            var retVal5 = vehiclesService.CreateVehicle(_urlPrefix, vehicle5.TenantId, vehicle5);
+            Guid createdVehicleGuid5 = retVal5.Result;
+
+            Vehicle vehicle6 = new Vehicle { TenantId = "CESARDL", Make = "Chevrolet", Model = "Camaro RS", Latitude = 47.608875, Longitude = -122.340098, Year = "2012", LicensePlate = "BNM6940", VIN = "ZZZZZZZUIOPASDFG17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/Chevy-Camaro-RS-2012-small.jpg" };
+            var retVal6 = vehiclesService.CreateVehicle(_urlPrefix, vehicle6.TenantId, vehicle6);
+            Guid createdVehicleGuid6 = retVal6.Result;
+            //Seattle Pike's Place coordinates (47.608875,-122.340098)
+        }
+
+        static void AddVehiclesToWAState()
+        {
+            Console.WriteLine("\nAdding a few hundreds of vehicles to Washington state, one per city");
+
             AddVehiclesFromCSVFile("cities-wa.csv");
-            
+            //ReadTest("cities-wa.csv");
 
+            Console.WriteLine("##### END OF ADDING VEHICLES PROCESS #####");
+            Console.WriteLine("##########################################");
+        }
+
+        static void AddVehiclesToTheUSA()
+        {
+
+            Console.WriteLine("\nAdding Thousands of vehicles to the U.S. into the MyWorld system");
+
+            AddVehiclesFromCSVFile("cities-us.csv");
             //ReadTest("cities-us.csv");
 
             Console.WriteLine("##### END OF ADDING VEHICLES PROCESS #####");
             Console.WriteLine("##########################################");
-
         }
 
-        static string GetTenantId(string tenantId = null)
+        static string PromptForTenantId(string tenantId = null)
         {
             Console.Write("\n\nEnter your TenantId: ");
             if (String.IsNullOrEmpty(tenantId))
@@ -182,6 +223,7 @@ namespace MyWorld.Client.Windows.CLI
                         copiedVehicle.Longitude = Convert.ToDouble(longitudeFromCity);
                         Console.WriteLine("This " + copiedVehicle.TenantId + " is being added");
 
+                        //Create vehicle in Service Fabric cluster stateful services
                         var retVal = vehiclesService.CreateVehicle(_urlPrefix, copiedVehicle.TenantId, copiedVehicle);
                         Guid createdVehicleGuid = retVal.Result;
                     }

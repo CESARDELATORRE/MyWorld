@@ -8,6 +8,7 @@
              Icon="tab_settings.png"
              BackgroundColor="{DynamicResource WindowBackground}">
 
+  <ScrollView>
   <StackLayout Orientation="Vertical" Padding="10">
     
     <Label Font="Bold,20" Text="Services location" />
@@ -25,6 +26,8 @@
 
     <Label Text="Tenant ID: " VerticalOptions="Center" />
     <Entry Text="{Binding CurrentTenantId}" Placeholder="CDLTLL" />
+    
   </StackLayout>
+  </ScrollView>
 
 </ContentPage>

@@ -77,40 +77,6 @@ namespace MyWorld.Client.Core.ViewModel
             }
         }
 
-        //public String Latitude
-        //{
-        //    get { return _vehicle.Latitude.ToString(); }
-        //    set
-        //    {
-        //        _vehicle.Latitude = System.Convert.ToDouble(value);
-        //        OnPropertyChanged();
-        //    }
-        //}
-
-        //public String Longitude
-        //{
-        //    get { return _vehicle.Longitude.ToString(); }
-        //    set
-        //    {      
-        //        _vehicle.Longitude = System.Convert.ToDouble(value);
-        //        OnPropertyChanged();
-        //    }
-        //}
-
-        public void Appearing()
-        {
-            //this.GetMyWorldCommand.Execute(false);
-
-            //Method 2 to refresh
-            //Device.BeginInvokeOnMainThread(ReloadMyWorldRoot);
-        }
-
-        //Method 2 to refresh
-        //private async void ReloadMyWorldRoot()
-        //{
-        //    this.MyWorld = await _myWorldRootService.GetMyWorldData(this.UrlPrefix, this.CurrentTenantId);
-        //}
-
         bool isBusy = false;
         public bool IsBusy
         {
