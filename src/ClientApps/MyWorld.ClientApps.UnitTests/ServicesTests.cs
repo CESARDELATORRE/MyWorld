@@ -4,6 +4,8 @@ using Xunit;
 
 using MyWorld.Client.Core.Services;
 using MyWorld.Client.Core.Model;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace MyWorld.ClientApps.UnitTests
 {
@@ -13,12 +15,13 @@ namespace MyWorld.ClientApps.UnitTests
         [Fact]
         public async Task GettingFakeVehiclesDataTest()
         {
-            IMyWorldRootService myWorldRootService;
-            IVehiclesService vehiclesService = new VehiclesMockService(); 
-            myWorldRootService = new MyWorldRootMockService(vehiclesService);
-            MyWorldRoot myWorld = await myWorldRootService.GetMyWorldData("CDLTLL");
+            IVehiclesService vehiclesService = new VehiclesMockService();
 
-            await Task.Run(() => { Assert.Equal(3, myWorld.Vehicles.Count); });
+            IList<Vehicle> vehicleList = await vehiclesService.GetAllVehiclesFromTenant("http://myworldcluster.westus.cloudapp.azure.com:8740/", "CDLTLL");
+
+            await Task.Run(() => { Assert.Equal(3, vehicleList.Count); });
+
+            await Task.Run(() => { Assert.True(true); });
         }
 
     }

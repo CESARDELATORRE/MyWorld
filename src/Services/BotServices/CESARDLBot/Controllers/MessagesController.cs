@@ -31,26 +31,26 @@ namespace CESARDLBot
                 //L.U.I.S. will call back to my PersonalDataProviderDialog callback methods/properties
                 //This is how I published it to AZURE    
 
-                await Conversation.SendAsync(activity, () => new PersonalDataProviderDialog());
-                
-                
+                //await Conversation.SendAsync(activity, () => new PersonalDataProviderDialog());
+
+
                 //Manual dialog -----------------------------------------------------------------------
-                //ConnectorClient connector = new ConnectorClient(new Uri(activity.ServiceUrl));
-                //string retMessage = string.Empty;
+                ConnectorClient connector = new ConnectorClient(new Uri(activity.ServiceUrl));
+                string retMessage = string.Empty;
 
-                //// Calculate something static for us to return
-                //int length = (activity.Text ?? string.Empty).Length;
-                //retMessage = $"Howdy! - You said '{activity.Text}' which was {length} characters";
+                // Calculate something static for us to return
+                int length = (activity.Text ?? string.Empty).Length;
+                retMessage = $"Howdy! - You said '{activity.Text}' which was {length} characters";
 
-                ////Temporal Hardcoded Test querying my Service Fabric services
-                ////PersonalDataProviderDialog MyTempDialog = new PersonalDataProviderDialog();
-                ////retMessage = await MyTempDialog.TryFindVehicleVIN("camaro", "CDLTLL");
+                //Temporal Hardcoded Test querying my Service Fabric services
+                //PersonalDataProviderDialog MyTempDialog = new PersonalDataProviderDialog();
+                //retMessage = await MyTempDialog.TryFindVehicleVIN("camaro", "CDLTLL");
 
-                //// return our reply to the chat user
-                //Activity reply = activity.CreateReply(retMessage);
-                //await connector.Conversations.ReplyToActivityAsync(reply);
+                // return our reply to the chat user
+                Activity reply = activity.CreateReply(retMessage);
+                await connector.Conversations.ReplyToActivityAsync(reply);
                 //-----------------------------------------------------------------------
-                
+
             }
             else
             {
