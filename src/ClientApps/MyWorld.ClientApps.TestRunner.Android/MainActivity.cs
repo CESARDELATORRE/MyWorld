@@ -25,9 +25,8 @@ namespace MyWorld.ClientApps.TestRunner.Android
             // We need this to ensure the execution assembly is part of the app bundle
             AddExecutionAssembly(typeof(ExtensibilityPointFactory).Assembly);
 
-            // or in any reference assemblies	
+            // or in any reference assemblies getting the Assembly from any type/class	
             AddTestAssembly(typeof(MyWorld.ClientApps.UnitTests.DummyTests).Assembly);
-            //AddTestAssembly(typeof(PortableTests).Assembly);
 
             // or in any assembly that you load (since JIT is available)
 

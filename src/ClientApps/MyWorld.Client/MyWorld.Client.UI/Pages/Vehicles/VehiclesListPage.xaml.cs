@@ -28,6 +28,7 @@ namespace MyWorld.Client.UI
                 injectedMyWorldViewModel.Appearing();
             };
 
+            //When any item-vehicle is clicked, need to show the Vehicle's Detail page
             ListViewVehicles.ItemTapped += (sender, e) => ListViewVehicles.SelectedItem = null;
             ListViewVehicles.ItemSelected += async (sender, e) =>
             {
