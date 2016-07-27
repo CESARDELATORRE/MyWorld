@@ -84,20 +84,20 @@ namespace MyWorld.Client.Windows.CLI
 
             //Add Type/Generic Vehicles to re-use
             //There vehicles do NOT have Coordinates (to be added) and the tenant is "TENANT" to be composed like "TENANT-1", "TENANT-2", etc.
-            Vehicle vehicle1 = new Vehicle { TenantId = "TENANT", Make = "Chevrolet", Model = "Camaro", Year = "2012", LicensePlate = "AJX6940", VIN = "QWERTYUIOPASDFG17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/Chevy-Camaro-RS-2012-small.jpg" };
-            _baseTypeVehicles.Add(1, vehicle1);
+            Vehicle templateVehicle0 = new Vehicle { TenantId = "TENANT", Make = "Chevrolet", Model = "Camaro", Year = "2012", LicensePlate = "AJX6940", VIN = "QWERTYUIOPASDFG17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/Chevy-Camaro-RS-2012-small.jpg" };
+            _baseTypeVehicles.Add(0, templateVehicle0);
 
-            Vehicle vehicle2 = new Vehicle { TenantId = "TENANT", Make = "Chevrolet", Model = "Tahoe Z71", Year = "2015", LicensePlate = "XXX1234", VIN = "ASDFGUIOPASDFGX17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/Chevy-Tahoe-Z71-2015-small.jpg" };
-            _baseTypeVehicles.Add(2, vehicle2);
+            Vehicle templateVehicle1 = new Vehicle { TenantId = "TENANT", Make = "Chevrolet", Model = "Tahoe Z71", Year = "2015", LicensePlate = "XXX1234", VIN = "ASDFGUIOPASDFGX17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/Chevy-Tahoe-Z71-2015-small.jpg" };
+            _baseTypeVehicles.Add(1, templateVehicle1);
 
-            Vehicle vehicle3 = new Vehicle { TenantId = "TENANT", Make = "Ford", Model = "Mustang", Year = "2012", LicensePlate = "AJX6940", VIN = "QWERTYUIOPASDFG17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/Ford-Mustang-2015-small.jpg" };
-            _baseTypeVehicles.Add(3, vehicle3);
+            Vehicle templateVehicle2 = new Vehicle { TenantId = "TENANT", Make = "Ford", Model = "Mustang", Year = "2012", LicensePlate = "AJX6940", VIN = "QWERTYUIOPASDFG17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/Ford-Mustang-2015-small.jpg" };
+            _baseTypeVehicles.Add(2, templateVehicle2);
 
-            Vehicle vehicle4 = new Vehicle { TenantId = "TENANT", Make = "Ford", Model = "Explorer", Year = "2015", LicensePlate = "XXX1234", VIN = "ASDFGUIOPASDFGX17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/Ford-Explorer-2016-small.jpg" };
-            _baseTypeVehicles.Add(4, vehicle4);
+            Vehicle templateVehicle3 = new Vehicle { TenantId = "TENANT", Make = "Ford", Model = "Explorer", Year = "2015", LicensePlate = "XXX1234", VIN = "ASDFGUIOPASDFGX17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/Ford-Explorer-2016-small.jpg" };
+            _baseTypeVehicles.Add(3, templateVehicle3);
 
-            Vehicle vehicle5 = new Vehicle { TenantId = "TENANT", Make = "BMW", Model = "Z4 3.0si", Year = "2007", LicensePlate = "M-XXX1234", VIN = "SPDFGUIOPASDFGX17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/BMW-Z4-2007-small.jpg" };
-            _baseTypeVehicles.Add(5, vehicle5);
+            Vehicle templateVehicle4 = new Vehicle { TenantId = "TENANT", Make = "BMW", Model = "Z4 3.0si", Year = "2007", LicensePlate = "M-XXX1234", VIN = "SPDFGUIOPASDFGX17", FrontViewPhoto = "http://myworldfiles.blob.core.windows.net/vehicles/BMW-Z4-2007-small.jpg" };
+            _baseTypeVehicles.Add(4, templateVehicle4);
         }
 
         static void AddFewVehiclesToTenant()
@@ -209,7 +209,7 @@ namespace MyWorld.Client.Windows.CLI
                     {
                         //Get Ramdon Vehicle from Dict.
                         Random r = new Random();
-                        int randomNumber = r.Next(1, 5);
+                        int randomNumber = r.Next(0, 5);
                         Vehicle randomVehicleRef = new Vehicle();
 
                         var element = _baseTypeVehicles.ElementAt(randomNumber);

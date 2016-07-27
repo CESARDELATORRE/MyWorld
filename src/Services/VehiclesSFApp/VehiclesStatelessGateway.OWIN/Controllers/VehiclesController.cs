@@ -85,7 +85,7 @@ namespace VehiclesStatelessGateway.OWIN.Controllers
         [Route("api/vehicles/")]
         public async Task<IEnumerable<Vehicle>> GetTenantVehicles([FromUri] string tenantId)
         {
-            ServiceEventSource.Current.Message("Called GetVehiclesInArea in STATELESS GATEWAY service to return collection of Vehicles for Tenant {0}", tenantId);
+            ServiceEventSource.Current.Message("Called GetTenantVehicles in STATELESS GATEWAY service to return collection of Vehicles for Tenant {0}", tenantId);
 
             List<Vehicle> aggregatedVehiclesList = new List<Vehicle>();
 
@@ -116,9 +116,9 @@ namespace VehiclesStatelessGateway.OWIN.Controllers
         //No method should return ALL the vehicles as potentially there could be thousands or millions...
         [HttpGet]
         [Route("api/vehicles/")]
-        public async Task<IEnumerable<Vehicle>> GetTenantVehicles()
+        public async Task<IEnumerable<Vehicle>> GetAllVehicles()
         {
-            ServiceEventSource.Current.Message("Called GetVehiclesInArea in STATELESS GATEWAY service to return collection of all the Vehicles");
+            ServiceEventSource.Current.Message("Called GetAllVehicles in STATELESS GATEWAY service to return collection of ALL the Vehicles");
 
             List<Vehicle> aggregatedVehiclesList = new List<Vehicle>();
 
@@ -151,6 +151,8 @@ namespace VehiclesStatelessGateway.OWIN.Controllers
         [Route("api/vehicles/{vehicleId:Guid}")]
         public async Task<Vehicle> GetVehicle(Guid vehicleId)
         {
+            ServiceEventSource.Current.Message("Called GetVehicle in STATELESS GATEWAY service to get a single Vehicle from its ACTOR");
+
             //Guid vehicleId = new Guid("cc164441-9a44-c0c1-208b-08d3a5f9941e");
             ActorId actorId = new ActorId(vehicleId);
             //ActorId actorId = ActorId.CreateRandom();
@@ -171,7 +173,7 @@ namespace VehiclesStatelessGateway.OWIN.Controllers
         [Route("api/vehicles/create")]
         public async Task<Guid> CreateVehicle([FromBody] Vehicle vehicleToCreate)
         {
-            ServiceEventSource.Current.Message("Creating a Vehicle from Web API method");
+            ServiceEventSource.Current.Message("Creating a Vehicle from Web API method through its related ACTOR");
 
             vehicleToCreate.GenerateNewIdentity();
             ActorId actorId = new ActorId(vehicleToCreate.Id);
@@ -201,7 +203,7 @@ namespace VehiclesStatelessGateway.OWIN.Controllers
         [Route("api/vehicles/update")]
         public async Task<Guid> UpdateVehicle([FromBody] Vehicle vehicleToUpdate)
         {
-            ServiceEventSource.Current.Message("Updating Vehicle {0} from Web API method", vehicleToUpdate.Id);
+            ServiceEventSource.Current.Message("Updating Vehicle {0} from Web API method through its related ACTOR", vehicleToUpdate.Id);
 
             ActorId actorId = new ActorId(vehicleToUpdate.Id);
 
@@ -226,19 +228,5 @@ namespace VehiclesStatelessGateway.OWIN.Controllers
             return vehicleToUpdate.Id;
         }
 
-        //// Create actor proxy and send the request
-        //IRestockRequestActor restockRequestActor = ActorProxy.Create<IRestockRequestActor>(actorId, this.ApplicationName);
-        //await restockRequestActor.AddRestockRequestAsync(request);
-
-        //try
-        //{
-        //    return customerOrder.GetOrderStatusAsStringAsync();
-        //}
-        //catch (Exception ex)
-        //{
-        //    ServiceEventSource.Current.Message("Web Service: Exception {0}: {1}", customerOrder, ex);
-
-        //    throw;
-        //}
     }
 }

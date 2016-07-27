@@ -27,7 +27,7 @@ namespace MyWorld.Client.UI
             builder.RegisterModule<MyWorldClientUIModule>();
 
             //When registering specify if I want the Mock implementation or the real implementation to be injected
-            builder.RegisterModule(new MyWorldClientCoreModule(){UseMockServices = false});
+            builder.RegisterModule(new MyWorldClientCoreModule(){UseMockServices = true});
 
             var container = builder.Build();
 

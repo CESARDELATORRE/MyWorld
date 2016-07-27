@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Fabric;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.ServiceFabric.Data.Collections;
@@ -9,17 +8,10 @@ using Microsoft.ServiceFabric.Services.Communication.Runtime;
 using Microsoft.ServiceFabric.Services.Runtime;
 
 using Microsoft.ServiceFabric.Services.Remoting.Runtime;
-using Microsoft.ServiceFabric.Actors;
 
 using Vehicles.Domain.Model;
 using Vehicles.Domain.ServiceContracts;
-using Vehicles.Domain.ActorContracts;
-
-using GeographicLib.GeoCoordinatePortable;
 //using System.Device.Location;
-using GeographicLib;
-using GeographicLib.Tiles;
-using Microsoft.ServiceFabric.Actors.Client;
 
 namespace VehiclesStatefulService
 {
@@ -58,9 +50,151 @@ namespace VehiclesStatefulService
 
         }
 
+        public async Task<bool> AddOrUpdateVehicleAsync(Vehicle vehicle)
+        {
+            //Get the Vehicles Dictionaryin the current Partition
+            IReliableDictionary<Guid, Vehicle> vehiclesPartitionDictionary =
+                                await this.StateManager.GetOrAddAsync<IReliableDictionary<Guid, Vehicle>>("VehiclesDictionary");
+
+            // Transaction to add/update a vehicle
+            using (var tx = this.StateManager.CreateTransaction())
+            {
+                await vehiclesPartitionDictionary.AddOrUpdateAsync(tx, vehicle.Id, vehicle, (key, value) => vehicle);
+                await tx.CommitAsync();
+
+                long vehiclePartitionKey = vehicle.GetPartitionKey();
+                ServiceEventSource.Current.ServiceMessage(this, "Added/Updated Car: {0} with Id: {1} -- TenantId: {2} -- PartitionID: {3}", vehicle.FullTitle, vehicle.Id, vehicle.TenantId, vehiclePartitionKey);
+            }
+
+            return true;
+        }
+
+        public async Task<IList<Vehicle>> GetTenantVehiclesAsync(string tenantIdParam)
+        {
+            ServiceEventSource.Current.ServiceMessage(this, "Called GetTenantVehiclesAsync in STATEFUL SERVICE to return collection of Vehicles in partition {0} from TetantId {1}", this.Context.PartitionId, tenantIdParam);
+
+            var queryResult = await QueryReliableDictionary<Vehicle>(this.StateManager, "VehiclesDictionary", vehicle => !string.IsNullOrWhiteSpace(vehicle.TenantId) && (vehicle.TenantId == tenantIdParam));
+                                                                                                                                                                        //vehicle.TenantId.IndexOf(tenantIdParam, StringComparison.OrdinalIgnoreCase) >= 0)
+
+            return queryResult;
+        }
+
+        //(CDLTLL) This method should be substituted by a paginated method (50 items per page or so). 
+        //No method should return ALL the vehicles as potentially there could be thousands or millions...
+        public async Task<IList<Vehicle>> GetAllVehiclesAsync()
+        {
+            ServiceEventSource.Current.ServiceMessage(this, "Called GetAllVehiclesAsync in STATEFUL SERVICE to return collection of Vehicles in partition {0}", this.Context.PartitionId);
+
+            var queryResult = await QueryReliableDictionary<Vehicle>(this.StateManager, "VehiclesDictionary", null);
+
+            return queryResult;
+        }
+
+        public async Task<IList<Vehicle>> GetVehiclesInAreaAsync(double topLatitude, double leftLongitude, double bottomLatitude, double rightLongitude)
+        {
+            ServiceEventSource.Current.ServiceMessage(this, "Called GetVehiclesInAreaAsync in STATEFUL SERVICE to return collection of Vehicles in partition {0} for all Tenants", this.Context.PartitionId);
+
+            var queryResult = await QueryReliableDictionary<Vehicle>(this.StateManager, "VehiclesDictionary",
+                                                                     vehicle => vehicle.Latitude < topLatitude &&
+                                                                                vehicle.Latitude > bottomLatitude &&
+                                                                                vehicle.Longitude > leftLongitude &&
+                                                                                vehicle.Longitude < rightLongitude
+                                                                    );
+
+            return queryResult;
+        }
+
+        public async Task<IList<Vehicle>> GetVehiclesInAreaByTenantAsync(string tenantIdParam, double topLatitude, double leftLongitude, double bottomLatitude, double rightLongitude)
+        {
+            ServiceEventSource.Current.ServiceMessage(this, "Called GetVehiclesInAreaByTenantAsync in STATEFUL SERVICE to return collection of Vehicles in partition {0} from TetantId {1}", this.Context.PartitionId, tenantIdParam);
+
+            var queryResult = await QueryReliableDictionary<Vehicle>(this.StateManager, "VehiclesDictionary",
+                                                                     vehicle => !string.IsNullOrWhiteSpace(vehicle.TenantId) &&
+                                                                                vehicle.TenantId == tenantIdParam &&  //(vehicle.TenantId.IndexOf(tenantIdParam, StringComparison.OrdinalIgnoreCase) >= 0)
+                                                                                vehicle.Latitude < topLatitude &&
+                                                                                vehicle.Latitude > bottomLatitude &&
+                                                                                vehicle.Longitude > leftLongitude &&
+                                                                                vehicle.Longitude < rightLongitude
+                                                                    );
+            //Just for checking/Debug queried values
+            //foreach (Vehicle vehicle in queryResult)
+            //{
+            //    ServiceEventSource.Current.ServiceMessage(this, "Returning Existing Car: {0} -- Vehicle-Id: {1} -- TenantId: {2} -- Orig-Latitude {3}, Orig-Longitude {4}, GeoQuadKey {5}, Geohash {6}", vehicle.FullTitle, vehicle.Id, vehicle.TenantId, vehicle.Latitude, vehicle.Longitude, vehicle.GeoQuadKey, vehicle.Geohash);
+            //}
+
+            return queryResult;
+        }
+
+        //Generic query method based on a Filter, returning a IList<T>
+        public static async Task<IList<T>> QueryReliableDictionary<T>(Microsoft.ServiceFabric.Data.IReliableStateManager stateManager,
+                                                                                          string reliableDictionaryName,
+                                                                                          Func<T, bool> filter)
+        {
+            var result = new List<T>();
+
+            IReliableDictionary<Guid, T> reliableDictionary =
+                await stateManager.GetOrAddAsync<IReliableDictionary<Guid, T>>(reliableDictionaryName);
+
+            using (var tx = stateManager.CreateTransaction())
+            {
+                Microsoft.ServiceFabric.Data.IAsyncEnumerable<KeyValuePair<Guid, T>> asyncEnumerable =
+                            await reliableDictionary.CreateEnumerableAsync(tx);
+
+                using (Microsoft.ServiceFabric.Data.IAsyncEnumerator<KeyValuePair<Guid, T>> asyncEnumerator = asyncEnumerable.GetAsyncEnumerator())
+                {
+                    while (await asyncEnumerator.MoveNextAsync(CancellationToken.None))
+                    {
+                        bool addToResult = false;
+                        if (filter == null)
+                        {
+                            addToResult = true;
+                        }
+                        else
+                        {
+                            if (filter(asyncEnumerator.Current.Value))
+                                addToResult = true;
+                        }
+                        if(addToResult)
+                            result.Add(asyncEnumerator.Current.Value);
+                    }
+                }
+            }
+            return result;
+        }
+
+        //Generic query method returning a IList<KeyValuePair<Guid, T>>
+        public static async Task<IList<KeyValuePair<Guid, T>>> QueryReliableDictionaryKeyValuePairList<T>(Microsoft.ServiceFabric.Data.IReliableStateManager stateManager, 
+                                                                                                          string reliableDictionaryName, 
+                                                                                                          Func<T, bool> filter)
+        {
+            var result = new List<KeyValuePair<Guid, T>>();
+
+            IReliableDictionary<Guid, T> reliableDictionary =
+                await stateManager.GetOrAddAsync<IReliableDictionary<Guid, T>>(reliableDictionaryName);
+
+            using (var tx = stateManager.CreateTransaction())
+            {
+                Microsoft.ServiceFabric.Data.IAsyncEnumerable<KeyValuePair<Guid, T>> asyncEnumerable = 
+                            await reliableDictionary.CreateEnumerableAsync(tx);
+
+                using (Microsoft.ServiceFabric.Data.IAsyncEnumerator<KeyValuePair<Guid, T>> asyncEnumerator = asyncEnumerable.GetAsyncEnumerator())
+                {
+                    while (await asyncEnumerator.MoveNextAsync(CancellationToken.None))
+                    {
+                        if (filter(asyncEnumerator.Current.Value))
+                            result.Add(asyncEnumerator.Current);
+                    }
+                }
+            }
+            return result;
+        }
+
+
         /// <summary>
         /// This is the main entry point for your service replica.
         /// This method executes when this replica of your service becomes primary and has write status.
+        /// ALL THIS CODE IS COMMENTED BECAUSE I DON'T WANT TO INITIALIZE DATA PER PARTITION..
+        /// DATA INITIALIZATION WILL BE DONE FROM THE CLIENTS (MyWorld.CLI or Xamarin Mobile App)
         /// </summary>
         /// <param name="cancellationToken">Canceled when Service Fabric needs to shut down this service replica.</param>
         protected override async Task RunAsync(CancellationToken cancellationToken)
@@ -311,7 +445,7 @@ namespace VehiclesStatefulService
         {
             var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
             string retCounter;
-            
+
             using (var tx = this.StateManager.CreateTransaction())
             {
                 var result = await myDictionary.TryGetValueAsync(tx, "Counter");
@@ -319,147 +453,8 @@ namespace VehiclesStatefulService
                 //await tx.CommitAsync();
 
                 retCounter = result.Value.ToString();
-            }           
+            }
             return retCounter;
-        }
-        
-        public async Task<IList<Vehicle>> GetTenantVehiclesAsync(string tenantIdParam)
-        {
-            ServiceEventSource.Current.ServiceMessage(this, "Called GetTenantVehiclesAsync in STATEFUL SERVICE to return collection of Vehicles in partition {0} from TetantId {1}", this.Context.PartitionId, tenantIdParam);
-
-            var queryResult = await QueryReliableDictionary<Vehicle>(this.StateManager, "VehiclesDictionary", vehicle => !string.IsNullOrWhiteSpace(vehicle.TenantId) && (vehicle.TenantId == tenantIdParam));
-                                                                                                                                                                        //vehicle.TenantId.IndexOf(tenantIdParam, StringComparison.OrdinalIgnoreCase) >= 0)
-
-            return queryResult;
-        }
-
-        //(CDLTLL) This method should be substituted by a paginated method (50 items per page or so). 
-        //No method should return ALL the vehicles as potentially there could be thousands or millions...
-        public async Task<IList<Vehicle>> GetAllVehiclesAsync()
-        {
-            ServiceEventSource.Current.ServiceMessage(this, "Called GetAllVehiclesAsync in STATEFUL SERVICE to return collection of Vehicles in partition {0}", this.Context.PartitionId);
-
-            var queryResult = await QueryReliableDictionary<Vehicle>(this.StateManager, "VehiclesDictionary", null);
-
-            return queryResult;
-        }
-
-        public async Task<IList<Vehicle>> GetVehiclesInAreaAsync(double topLatitude, double leftLongitude, double bottomLatitude, double rightLongitude)
-        {
-            ServiceEventSource.Current.ServiceMessage(this, "Called GetVehiclesInAreaAsync in STATEFUL SERVICE to return collection of Vehicles in partition {0} for all Tenants", this.Context.PartitionId);
-
-            var queryResult = await QueryReliableDictionary<Vehicle>(this.StateManager, "VehiclesDictionary",
-                                                                     vehicle => vehicle.Latitude < topLatitude &&
-                                                                                vehicle.Latitude > bottomLatitude &&
-                                                                                vehicle.Longitude > leftLongitude &&
-                                                                                vehicle.Longitude < rightLongitude
-                                                                    );
-
-            return queryResult;
-        }
-
-        public async Task<IList<Vehicle>> GetVehiclesInAreaByTenantAsync(string tenantIdParam, double topLatitude, double leftLongitude, double bottomLatitude, double rightLongitude)
-        {
-            ServiceEventSource.Current.ServiceMessage(this, "Called GetVehiclesInAreaByTenantAsync in STATEFUL SERVICE to return collection of Vehicles in partition {0} from TetantId {1}", this.Context.PartitionId, tenantIdParam);
-
-            var queryResult = await QueryReliableDictionary<Vehicle>(this.StateManager, "VehiclesDictionary",
-                                                                     vehicle => !string.IsNullOrWhiteSpace(vehicle.TenantId) &&
-                                                                                vehicle.TenantId == tenantIdParam &&  //(vehicle.TenantId.IndexOf(tenantIdParam, StringComparison.OrdinalIgnoreCase) >= 0)
-                                                                                vehicle.Latitude < topLatitude &&
-                                                                                vehicle.Latitude > bottomLatitude &&
-                                                                                vehicle.Longitude > leftLongitude &&
-                                                                                vehicle.Longitude < rightLongitude
-                                                                    );
-            //Just for checking/Debug queried values
-            //foreach (Vehicle vehicle in queryResult)
-            //{
-            //    ServiceEventSource.Current.ServiceMessage(this, "Returning Existing Car: {0} -- Vehicle-Id: {1} -- TenantId: {2} -- Orig-Latitude {3}, Orig-Longitude {4}, GeoQuadKey {5}, Geohash {6}", vehicle.FullTitle, vehicle.Id, vehicle.TenantId, vehicle.Latitude, vehicle.Longitude, vehicle.GeoQuadKey, vehicle.Geohash);
-            //}
-
-            return queryResult;
-        }
-
-        //Generic query method based on a Filter, returning a IList<T>
-        public static async Task<IList<T>> QueryReliableDictionary<T>(Microsoft.ServiceFabric.Data.IReliableStateManager stateManager,
-                                                                                          string reliableDictionaryName,
-                                                                                          Func<T, bool> filter)
-        {
-            var result = new List<T>();
-
-            IReliableDictionary<Guid, T> reliableDictionary =
-                await stateManager.GetOrAddAsync<IReliableDictionary<Guid, T>>(reliableDictionaryName);
-
-            using (var tx = stateManager.CreateTransaction())
-            {
-                Microsoft.ServiceFabric.Data.IAsyncEnumerable<KeyValuePair<Guid, T>> asyncEnumerable =
-                            await reliableDictionary.CreateEnumerableAsync(tx);
-
-                using (Microsoft.ServiceFabric.Data.IAsyncEnumerator<KeyValuePair<Guid, T>> asyncEnumerator = asyncEnumerable.GetAsyncEnumerator())
-                {
-                    while (await asyncEnumerator.MoveNextAsync(CancellationToken.None))
-                    {
-                        bool addToResult = false;
-                        if (filter == null)
-                        {
-                            addToResult = true;
-                        }
-                        else
-                        {
-                            if (filter(asyncEnumerator.Current.Value))
-                                addToResult = true;
-                        }
-                        if(addToResult)
-                            result.Add(asyncEnumerator.Current.Value);
-                    }
-                }
-            }
-            return result;
-        }
-
-        //Generic query method returning a IList<KeyValuePair<Guid, T>>
-        public static async Task<IList<KeyValuePair<Guid, T>>> QueryReliableDictionaryKeyValuePairList<T>(Microsoft.ServiceFabric.Data.IReliableStateManager stateManager, 
-                                                                                                          string reliableDictionaryName, 
-                                                                                                          Func<T, bool> filter)
-        {
-            var result = new List<KeyValuePair<Guid, T>>();
-
-            IReliableDictionary<Guid, T> reliableDictionary =
-                await stateManager.GetOrAddAsync<IReliableDictionary<Guid, T>>(reliableDictionaryName);
-
-            using (var tx = stateManager.CreateTransaction())
-            {
-                Microsoft.ServiceFabric.Data.IAsyncEnumerable<KeyValuePair<Guid, T>> asyncEnumerable = 
-                            await reliableDictionary.CreateEnumerableAsync(tx);
-
-                using (Microsoft.ServiceFabric.Data.IAsyncEnumerator<KeyValuePair<Guid, T>> asyncEnumerator = asyncEnumerable.GetAsyncEnumerator())
-                {
-                    while (await asyncEnumerator.MoveNextAsync(CancellationToken.None))
-                    {
-                        if (filter(asyncEnumerator.Current.Value))
-                            result.Add(asyncEnumerator.Current);
-                    }
-                }
-            }
-            return result;
-        }
-
-        public async Task<bool> AddOrUpdateVehicleAsync(Vehicle vehicle)
-        {
-            //Get the Vehicles Dictionaryin the current Partition
-            IReliableDictionary<Guid, Vehicle> vehiclesPartitionDictionary =
-                                await this.StateManager.GetOrAddAsync<IReliableDictionary<Guid, Vehicle>>("VehiclesDictionary");
-
-            // Sample Data Initialization for this partition
-            using (var tx = this.StateManager.CreateTransaction())
-            {
-                await vehiclesPartitionDictionary.AddOrUpdateAsync(tx, vehicle.Id, vehicle, (key, value) => vehicle);
-                await tx.CommitAsync();
-
-                long vehiclePartitionKey = vehicle.GetPartitionKey();
-                ServiceEventSource.Current.ServiceMessage(this, "Added/Updated Car: {0} with Id: {1} -- TenantId: {2} -- PartitionID: {3}", vehicle.FullTitle, vehicle.Id, vehicle.TenantId, vehiclePartitionKey);
-            }
-
-            return true;
         }
 
 
